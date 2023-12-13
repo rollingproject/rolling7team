@@ -21,7 +21,6 @@ export const PostByIdPage = ({ selectedId = SAMPLE }) => {
   const handleCardClick = (post) => {
     setClickedId(post.id);
     setModalVisivle(true);
-    console.log("하이");
   };
 
   const handleCloseModal = () => {
@@ -30,12 +29,12 @@ export const PostByIdPage = ({ selectedId = SAMPLE }) => {
 
   return (
     <>
-      {/* {modalVisible && (
+      {modalVisible && (
         <PostModal
           post={sortedPostIdData.find((post) => post.id === clickedId)}
           onClose={handleCloseModal}
         />
-      )} */}
+      )}
       <CardByIdList>
         <CardButton />
         {sortedPostIdData?.map((post) => (

@@ -20,7 +20,11 @@ export const CardById = ({
   return (
     <div className={styles.idcard} onClick={onCardClick}>
       <div className={styles.sender}>
-        <img className={styles.sender__image} src={profileImageURL} />
+        <img
+          className={styles.sender__image}
+          src={profileImageURL}
+          alt="보낸 사람 프로필 이미지"
+        />
         <div className={styles.sender__text}>
           <h3>
             From. <span>{sender}</span>
