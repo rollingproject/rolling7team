@@ -9,6 +9,7 @@ export const CardById = ({
   relationship,
   content,
   createdAt,
+  onCardClick,
 }) => {
   function formatDate(date) {
     return format(new Date(date), "yyyy.MM.dd");
@@ -17,7 +18,7 @@ export const CardById = ({
   const changeClassName = colorByRelationship(relationship);
 
   return (
-    <div className={styles.idcard}>
+    <div className={styles.idcard} onClick={onCardClick}>
       <div className={styles.sender}>
         <img className={styles.sender__image} src={profileImageURL} />
         <div className={styles.sender__text}>
