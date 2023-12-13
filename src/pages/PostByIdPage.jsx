@@ -1,9 +1,9 @@
 import { useGetPostsById } from "../post-by-id/data-access-post-by-id/useGetPostsById";
-import { CardByIdList } from "../post-by-id/ui-card-by-id-list/CardByIdList";
-import { CardById } from "../post-by-id/ui-card-by-id/CardById";
+import { CardByIdList } from "../components/ui-card-by-id-list/CardByIdList";
+import { CardById } from "../components/ui-card-by-id/CardById";
 import { CardButton } from "../post-by-id/ui-card-button/CardButton";
 
-const SAMPLE = 849;
+const SAMPLE = 849; // 임시 id로 나중에 list 페이지에서 prop을 받아야 함.
 
 export const PostByIdPage = ({ selectedId = SAMPLE }) => {
   const { data } = useGetPostsById(selectedId);
