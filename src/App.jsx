@@ -1,5 +1,12 @@
+import { PostByIdPage } from "./pages/PostByIdPage";
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <div>하이</div>
+      <PostByIdPage />
+    </>
+  );
 }
 
 export default App;

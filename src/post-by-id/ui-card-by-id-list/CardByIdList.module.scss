@@ -1,0 +1,21 @@
+@import "../../styles/global.scss";
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(32rem);
+  justify-content: center;
+  width: 100%;
+  max-width: 120rem;
+  row-gap: 1.6rem;
+
+  @include tablet {
+    grid-template-columns: repeat(auto-fill, 38.4rem);
+    row-gap: 1.6rem;
+    column-gap: 1.6rem;
+  }
+
+  @include desktop {
+    row-gap: 2.8rem;
+    column-gap: 2.4rem;
+  }
+}
