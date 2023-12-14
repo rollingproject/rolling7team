@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useEffectOnce } from "./useEffectOnce";
 
 export const useAsync = (asyncFunction) => {
   const [loading, setLoading] = useState(false);
@@ -13,17 +14,18 @@ export const useAsync = (asyncFunction) => {
     setLoading(true);
     setError(null);
     setData(null);
-
     try {
-      const response = asyncFunction();
+      const response = await asyncFunction();
       setData(response?.data);
       return response;
-    } catch (e) {
-      setError(e);
+    } catch (error) {
+      setError(error);
     } finally {
       setLoading(false);
     }
   };
+
+  useEffectOnce(execute);
 
   return { execute, loading, error, data };
 };
