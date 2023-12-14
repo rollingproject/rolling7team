@@ -1,4 +1,4 @@
-import useAsync from "../../components/util/useAsync";
+import useAsync from "./useAsync";
 
 export const useApiRequest = (apiFunction) => {
   const { loading, error, data } = useAsync(apiFunction);
