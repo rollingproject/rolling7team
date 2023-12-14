@@ -1,9 +1,9 @@
-import { PostByIdPage } from "./pages/PostByIdPage";
+import NavigationBar from "./components/ui-navigation-bar/NavigationBar";
 
 function App() {
   return (
     <>
-      <PostByIdPage />
+      <NavigationBar />
     </>
   );
 }

@@ -1,0 +1,63 @@
+@use "../styles/colors.scss";
+@use "../styles/mixin.scss";
+
+.container {
+  display: flex;
+  padding: 6rem 0px 6rem 6rem;
+  justify-content: space-around;
+  align-items: center;
+  gap: 15.2rem;
+  margin: 0 auto 3rem;
+
+  border-radius: 1.6rem;
+  background: colors.$surface;
+
+  width: 120rem;
+  height: 32.4rem;
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .text__span {
+      border-radius: 50px;
+      background: colors.$purple-600;
+      padding: 0.6rem 1.2rem;
+
+      color: colors.$white;
+      /* Font/14 Bold */
+      @include mixin.font-style(1.4rem, 700, 2rem);
+    }
+
+    .text__h2 {
+      color: colors.$gray-900;
+      /* Font/24 Bold */
+      @include mixin.font-style(2.4rem, 700, 3.6rem);
+
+      margin: 1.6rem 0 0.8rem;
+    }
+
+    .text__p {
+      color: colors.$gray-500;
+      /* Font/18 Regular */
+      @include mixin.font-style(1.8rem, 400, 2.8rem);
+    }
+  }
+
+  .image--point1,
+  .image--point2 {
+    width: 72rem;
+    height: 20.4rem;
+  }
+
+  .image--point1 {
+    padding: 4rem 2rem;
+    background: url("../assets/landing01.png") no-repeat center / cover;
+  }
+
+  .image--point2 {
+    padding: 0 12.5rem;
+    background: url("../assets/landing02.png") no-repeat center / cover;
+  }
+}

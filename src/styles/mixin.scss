@@ -12,7 +12,7 @@
 // 미디어 쿼리
 
 @mixin desktop {
-  @media (min-width: 1200px) {
+  @media (min-width: 1248px) {
     @content;
   }
 }
