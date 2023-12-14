@@ -1,0 +1,19 @@
+@use "../../styles/colors.scss";
+@use "../../styles/mixin.scss";
+
+.label__name {
+  @include mixin.font-style(2.4rem, 700, 4.2rem);
+  margin-bottom: 1.2rem;
+}
+
+.input__name {
+  width: 72rem;
+  padding: 1.2rem 1.6rem;
+  border-radius: 8px;
+  border: 1px solid colors.$gray-300;
+  @include mixin.font-style(1.6rem, 400, 2.6rem);
+}
+
+.input__name::placeholder {
+  color: colors.$gray-300;
+}
