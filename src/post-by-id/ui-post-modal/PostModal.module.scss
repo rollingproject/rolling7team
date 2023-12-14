@@ -1,0 +1,114 @@
+@import "../../styles/global.scss";
+
+.background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  background-color: $white;
+  width: 60rem;
+  height: 47.6rem;
+  padding: 4rem;
+  border-radius: 1.6rem;
+}
+
+.sender {
+  display: flex;
+  place-content: space-between;
+  place-items: center;
+  gap: 1.6rem;
+  width: 100%;
+  // height: 7.6rem;
+  padding-bottom: 2rem;
+  border-bottom: 0.1rem solid $gray-200;
+
+  &__image {
+    width: 5.6rem;
+    border-radius: 50%;
+  }
+
+  &__text {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    h3 {
+      @include font-style(2rem, 400, 2.4rem);
+
+      span {
+        @include font-style(2rem, 700, 2.4rem);
+        color: $black;
+      }
+    }
+
+    p {
+      height: 2rem;
+      width: fit-content;
+      padding: 0 0.8rem;
+      @include font-style(1.4rem, 400, 2rem);
+    }
+
+    .blue {
+      background-color: $blue-100;
+      color: $blue-500;
+    }
+
+    .green {
+      background-color: $green-100;
+      color: $green-500;
+    }
+
+    .orange {
+      background-color: $orange-100;
+      color: $orange-500;
+    }
+
+    .purple {
+      background-color: $purple-100;
+      color: $purple-600;
+    }
+  }
+
+  span {
+    @include font-style(1.4rem, 400, 2rem);
+    color: $gray-400;
+  }
+}
+
+.content {
+  width: 100%;
+  height: 24rem;
+  margin-top: 1.6rem;
+  overflow: hidden;
+  margin-bottom: 2.4rem;
+
+  p {
+    @include font-style(1.8rem, 400, 2.8rem);
+    color: #5a5a5a;
+  }
+}
+
+.button {
+  display: flex;
+  place-content: center;
+  place-items: center;
+  width: 12rem;
+  height: 4rem;
+  border-radius: 0.6rem;
+  background-color: $purple-600;
+  @include font-style(1.6rem, 400, 2.6rem);
+  color: $white;
+}
