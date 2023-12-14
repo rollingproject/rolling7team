@@ -1,4 +1,4 @@
-import PLUS_IMG from "../../asset/plus.svg";
+import PLUS_IMG from "../../assets/plus.svg";
 import styles from "./CardButton.module.scss";
 
 export const CardButton = () => {

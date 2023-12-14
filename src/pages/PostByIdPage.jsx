@@ -4,11 +4,15 @@ import { CardByIdList } from "../components/ui-card-by-id-list/CardByIdList";
 import { CardById } from "../components/ui-card-by-id/CardById";
 import { CardButton } from "../post-by-id/ui-card-button/CardButton";
 import { PostModal } from "../post-by-id/ui-post-modal/PostModal";
+import styles from "./PostByIdPage.module.scss";
+import { useParams } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
 const SAMPLE = 849; // 임시 id로 나중에 list 페이지에서 prop을 받아야 함.
 
 export const PostByIdPage = ({ selectedId = SAMPLE }) => {
+  const { recipientId } = useParams();
+
   const [clickedId, setClickedId] = useState(null);
   const [modalVisible, setModalVisivle] = useState(false);
 
@@ -28,7 +32,7 @@ export const PostByIdPage = ({ selectedId = SAMPLE }) => {
   };
 
   return (
-    <>
+    <div className={styles.background}>
       {modalVisible && (
         <PostModal
           post={sortedPostIdData.find((post) => post.id === clickedId)}
@@ -45,6 +49,6 @@ export const PostByIdPage = ({ selectedId = SAMPLE }) => {
           />
         ))}
       </CardByIdList>
-    </>
+    </div>
   );
 };

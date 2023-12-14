@@ -1,0 +1,7 @@
+@import "../styles/global.scss";
+
+.background {
+  padding: 11.3rem 0;
+  background-color: $orange-200; // background-color 값은 나중에 받아야한다.
+  min-height: 108rem; // 100%해도 안에 요소가 없으면 작아져서 강제로 108rem을 주었습니다.
+}
