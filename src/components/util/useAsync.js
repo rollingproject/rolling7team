@@ -6,9 +6,9 @@ export const useAsync = (asyncFunction) => {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
 
-  if (typeof callback !== "function") {
-    throw new Error("useAsync: callback must be a function");
-  }
+  // if (typeof callback !== "function") {
+  //   throw new Error("useAsync: callback must be a function");
+  // }
 
   const execute = async () => {
     setLoading(true);
