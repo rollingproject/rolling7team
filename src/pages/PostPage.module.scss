@@ -1,0 +1,108 @@
+@use "../styles/colors.scss";
+@use "../styles/mixin.scss";
+
+@mixin label-style($bgColor) {
+  background: $bgColor;
+  display: inline-block;
+  width: 16.8rem;
+  height: 16.8rem;
+  cursor: pointer;
+  position: relative;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label[for="orange-200"] {
+  @include label-style(colors.$orange-200);
+}
+
+label[for="purple-200"] {
+  @include label-style(colors.$purple-200);
+}
+
+label[for="blue-200"] {
+  @include label-style(colors.$blue-200);
+}
+
+label[for="green-200"] {
+  @include label-style(colors.$green-200);
+}
+
+input[type="radio"]:checked + .form__label__background:after {
+  content: "";
+  background: url(../assets/Enabled.png) no-repeat center / cover;
+  width: 6.2rem;
+  height: 6.2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+label[for="bgImg1"] {
+  @include label-style(url(../assets/bgImg1.jpg) no-repeat center / cover);
+}
+
+label[for="bgImg2"] {
+  @include label-style(url(../assets/bgImg2.jpg) no-repeat center / cover);
+}
+
+label[for="bgImg3"] {
+  @include label-style(url(../assets/bgImg3.jpg) no-repeat center / cover);
+}
+
+label[for="bgImg4"] {
+  @include label-style(url(../assets/bgImg4.jpg) no-repeat center / cover);
+}
+
+.form {
+  margin: 5.7rem auto 0;
+  width: 72rem;
+  display: flex;
+  flex-direction: column;
+  .span {
+    margin-top: 5rem;
+    margin-bottom: 0.4rem;
+    color: colors.$gray-900;
+    @include mixin.font-style(2.4rem, 700, 3.6rem);
+  }
+  .p {
+    margin-bottom: 2.4rem;
+    color: colors.$gray-500;
+    @include mixin.font-style(1.6rem, 400, 2.6rem);
+  }
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  background: colors.$gray-200;
+  width: 24.4rem;
+  height: 4rem;
+  border-radius: 8px;
+
+  .category__label {
+    display: inline-block;
+    text-align: center;
+    width: 12.2rem;
+    padding: 0.8rem 1.6rem;
+    color: colors.$gray-900;
+    @include mixin.font-style(1.6rem, 400, 2.2rem);
+    cursor: pointer;
+  }
+
+  input[name="category"]:checked + .category__label {
+    border: 2px solid colors.$purple-600;
+    color: colors.$purple-600;
+    background: colors.$white;
+    border-radius: 6px;
+  }
+}
+
+.backgroundsContainer {
+  margin: 4.5rem 0 7.5rem;
+  display: flex;
+  gap: 1.6rem;
+}
