@@ -13,9 +13,12 @@ export const PostByIdEditPage = ({ selectedId = SAMPLE }) => {
 
   const { data } = useGetPostsById(selectedId);
 
-  const sortedPostIdData = data?.results.sort(
-    (a, b) => b.createdAt - a.createdAt
-  );
+  // const handleDelete = async (id) => {
+  //   const result = await useDeleteMessages(id);
+  //   if (!result) return;
+
+  //   setData((prev) => prev.filter((one) => one.id !== id));
+  // };
 
   // const DeleteAll = async (selectedId) => {
   //   const result = await useDeleteRecipient(selectedId);
@@ -24,6 +27,10 @@ export const PostByIdEditPage = ({ selectedId = SAMPLE }) => {
   //   navigate("/list");
   // };
 
+  const sortedPostIdData = data?.results.sort(
+    (a, b) => b.createdAt - a.createdAt
+  );
+
   return (
     <div className={styles.background}>
       <div className={styles.container}>
@@ -31,7 +38,12 @@ export const PostByIdEditPage = ({ selectedId = SAMPLE }) => {
       </div>
       <CardByIdList>
         {sortedPostIdData?.map((post) => (
-          <CardById key={post.id} {...post} showDeleteButton={true} />
+          <CardById
+            key={post.id}
+            {...post}
+            showDeleteButton={true}
+            onDelete={() => handleDelete(post.id)}
+          />
         ))}
       </CardByIdList>
     </div>

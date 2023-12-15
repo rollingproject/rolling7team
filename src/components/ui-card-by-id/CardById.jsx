@@ -43,7 +43,7 @@ export const CardById = ({
             <img
               src={DELETE_ICON}
               alt="휴지통 아이콘 이미지"
-              onDelete={handleDeleteClick}
+              onClick={handleDeleteClick}
             />
           </button>
         )}
