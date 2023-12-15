@@ -10,13 +10,8 @@
   height: 3rem;
   padding: 3.2rem 10rem;
 
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-
   box-sizing: border-box;
+  background-color: colors.$white;
   border-bottom: 1px solid colors.$gray-200;
 
   &__frame {

@@ -1,7 +1,6 @@
 // ServiceNavigationBar.jsx
 
 import styles from "./ServiceNavigationBar.module.scss";
-import ellipse from "../../assets/Ellipse.svg";
 import arrowDown from "../../assets/arrowDown.svg";
 import addIcon from "../../assets/addIcon.svg";
 import shareIcon from "../../assets/shareIcon.svg";
@@ -10,33 +9,32 @@ function ServiceNavigationBar() {
   return (
     <div className={styles.nav}>
       <div className={styles.nav__service}>
-        <p className={styles.nav__text}>To. {}</p>
+        <p className={styles.nav__text}>To. {"Ashley Kim"}</p>
         <div className={styles.nav__contentsFrame}>
-          <div className={styles.nav__writerBox}>
-            <div className={styles.nav__writer}>
-              <div className={styles.nav__writerPictureBox}>
-                <div className={styles.nav__writerPictureFrame}>
-                  <div className={styles.nav__writerPictureImg}></div>
-                </div>
-              </div>
-
-              <div className={styles.nav__writingNumberBox}>
-                <p className={styles.nav__writeNumber}>+{}</p>
-                <img
-                  className={styles.nav__ellipse}
-                  src={ellipse}
-                  alt="원형이미지"
-                />
-              </div>
-            </div>
-
-            <h1>{}</h1>
-            <span className={styles.nav__writeNumber}>명이 작성했어요 !</span>
-          </div>
-
           <div className={styles.nav__reactangle}></div>
 
           <div className={styles.nav__reactionShareFrame}>
+            <div className={styles.nav__writerBox}>
+              <div className={styles.nav__writer}>
+                <div className={styles.nav__writerPictureBox}>
+                  <div className={styles.nav__writerPictureFrame}>
+                    <div className={styles.nav__writerPictureImg}></div>
+                  </div>
+                </div>
+
+                <div className={styles.nav__writingNumberBox}>
+                  <p className={styles.nav__userNumber}>+ {"6"}</p>
+                </div>
+              </div>
+
+              <h1>{}</h1>
+              <span className={styles.nav__writeNumber}>
+                23명이 작성했어요 !
+              </span>
+              <div style={{ paddingLeft: 32 }}>
+                <div className={styles.nav__reactangle}></div>
+              </div>
+            </div>
             <div className={styles.nav__reactionAndArrowBox}>
               <div className={styles.nav__reactionBox}>
                 <div className={styles.nav__badgeEmoji}></div>
