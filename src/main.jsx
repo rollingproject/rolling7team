@@ -18,6 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         {/* <Route path="/" element={<LandingPage />} /> */}
         <Route path="/list" element={<ListPage />} />
         <Route path="/post/:recipientId" element={<PostByIdPage />} />
+        {/* <Route path="/post/:recipientId/edit" element={<PostByIdEditPage />} /> */}
         <Route path="/post" element={<PostPage />} />
       </Routes>
     </BrowserRouter>

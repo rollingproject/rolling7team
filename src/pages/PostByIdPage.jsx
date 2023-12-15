@@ -6,9 +6,9 @@ import { CardButton } from "../post-by-id/ui-card-button/CardButton";
 import { PostModal } from "../post-by-id/ui-post-modal/PostModal";
 import styles from "./PostByIdPage.module.scss";
 import { useParams } from "react-router-dom";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const SAMPLE = 849; // 임시 id로 나중에 list 페이지에서 prop을 받아야 함.
+const SAMPLE = 1088; // 임시 id로 나중에 list 페이지에서 prop을 받아야 함.
 
 export const PostByIdPage = ({ selectedId = SAMPLE }) => {
   const { recipientId } = useParams();
@@ -40,12 +40,15 @@ export const PostByIdPage = ({ selectedId = SAMPLE }) => {
         />
       )}
       <CardByIdList>
-        <CardButton />
+        <Link to="/post">
+          <CardButton />
+        </Link>
         {sortedPostIdData?.map((post) => (
           <CardById
             key={post.id}
             {...post}
             onCardClick={() => handleCardClick(post)}
+            showDeleteButton={false}
           />
         ))}
       </CardByIdList>
