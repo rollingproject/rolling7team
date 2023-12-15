@@ -3,7 +3,7 @@ import { CardByIdList } from "../components/ui-card-by-id-list/CardByIdList";
 import { CardById } from "../components/ui-card-by-id/CardById";
 import styles from "./PostByIdEditPage.module.scss";
 import { useParams, useNavigate } from "react-router-dom";
-// import { useDeleteRecipients } from "../post/data-access-post/recipientsApi";
+import { useDeleteRecipients } from "../post/data-access-post/recipientsApi";
 
 const SAMPLE = 1088; // 임시 id로 나중에 list 페이지에서 prop을 받아야 함.
 
@@ -13,15 +13,12 @@ export const PostByIdEditPage = ({ selectedId = SAMPLE }) => {
 
   const { data } = useGetPostsById(selectedId);
 
-  // const handleDelete = async (id) => {
-  //   const result = await useDeleteMessages(id);
-  //   if (!result) return;
-
-  //   setData((prev) => prev.filter((one) => one.id !== id));
-  // };
-
-  const handleDeleteRecipient = () => {
+  const handleDeleteRecipient = (post) => {
     navigate("/list");
+  };
+
+  const handleDeletePost = (postId) => {
+    const responseDelete = useDeleteRecipients(postId);
   };
 
   const sortedPostIdData = data?.results.sort(
@@ -41,7 +38,7 @@ export const PostByIdEditPage = ({ selectedId = SAMPLE }) => {
             key={post.id}
             {...post}
             showDeleteButton={true}
-            onDelete={() => handleDelete(post.id)}
+            onDelete={() => handleDeletePost(post.id)}
           />
         ))}
       </CardByIdList>

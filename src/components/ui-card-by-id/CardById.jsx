@@ -5,6 +5,7 @@ import { colorByRelationship } from "./ColorByRelationship";
 import DELETE_ICON from "../../assets/deleted.svg";
 
 export const CardById = ({
+  id,
   sender,
   profileImageURL,
   relationship,

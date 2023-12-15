@@ -33,15 +33,15 @@ export const useDeleteMessages = (messageId) => {
 };
 
 // message를 POST할 때의 prop 설정.
-usePostMessages.propTypes = {
-  sender: PropTypes.string.isRequired,
-  profileImageURL: PropTypes.string.isRequired,
-  relationship: PropTypes.string.isRequired,
-  content: PropTypes.string.oneOf(["친구", "지인", "동료", "가족"]).isRequired,
-  font: PropTypes.string.oneOf([
-    "Noto Sans",
-    "Pretendard",
-    "나눔명조",
-    "나눔손글씨 손편지체",
-  ]).isRequired,
-};
+// usePostMessages.propTypes = {
+//   sender: PropTypes.string.isRequired,
+//   profileImageURL: PropTypes.string.isRequired,
+//   relationship: PropTypes.string.isRequired,
+//   content: PropTypes.string.oneOf(["친구", "지인", "동료", "가족"]).isRequired,
+//   font: PropTypes.string.oneOf([
+//     "Noto Sans",
+//     "Pretendard",
+//     "나눔명조",
+//     "나눔손글씨 손편지체",
+//   ]).isRequired,
+// };
