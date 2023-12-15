@@ -63,5 +63,6 @@ CardById.propTypes = {
   profileImageURL: PropTypes.string.isRequired,
   relationship: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  createdAt: PropTypes.number.isRequired,
+  createdAt: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
 };
