@@ -21,29 +21,3 @@
     column-gap: 2.4rem;
   }
 }
-
-// 테스트 코드 flex
-
-// 요구 사항: PC에서 카드 목록 영역의 너비는 1200px로 고정하고 좌우 여백만 변하다가, 화면의 너비가 1248px보다 줄어들 때 좌우 여백은 24px로 고정하고 카드들의 너비가 줄어듭니다.
-
-// .container {
-//   display: flex;
-//   place-content: flex-start;
-//   place-items: center;
-//   flex-wrap: wrap;
-//   row-gap: 1.6rem;
-//   width: 100%;
-//   padding: 0 2rem;
-
-//   @include tablet {
-//     // max-width: 121.6rem;
-//     column-gap: 1.6rem;
-//     padding: 0 2.4rem;
-//   }
-
-//   @include desktop {
-//     width: 124.8rem;
-//     row-gap: 2.8rem;
-//     column-gap: 2.4rem;
-//   }
-// }

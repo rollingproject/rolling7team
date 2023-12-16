@@ -20,7 +20,7 @@ export const useGetReactionsList = (recipient_id) => {
 };
 
 // reaction을 POST할 때의 prop 설정.
-usePostReactions.propTypes = {
-  emoji: PropTypes.string.isRequired,
-  type: PropTypes.string.oneOf(["increase", "decrease"]).isRequired,
-};
+// usePostReactions.propTypes = {
+//   emoji: PropTypes.string.isRequired,
+//   type: PropTypes.string.oneOf(["increase", "decrease"]).isRequired,
+// };
