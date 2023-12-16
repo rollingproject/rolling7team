@@ -7,6 +7,7 @@ import { ListPage } from "./pages/ListPage.jsx";
 import { PostPage } from "./pages/PostPage.jsx";
 import "./styles/reset.css";
 import { PostByIdPage } from "./pages/PostByIdPage.jsx";
+import { PostByIdEditPage } from "./pages/PostByIdEditPage.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/" element={<LandingPage />} />
         <Route path="/list" element={<ListPage />} />
         <Route path="/post/:recipientId" element={<PostByIdPage />} />
+        <Route path="/post/:recipientId/edit" element={<PostByIdEditPage />} />
         <Route path="/post" element={<PostPage />} />
       </Routes>
     </BrowserRouter>
