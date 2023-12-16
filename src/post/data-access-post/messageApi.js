@@ -23,7 +23,7 @@ export const usePostMessages = (
 
 export const useGetMessagesList = (recipientId) => {
   const getMessagesList = () =>
-    axiosInstance.get(`recipients/${recipientId}/messages/?limit=3&offset=1`);
+    axiosInstance.get(`recipients/${recipientId}/messages/`);
   return useApiRequest(getMessagesList);
 };
 
@@ -32,7 +32,7 @@ export const useDeleteMessages = (messageId) => {
   return useApiRequest(deleteMessages);
 };
 
-// message를 POST할 때의 prop 설정.
+//message를 POST할 때의 prop 설정.
 // usePostMessages.propTypes = {
 //   sender: PropTypes.string.isRequired,
 //   profileImageURL: PropTypes.string.isRequired,
