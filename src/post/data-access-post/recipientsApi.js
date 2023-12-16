@@ -1,6 +1,6 @@
 import { useApiRequest } from "./useApiRequest";
 import { axiosInstance } from "../../components/util/axiosInstance";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 export const usePostRecipients = (name, backgroundColor) => {
   const postRecipients = () =>
@@ -12,8 +12,7 @@ export const usePostRecipients = (name, backgroundColor) => {
 };
 
 export const useGetRecipientsList = () => {
-  const getRecipientsList = () =>
-    axiosInstance.get(`recipients/?limit=4&offset=4&sort=like`);
+  const getRecipientsList = () => axiosInstance.get(`recipients/?limit=4&offset=4&sort=like`);
   return useApiRequest(getRecipientsList);
 };
 
