@@ -1,15 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom";
-import {
-  useDeleteMessages,
-  useGetMessagesList,
-} from "../post/data-access-post/messageApi";
+import { useGetMessagesList } from "../post/data-access-post/messageApi";
 import { useEffect, useState } from "react";
 import { CardByIdList } from "../components/ui-card-by-id-list/CardByIdList";
 import { CardById } from "../components/ui-card-by-id/CardById";
 import styles from "./PostByIdEditPage.module.scss";
 import { axiosInstance } from "../components/util/axiosInstance";
 
-const SAMPLE = 1227;
+const SAMPLE = 1088;
 
 export const PostByIdEditPage = ({ selectedId = SAMPLE }) => {
   const navigate = useNavigate();
