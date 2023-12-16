@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Card from "../components/ui-card/Card";
 
 export function ListPage() {
@@ -33,7 +34,7 @@ export function ListPage() {
           {/*{data.arrow ? <img></img> : {}}*/}
         </div>
         <div className="link_box">
-          <a href="=PostByIdPage.jsx" className="link_to_post">나도 만들어보기</a>
+          <Link to="/Post" className="link_to_post">나도 만들어보기</Link>
         </div>
       </div>
     </>
