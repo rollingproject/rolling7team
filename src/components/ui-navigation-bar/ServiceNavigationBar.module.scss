@@ -83,14 +83,19 @@
   }
 
   &__writeNumber {
-    color: var(--gray-900, #181818);
+    color: colors.$gray-900;
     font-family: Pretendard;
     font-size: 18px;
-    font-style: normal;
     font-weight: 400;
     line-height: 27px;
   }
 
+  h1 {
+    display: inline;
+    color: colors.$gray-900;
+    font-size: 18px;
+    font-weight: 700;
+  }
   &__reactionShareFrame {
     display: flex;
     align-items: flex-start;

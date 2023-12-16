@@ -5,11 +5,11 @@ import arrowDown from "../../assets/arrowDown.svg";
 import addIcon from "../../assets/addIcon.svg";
 import shareIcon from "../../assets/shareIcon.svg";
 
-function ServiceNavigationBar() {
+function ServiceNavigationBar({ name, plusNumber, messageCount }) {
   return (
     <div className={styles.nav}>
       <div className={styles.nav__service}>
-        <p className={styles.nav__text}>To. {"Ashley Kim"}</p>
+        <p className={styles.nav__text}>To. {name}</p>
         <div className={styles.nav__contentsFrame}>
           <div className={styles.nav__reactangle}></div>
 
@@ -23,15 +23,15 @@ function ServiceNavigationBar() {
                 </div>
 
                 <div className={styles.nav__writingNumberBox}>
-                  <p className={styles.nav__userNumber}>+ {"6"}</p>
+                  <p className={styles.nav__userNumber}>+ {plusNumber}</p>
                 </div>
               </div>
 
-              <h1>{}</h1>
               <span className={styles.nav__writeNumber}>
-                23명이 작성했어요 !
+                <h1 className={styles.nav_messageCount}>{messageCount}</h1>
+                명이 작성했어요 !
               </span>
-              <div style={{ paddingLeft: 32 }}>
+              <div style={{ paddingLeft: 20 }}>
                 <div className={styles.nav__reactangle}></div>
               </div>
             </div>

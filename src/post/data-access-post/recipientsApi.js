@@ -29,9 +29,9 @@ export const useDeleteRecipients = (id) => {
 };
 
 // recipient를 POST할 때의 prop 설정.
-usePostRecipients.propTypes = {
-  name: PropTypes.string.isRequired,
-  backgroundColor: PropTypes.string.oneOf(["beige", "purple", "blue", "green"])
-    .isRequired,
-};
+// usePostRecipients.propTypes = {
+//   name: PropTypes.string.isRequired,
+//   backgroundColor: PropTypes.string.oneOf(["beige", "purple", "blue", "green"])
+//     .isRequired,
+// };
 // 런타임에서만 적용되나?
