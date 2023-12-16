@@ -1,0 +1,27 @@
+@use "../styles/colors.scss";
+@use "../styles/mixin.scss";
+@import "../styles/global.scss";
+
+#wrapper {
+  text-align: center;
+}
+
+.heading {
+  color: #000;
+
+  /* Font/24 Bold */
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px; /* 150% */
+  letter-spacing: -0.24px;
+}
+
+.rolling_paper_box {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 20px;
+  width: 1160px;
+  height: 260px;
+}
