@@ -1,11 +1,21 @@
 // ServiceNavigationBar.jsx
-
 import styles from "./ServiceNavigationBar.module.scss";
 import arrowDown from "../../assets/arrowDown.svg";
 import addIcon from "../../assets/addIcon.svg";
 import shareIcon from "../../assets/shareIcon.svg";
 
-function ServiceNavigationBar({ name, plusNumber, messageCount }) {
+function ServiceNavigationBar({
+  name,
+  plusNumber,
+  messageCount,
+  reactions,
+  recentProfileImages,
+}) {
+  // 최대 3개까지만 표시되도록 slice 사용
+  const displayedReactions = reactions.slice(0, 3);
+  console.log(reactions);
+  console.log(recentProfileImages);
+
   return (
     <div className={styles.nav}>
       <div className={styles.nav__service}>
@@ -18,7 +28,19 @@ function ServiceNavigationBar({ name, plusNumber, messageCount }) {
               <div className={styles.nav__writer}>
                 <div className={styles.nav__writerPictureBox}>
                   <div className={styles.nav__writerPictureFrame}>
-                    <div className={styles.nav__writerPictureImg}></div>
+                    {/* 최근 3개 프로필 이미지를 표시 */}
+                    {recentProfileImages.map((imageUrl, index) => (
+                      <div
+                        key={index}
+                        className={styles.nav__recentProfileImage}
+                        style={{
+                          backgroundImage: `url(${imageUrl})`,
+                          backgroundSize: "cover", // 또는 'cover' 등을 사용하여 조절
+                          backgroundRepeat: "no-repeat",
+                          backgroundPosition: "center",
+                        }}
+                      />
+                    ))}
                   </div>
                 </div>
 
@@ -37,9 +59,13 @@ function ServiceNavigationBar({ name, plusNumber, messageCount }) {
             </div>
             <div className={styles.nav__reactionAndArrowBox}>
               <div className={styles.nav__reactionBox}>
-                <div className={styles.nav__badgeEmoji}></div>
-                <div className={styles.nav__badgeEmoji}></div>
-                <div className={styles.nav__badgeEmoji}></div>
+                {/* 최대 3개까지만 표시되도록 map 함수 수정 */}
+                {displayedReactions.map(({ id, emoji, count }) => (
+                  <div key={id} className={styles.nav__badgeEmoji}>
+                    {emoji}
+                    {count}
+                  </div>
+                ))}
               </div>
 
               <button className={styles.nav__arrowBox}>
