@@ -1,9 +1,13 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useGetMessagesList } from "../post/data-access-post/messageApi";
+import {
+  useDeleteMessages,
+  useGetMessagesList,
+} from "../post/data-access-post/messageApi";
 import { useEffect, useState } from "react";
 import { CardByIdList } from "../components/ui-card-by-id-list/CardByIdList";
 import { CardById } from "../components/ui-card-by-id/CardById";
 import styles from "./PostByIdEditPage.module.scss";
+import { axiosInstance } from "../components/util/axiosInstance";
 
 const SAMPLE = 1088;
 
@@ -13,6 +17,7 @@ export const PostByIdEditPage = ({ selectedId = SAMPLE }) => {
 
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
 
   const { loading, data } = useGetMessagesList(selectedId);
   const { results } = data || {};
@@ -25,6 +30,15 @@ export const PostByIdEditPage = ({ selectedId = SAMPLE }) => {
     }
   }, [results, loading]);
 
+  // const deleteMessage = useDeleteMessages(deleteId);
+
+  const handleDelete = (postId) => {
+    const response = axiosInstance.delete(`messages/${postId}/`);
+    if (!response) return;
+
+    setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
+  };
+
   return (
     <div className={styles.background}>
       <div className={styles.container}>
@@ -32,12 +46,19 @@ export const PostByIdEditPage = ({ selectedId = SAMPLE }) => {
       </div>
       <CardByIdList>
         {posts?.map((post) => (
-          <CardById key={post.id} {...post} showDeleteButton={true} />
+          <CardById
+            key={post.id}
+            {...post}
+            showDeleteButton={true}
+            onDelete={() => handleDelete(post.id)}
+          />
         ))}
       </CardByIdList>
     </div>
   );
 };
+
+// 여기까지
 
 // import { useGetPostsById } from "../post-by-id/data-access-post-by-id/useGetPostsById";
 // import { CardByIdList } from "../components/ui-card-by-id-list/CardByIdList";
@@ -126,4 +147,14 @@ export const PostByIdEditPage = ({ selectedId = SAMPLE }) => {
 //   const { results } = data || {};
 
 //   return <div>{results}</div>;
+// };
+
+// delete실패코드
+
+// const deleteMessage = useDeleteMessages(deleteId);
+
+// const handleDelete = (postId) => {
+//   setDeleteId(postId);
+//   deleteMessage();
+//   setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
 // };
