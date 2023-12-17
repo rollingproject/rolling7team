@@ -31,6 +31,6 @@ export const useDeleteRecipients = (id) => {
 // recipient를 POST할 때의 prop 설정.
 usePostRecipients.propTypes = {
   name: PropTypes.string.isRequired,
-  backgroundColor: PropTypes.string.oneOf(["beige", "purple", "blue", "green"])
+  backgroundColor: PropTypes.oneOf(["beige", "purple", "blue", "green"])
     .isRequired,
 };
