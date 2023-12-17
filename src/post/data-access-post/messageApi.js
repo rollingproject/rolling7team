@@ -23,7 +23,7 @@ export const usePostMessages = (
 
 export const useGetMessagesList = (recipientId) => {
   const getMessagesList = () =>
-    axiosInstance.get(`recipients/${recipientId}/messages/?limit=3&offset=1`);
+    axiosInstance.get(`recipients/${recipientId}/messages/`);
   return useApiRequest(getMessagesList);
 };
 
