@@ -16,6 +16,7 @@ export const PostByIdPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [clickedId, setClickedId] = useState(null);
+  const isMobile = window.innerWidth <= 768;
 
   const { loading, data } = useGetMessagesList(recipientId);
   const sortedPosts = data?.results.sort((a, b) => b.createdAt - a.createdAt);
@@ -39,7 +40,7 @@ export const PostByIdPage = () => {
 
   return (
     <div className={ChangeClassnameBg}>
-      {modalVisible && (
+      {!isMobile && modalVisible && (
         <PostModal
           post={posts.find((post) => post.id === clickedId)}
           onClose={handleCloseModal}
