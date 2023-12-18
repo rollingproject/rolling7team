@@ -3,17 +3,30 @@ import NavigationBar from "./components/ui-navigation-bar/NavigationBar";
 import ServiceNavigationBar from "./components/ui-navigation-bar/ServiceNavigationBar";
 import { useGetReactionsList } from "./post/data-access-post/reactionApi";
 import { useGetRecipient } from "./post/data-access-post/recipientsApi";
+import { useLocation } from "react-router-dom";
 
 function Nav() {
-  const selectedId = 1088;
+  const location = useLocation();
+  const path = window.location.pathname;
+  const userId = path.split("/")[2];
+
+  /* 조건부 렌더링: 
+  /post/${userId} 및 /post/${userId}/edit 페이지에서는 렌더링이 되고, 
+   /post 페이지나 /post/${userId}/message 페이지 에서는렌더링 안됨.
+  */
+
+  const isPostPage =
+    location.pathname === `/post/${userId}` ||
+    location.pathname === `/post/${userId}/edit`;
 
   // useGetRecipient 호출
-  const { data: recipientData } = useGetRecipient(selectedId);
+  const { data: recipientData } = useGetRecipient(parseInt(userId, 10));
+  console.log(recipientData);
   const { name, messageCount, recentMessages } = recipientData || {};
   const plusNumber = messageCount ? messageCount - 3 : 0;
 
   // useGetReactionsList 호출
-  const { data: reactionsData } = useGetReactionsList(selectedId);
+  const { data: reactionsData } = useGetReactionsList(parseInt(userId, 10));
 
   // 렌더링 최적화를 위한 state 추가
   const [reactions, setReactions] = useState([]);
@@ -39,13 +52,15 @@ function Nav() {
   return (
     <>
       <NavigationBar />
-      <ServiceNavigationBar
-        name={name}
-        plusNumber={plusNumber}
-        messageCount={messageCount}
-        reactions={reactions}
-        recentProfileImages={recentProfileImages}
-      />
+      {isPostPage && (
+        <ServiceNavigationBar
+          name={name}
+          plusNumber={plusNumber}
+          messageCount={messageCount}
+          reactions={reactions}
+          recentProfileImages={recentProfileImages}
+        />
+      )}
     </>
   );
 }
