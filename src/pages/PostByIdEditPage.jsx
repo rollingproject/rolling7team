@@ -5,19 +5,21 @@ import { CardByIdList } from "../components/ui-card-by-id-list/CardByIdList";
 import { CardById } from "../components/ui-card-by-id/CardById";
 import styles from "./PostByIdEditPage.module.scss";
 import { axiosInstance } from "../components/util/axiosInstance";
+import { useGetRecipient } from "../post/data-access-post/recipientsApi";
+import { changeBgColor } from "../post-by-id/ChangeBgColor";
 
-const SAMPLE = 1088;
-
-export const PostByIdEditPage = ({ selectedId = SAMPLE }) => {
+export const PostByIdEditPage = () => {
   const navigate = useNavigate();
   const { recipientId } = useParams();
 
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { loading, data } = useGetMessagesList(selectedId);
+  const { loading, data } = useGetMessagesList(recipientId);
   const { results } = data || {};
   const sortedPosts = results?.sort((a, b) => b.createdAt - a.createdAt);
+  const { data: recipientData } = useGetRecipient(recipientId);
+  const ChangeClassnameBg = changeBgColor(recipientData?.backgroundColor);
 
   useEffect(() => {
     if (results) {
@@ -41,11 +43,11 @@ export const PostByIdEditPage = ({ selectedId = SAMPLE }) => {
   };
 
   return (
-    <div className={styles.background}>
+    <div className={ChangeClassnameBg}>
       <div className={styles.container}>
         <button
           className={styles.button}
-          onClick={() => handleDeleteRecipient(selectedId)}
+          onClick={() => handleDeleteRecipient(recipientId)}
         >
           삭제하기
         </button>

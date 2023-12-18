@@ -6,20 +6,21 @@ import { CardByIdList } from "../components/ui-card-by-id-list/CardByIdList";
 import { CardById } from "../components/ui-card-by-id/CardById";
 import { CardButton } from "../post-by-id/ui-card-button/CardButton";
 import { PostModal } from "../post-by-id/ui-post-modal/PostModal";
-import styles from "./PostByIdEditPage.module.scss";
+import { useGetRecipient } from "../post/data-access-post/recipientsApi";
+import { changeBgColor } from "../post-by-id/ChangeBgColor";
 
-const SAMPLE = 1088; // 임시 id로 나중에 list 페이지에서 prop을 받아야 함.
-
-export const PostByIdPage = ({ selectedId = SAMPLE }) => {
+export const PostByIdPage = () => {
   const { recipientId } = useParams();
 
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [clickedId, setClickedId] = useState(null);
+  const isMobile = window.innerWidth <= 768;
 
-  const { loading, data } = useGetMessagesList(selectedId);
+  const { loading, data } = useGetMessagesList(recipientId);
   const sortedPosts = data?.results.sort((a, b) => b.createdAt - a.createdAt);
+  const { data: receipientData } = useGetRecipient(recipientId);
 
   const handleCardClick = (postId) => {
     setClickedId(postId);
@@ -30,14 +31,16 @@ export const PostByIdPage = ({ selectedId = SAMPLE }) => {
     setModalVisible(false);
   };
 
+  const ChangeClassnameBg = changeBgColor(receipientData?.backgroundColor);
+
   useEffect(() => {
     setPosts(sortedPosts);
     setIsLoading(loading);
   }, [sortedPosts, loading]);
 
   return (
-    <div className={styles.background}>
-      {modalVisible && (
+    <div className={ChangeClassnameBg}>
+      {!isMobile && modalVisible && (
         <PostModal
           post={posts.find((post) => post.id === clickedId)}
           onClose={handleCloseModal}
