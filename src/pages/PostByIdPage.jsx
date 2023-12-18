@@ -47,7 +47,7 @@ export const PostByIdPage = () => {
         />
       )}
       <CardByIdList>
-        <Link to="/post">
+        <Link to="/post/:recipientId/message">
           <CardButton />
         </Link>
         {posts?.map((post) => (
