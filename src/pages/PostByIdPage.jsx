@@ -6,7 +6,8 @@ import { CardByIdList } from "../components/ui-card-by-id-list/CardByIdList";
 import { CardById } from "../components/ui-card-by-id/CardById";
 import { CardButton } from "../post-by-id/ui-card-button/CardButton";
 import { PostModal } from "../post-by-id/ui-post-modal/PostModal";
-import styles from "./PostByIdEditPage.module.scss";
+import { useGetRecipient } from "../post/data-access-post/recipientsApi";
+import { changeBgColor } from "../post-by-id/ChangeBgColor";
 
 export const PostByIdPage = () => {
   const { recipientId } = useParams();
@@ -18,6 +19,7 @@ export const PostByIdPage = () => {
 
   const { loading, data } = useGetMessagesList(recipientId);
   const sortedPosts = data?.results.sort((a, b) => b.createdAt - a.createdAt);
+  const { data: receipientData } = useGetRecipient(recipientId);
 
   const handleCardClick = (postId) => {
     setClickedId(postId);
@@ -28,13 +30,15 @@ export const PostByIdPage = () => {
     setModalVisible(false);
   };
 
+  const ChangeClassnameBg = changeBgColor(receipientData?.backgroundColor);
+
   useEffect(() => {
     setPosts(sortedPosts);
     setIsLoading(loading);
   }, [sortedPosts, loading]);
 
   return (
-    <div className={styles.background}>
+    <div className={ChangeClassnameBg}>
       {modalVisible && (
         <PostModal
           post={posts.find((post) => post.id === clickedId)}

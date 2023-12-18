@@ -14,9 +14,6 @@ export function CreatePost({ userData }) {
       })
       .then((response) => {
         navigate(`/post/${response.data.id}`);
-        // navigate(
-        //   `post/${response.data.id}, {state: {backgroundColor: userData.backgroundColor}}`
-        // );
       })
       .catch((error) => {
         console.error("API 호출 중 오류 발생:", error); // 오류 처리

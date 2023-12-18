@@ -5,6 +5,8 @@ import { CardByIdList } from "../components/ui-card-by-id-list/CardByIdList";
 import { CardById } from "../components/ui-card-by-id/CardById";
 import styles from "./PostByIdEditPage.module.scss";
 import { axiosInstance } from "../components/util/axiosInstance";
+import { useGetRecipient } from "../post/data-access-post/recipientsApi";
+import { changeBgColor } from "../post-by-id/ChangeBgColor";
 
 export const PostByIdEditPage = () => {
   const navigate = useNavigate();
@@ -16,6 +18,8 @@ export const PostByIdEditPage = () => {
   const { loading, data } = useGetMessagesList(recipientId);
   const { results } = data || {};
   const sortedPosts = results?.sort((a, b) => b.createdAt - a.createdAt);
+  const { data: recipientData } = useGetRecipient(recipientId);
+  const ChangeClassnameBg = changeBgColor(recipientData?.backgroundColor);
 
   useEffect(() => {
     if (results) {
@@ -39,7 +43,7 @@ export const PostByIdEditPage = () => {
   };
 
   return (
-    <div className={styles.background}>
+    <div className={ChangeClassnameBg}>
       <div className={styles.container}>
         <button
           className={styles.button}
