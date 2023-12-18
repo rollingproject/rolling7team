@@ -3,23 +3,25 @@ import NavigationBar from "./components/ui-navigation-bar/NavigationBar";
 import ServiceNavigationBar from "./components/ui-navigation-bar/ServiceNavigationBar";
 import { useGetReactionsList } from "./post/data-access-post/reactionApi";
 import { useGetRecipient } from "./post/data-access-post/recipientsApi";
+import { useLocation } from "react-router-dom";
 
 function Nav() {
+  const location = useLocation();
   const path = window.location.pathname;
   const userId = path.split("/")[2];
 
   /* 조건부 렌더링: 
-  /post/${id} 및 /post/${id}/edit 페이지에서는 렌더링이 되고, 
-  /post/${id}/message나 /post 페이지에서는 렌더링 안됨.
+  /post/${userId} 및 /post/${userId}/edit 페이지에서는 렌더링이 되고, 
+   /post 페이지나 /post/${userId}/message 페이지 에서는렌더링 안됨.
   */
 
   const isPostPage =
-    location.pathname.includes("/post/") &&
-    !location.pathname.includes("/message");
+    location.pathname === `/post/${userId}` ||
+    location.pathname === `/post/${userId}/edit`;
 
   // useGetRecipient 호출
   const { data: recipientData } = useGetRecipient(parseInt(userId, 10));
-
+  console.log(recipientData);
   const { name, messageCount, recentMessages } = recipientData || {};
   const plusNumber = messageCount ? messageCount - 3 : 0;
 
