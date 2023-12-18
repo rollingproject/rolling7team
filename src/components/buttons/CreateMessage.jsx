@@ -22,7 +22,7 @@ export function CreateMessage({ messageData }) {
         profileImageURL: "https://slp-statics.astockcdn.net/static_assets/staging/23spring/kr/home/curated-collections/card-5.jpg",
       })
       .then((response) => {
-        navigate(`/post/${response.data.id}`);
+        navigate(`/post/${response.data.recipientId}`);
       })
       .catch((error) => {
         console.error("API 호출 중 오류 발생:", error); // 오류 처리
