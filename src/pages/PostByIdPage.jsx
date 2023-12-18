@@ -8,9 +8,7 @@ import { CardButton } from "../post-by-id/ui-card-button/CardButton";
 import { PostModal } from "../post-by-id/ui-post-modal/PostModal";
 import styles from "./PostByIdEditPage.module.scss";
 
-const SAMPLE = 1088; // 임시 id로 나중에 list 페이지에서 prop을 받아야 함.
-
-export const PostByIdPage = ({ selectedId = SAMPLE }) => {
+export const PostByIdPage = () => {
   const { recipientId } = useParams();
 
   const [posts, setPosts] = useState([]);
@@ -18,7 +16,7 @@ export const PostByIdPage = ({ selectedId = SAMPLE }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [clickedId, setClickedId] = useState(null);
 
-  const { loading, data } = useGetMessagesList(selectedId);
+  const { loading, data } = useGetMessagesList(recipientId);
   const sortedPosts = data?.results.sort((a, b) => b.createdAt - a.createdAt);
 
   const handleCardClick = (postId) => {

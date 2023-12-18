@@ -6,16 +6,14 @@ import { CardById } from "../components/ui-card-by-id/CardById";
 import styles from "./PostByIdEditPage.module.scss";
 import { axiosInstance } from "../components/util/axiosInstance";
 
-const SAMPLE = 1088;
-
-export const PostByIdEditPage = ({ selectedId = SAMPLE }) => {
+export const PostByIdEditPage = () => {
   const navigate = useNavigate();
   const { recipientId } = useParams();
 
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { loading, data } = useGetMessagesList(selectedId);
+  const { loading, data } = useGetMessagesList(recipientId);
   const { results } = data || {};
   const sortedPosts = results?.sort((a, b) => b.createdAt - a.createdAt);
 
@@ -45,7 +43,7 @@ export const PostByIdEditPage = ({ selectedId = SAMPLE }) => {
       <div className={styles.container}>
         <button
           className={styles.button}
-          onClick={() => handleDeleteRecipient(selectedId)}
+          onClick={() => handleDeleteRecipient(recipientId)}
         >
           삭제하기
         </button>
