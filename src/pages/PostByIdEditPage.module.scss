@@ -1,8 +1,26 @@
 @import "../styles/global.scss";
 
-.background {
+.background__beige {
   padding: 6.3rem 0 11.3rem;
-  background-color: $orange-200; // background-color 값은 나중에 받아야한다.
+  background-color: $orange-200;
+  min-height: 108rem; // 100%해도 안에 요소가 없으면 작아져서 강제로 108rem을 주었습니다.
+}
+
+.background__purple {
+  padding: 6.3rem 0 11.3rem;
+  background-color: $purple-200;
+  min-height: 108rem; // 100%해도 안에 요소가 없으면 작아져서 강제로 108rem을 주었습니다.
+}
+
+.background__blue {
+  padding: 6.3rem 0 11.3rem;
+  background-color: $blue-200;
+  min-height: 108rem; // 100%해도 안에 요소가 없으면 작아져서 강제로 108rem을 주었습니다.
+}
+
+.background__green {
+  padding: 6.3rem 0 11.3rem;
+  background-color: $green-200;
   min-height: 108rem; // 100%해도 안에 요소가 없으면 작아져서 강제로 108rem을 주었습니다.
 }
 

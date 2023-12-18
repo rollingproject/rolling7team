@@ -21,7 +21,11 @@ export function CreatePost({ userData }) {
   }
 
   return (
-    <button onClick={handlePostToApi} className={styles.Form__button} disabled={userData.name === false}>
+    <button
+      onClick={handlePostToApi}
+      className={styles.Form__button}
+      disabled={userData.name === false}
+    >
       생성하기
     </button>
   );
