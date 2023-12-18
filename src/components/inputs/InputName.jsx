@@ -1,11 +1,15 @@
 import styles from "./InputName.module.scss";
 
-export function InputName({ children, setUserInputData, userData }) {
+export function InputName({ children, setUserInputData, userData, isMessage }) {
   function handlePressEnter(e) {
     if (e.key === "Enter") e.preventDefault();
   }
 
   function handleInputNameValue(e) {
+    if (isMessage) {
+      setUserInputData({ ...userData, sender: e.target.value });
+      return;
+    }
     setUserInputData({ ...userData, name: e.target.value });
   }
 
