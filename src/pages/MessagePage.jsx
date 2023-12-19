@@ -3,15 +3,54 @@ import { InputName } from "../components/inputs/InputName";
 import styles from "./MessagePage.module.scss";
 import defaultProfile from "../assets/defaultProfile.png";
 import { CreateMessage } from "../components/buttons/CreateMessage";
+import axios from "axios";
 
-function ProfileImgSelector() {
-  // const [profileImg, setProfileImg] = useState(defaultProfile);
+function createFileName() {
+  const now = new Date();
+  const fileName =
+    String(now.getFullYear()) +
+    String(now.getMonth() + 1) +
+    String(now.getDate()) +
+    String(now.getHours()) +
+    String(now.getMinutes()) +
+    String(now.getSeconds());
+  return fileName;
+}
+
+function ProfileImgSelector({ messageData, setMessageData }) {
+  // const [imgDeleteUrl, setImgDeleteUrl] = useState("");
+
+  async function handleFileChange(e) {
+    // if (imgDeleteUrl) {
+    //   await axios({
+    //     method: "post",
+    //     delete_url: imgDeleteUrl,
+    //   }).catch((error) => console.log(error));
+    // }
+    // ImgBB api로 이미지 삭제가 안됨
+    // ImgBB 중복이미지 하나만 올라감
+
+    const file = e.target.files[0];
+    let body = new FormData();
+    body.set("key", "c50b28d011b978cf725b14c4c77af8f9");
+    body.append("image", file);
+    body.append("name", createFileName());
+    await axios({
+      method: "post",
+      url: "https://api.imgbb.com/1/upload",
+      data: body,
+    }).then((response) => {
+      setMessageData({ ...messageData, profileImageURL: response.data.data.display_url });
+      // setImgDeleteUrl(response.data.data.delete_url);
+    });
+  }
 
   return (
     <>
       <label className={styles.profileContainer}>
         <div>프로필 이미지</div>
-        <img className={styles.profileContainer__img} src={defaultProfile} />
+        <img className={styles.profileContainer__img} src={messageData.profileImageURL} />
+        <input onChange={handleFileChange} type="file" accept="image/png, image/jpge" />
       </label>
     </>
   );
@@ -60,7 +99,7 @@ function FontSelector({ messageData, setMessageData }) {
         <option value="Noto Sans">Noto Sans</option>
         <option value="Pretendard">Pretendard</option>
         <option value="나눔명조">나눔명조</option>
-        <option value="나눔손글씨 손펴지체">나눔손글씨 손편지체</option>
+        <option value="나눔손글씨 손편지체">나눔손글씨 손편지체</option>
       </select>
     </>
   );
@@ -74,10 +113,11 @@ export function MessagePage() {
     content: "",
     font: "Noto Sans",
   });
+
   const isMessage = true;
 
   useEffect(() => {
-    console.log(messageData);
+    createFileName();
   }, [messageData]);
 
   return (
@@ -85,7 +125,7 @@ export function MessagePage() {
       <InputName isMessage={isMessage} userData={messageData} setUserInputData={setMessageData}>
         From.
       </InputName>
-      <ProfileImgSelector />
+      <ProfileImgSelector messageData={messageData} setMessageData={setMessageData} />
       <RelationSelector messageData={messageData} setMessageData={setMessageData} />
       <MessageEditor messageData={messageData} setMessageData={setMessageData} />
       <FontSelector messageData={messageData} setMessageData={setMessageData} />
