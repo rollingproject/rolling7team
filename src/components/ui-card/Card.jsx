@@ -1,16 +1,26 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styles from "./Card.module.scss";
 import { Link } from "react-router-dom";
 
-export default function Card({item}) {
-  const {id, backgroundColor, backgroundImageURL, name} = item;
+export default function Card({ item }) {
+  const { id, backgroundColor, backgroundImageURL, name } = item;
   const target = `/post/${id}`;
   const cardStyle = {};
-  const fontColor = {}
-  backgroundImageURL ? cardStyle.backgroundImage = `url(${backgroundImageURL})` : {};
-  backgroundImageURL ? cardStyle.backgroundSize = 'cover' : {};
-  backgroundImageURL ? cardStyle.filter = 'brightness(70%)' : {};
-  backgroundImageURL ? fontColor.color = 'var(--white, #FFF)' : {};
+  const fontColor = {};
+  const emoji = [];
+
+  if (backgroundImageURL) {
+    cardStyle.backgroundImage = `linear-gradient(180deg, rgba(0, 0, 0, 0.54) 0%, rgba(0, 0, 0, 0.54) 100%), url(${backgroundImageURL})`;
+    cardStyle.backgroundSize = 'cover';
+    fontColor.color = 'var(--white, #FFF)';
+  }
+
+  {/*useEffect(() => {
+    (async function(){
+        const response = await fetch(`https://rolling-api.vercel.app/2-7/recipients/${item.id}/reactions/`);
+        const responseTwo = await response.json(); //responseTwo.result = 이모지를 가지고있는 객체를 요소로 가지는 배열
+    })() 
+  }, [])*/}
 
   return (
     <Link to={target}>
