@@ -143,6 +143,10 @@
     margin-top: 1px;
     justify-content: center;
     align-items: center;
+
+    &:hover {
+      background-color: colors.$gray-200;
+    }
   }
 
   &__emojiAddAndShareBox {
@@ -161,6 +165,10 @@
     border-radius: 6px;
     border: 1px solid var(--gray-300, #ccc);
     background: var(--white, #fff);
+
+    &:hover {
+      background-color: colors.$gray-200;
+    }
   }
 
   &__emojiAddButtonFrame {
@@ -183,8 +191,12 @@
     align-items: center;
     gap: 10px;
     border-radius: 6px;
-    border: 1px solid var(--gray-300, #ccc);
+    border: 1px solid colors.$gray-300;
     background: var(--white, #fff);
+
+    &:hover {
+      background-color: colors.$gray-200;
+    }
   }
 
   &__shareButtonFrame {
