@@ -4,8 +4,13 @@ import { useNavigate } from "react-router-dom";
 
 export function CreatePost({ userData }) {
   const navigate = useNavigate();
-  const dataObj = { name: userData.name, backgroundColor: userData.backgroundColor };
-  userData.backgroundImageURL ? (dataObj.backgroundImageURL = userData.backgroundImageURL) : null;
+  const dataObj = {
+    name: userData.name,
+    backgroundColor: userData.backgroundColor,
+  };
+  userData.backgroundImageURL
+    ? (dataObj.backgroundImageURL = userData.backgroundImageURL)
+    : null;
 
   function handlePostToApi(e) {
     e.preventDefault();
@@ -20,7 +25,11 @@ export function CreatePost({ userData }) {
   }
 
   return (
-    <button onClick={handlePostToApi} className={styles.Form__button} disabled={userData.name === false}>
+    <button
+      onClick={handlePostToApi}
+      className={styles.Form__button}
+      disabled={userData.name === false}
+    >
       생성하기
     </button>
   );

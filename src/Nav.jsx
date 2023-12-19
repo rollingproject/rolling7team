@@ -25,6 +25,8 @@ function Nav() {
   const { name, messageCount, recentMessages } = recipientData || {};
   const plusNumber = messageCount ? messageCount - 3 : 0;
 
+  console.log(name);
+
   // useGetReactionsList 호출
   const { data: reactionsData } = useGetReactionsList(parseInt(userId, 10));
 
