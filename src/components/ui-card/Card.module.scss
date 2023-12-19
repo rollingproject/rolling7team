@@ -1,0 +1,102 @@
+.card {
+  width: 275px;
+  height: 260px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.purple {
+  background: var(--Orange-200, #ffe2ad);
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+}
+
+.beige {
+  background: var(--Orange-200, #ffe2ad);
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+}
+
+.blue {
+  background: var(--Blue-200, #b1e4ff);
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+}
+
+.green {
+  background: var(--Green-200, #d0f5c3);
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+}
+
+.card_inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 43px;
+  margin: 30px 24px 20px;
+}
+
+.card_data {
+
+}
+
+.img_box {
+  height: 28px;
+  list-style-type: none;
+  display: flex;
+  margin: 12px 0px;
+}
+
+.profile_image {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  border-radius: 50px;
+  border: 1.5px solid var(--white, #fff);
+  background: var(--white, #fff);
+}
+
+.profile_image {
+  border-radius: 50%;
+}
+
+.recipient {
+  overflow: hidden;
+  color: var(--gray-900, #181818);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  /* Font/24 Bold */
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px; /* 150% */
+  letter-spacing: -0.24px;
+}
+
+.alert {
+  color: var(--gray-700, #3a3a3a);
+
+  /* Font/16 Regular */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.16px;
+}
+
+.count_in_alert {
+  color: var(--gray-700, #3a3a3a);
+
+  /* Font/16 Bold */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px; /* 162.5% */
+  letter-spacing: -0.16px;
+}
+
+.reaction_box {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
