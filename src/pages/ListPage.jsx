@@ -6,7 +6,7 @@ import arrow_right from "../assets/arrow_right.svg";
 import styles from "./ListPage.module.scss";
 
 export function ListPage() {
-  const [data, setData] = useState({cardData : [], count : 0, arrow : false});
+  const [data, setData] = useState({cardData : [], count : 0, arrow : false});  
 
   useEffect(() => {
       (async () => {
@@ -24,7 +24,7 @@ export function ListPage() {
           {/*{data.arrow ? <img className={styles.arrow_button} src={arrow_left}/> : undefined}*/}
           <ul className={styles.card_box_inner}>
             {data.cardData.sort((a, b) => b.messageCount - a.messageCount)
-              .map((item) => <li key={item.id} className={styles.card}><Card response={item}></Card></li>)}
+              .map((item) => <li key={item.id} className={styles.card}><Card item={item}></Card></li>)}
           </ul>
           {/*{data.arrow ? <img className={styles.arrow_button} src={arrow_right}/> : undefined}*/}
         </div>  
@@ -35,7 +35,7 @@ export function ListPage() {
           {/*{data.arrow ? <img className={styles.arrow_button} src={arrow_left}/> : undefined}*/}
           <ul className={styles.card_box_inner}> 
             {data.cardData.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
-              .map((item) => <li key={item.id} className={styles.card}><Card response={item}></Card></li>)}
+              .map((item) => <li key={item.id} className={styles.card}><Card item={item}></Card></li>)}
           </ul>
           {/*{data.arrow ? <img className={styles.arrow_button} src={arrow_right}/> : undefined}*/}
         </div>

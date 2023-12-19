@@ -2,31 +2,36 @@ import React from "react";
 import styles from "./Card.module.scss";
 import { Link } from "react-router-dom";
 
-export default function Card(props) {
-  const target = `/post/${props.response.id}`;
-  const bgColor = props.response.backgroundColor;
-  const bgImg = props.response.backgroundImageURL;
+export default function Card({item}) {
+  const {id, backgroundColor, backgroundImageURL, name} = item;
+  const target = `/post/${id}`;
+  const cardStyle = {};
+  const fontColor = {}
+  backgroundImageURL ? cardStyle.backgroundImage = `url(${backgroundImageURL})` : {};
+  backgroundImageURL ? cardStyle.backgroundSize = 'cover' : {};
+  backgroundImageURL ? cardStyle.filter = 'brightness(70%)' : {};
+  backgroundImageURL ? fontColor.color = 'var(--white, #FFF)' : {};
 
   return (
     <Link to={target}>
-      <div className={`${styles.card} ${styles[bgColor]} ${styles[bgImg]}`}>
+      <div style={cardStyle} className={`${styles.card} ${styles[backgroundColor]}`}>
         <div className={styles.card_inner}>
           <div className={styles.card_data}>
-            <p className={styles.recipient}>To. {props.response.name}</p>
+            <p style={fontColor} className={styles.recipient}>To. {name}</p>
             <ul className={styles.img_box}>
-              {props.response.recentMessages.map((item) => (
-                <li key={item.id}>
+              {item.recentMessages.map((sender) => (
+                <li key={sender.id}>
                   <img
-                    className={styles.profile_image}
-                    src={item.profileImageURL}
-                    alt={`Profile of ${props.response.name}`}
+                    className={`${styles.profile_image} ${styles.profile_image_1}`}
+                    src={sender.profileImageURL}
+                    alt={`Profile of ${sender.name}`}
                   ></img>
                 </li>
               ))}
             </ul>
-            <p className={styles.alert}>
-              <span className={styles.count_in_alert}>
-                {props.response.messageCount}
+            <p style={fontColor} className={styles.alert}>
+              <span style={fontColor} className={styles.count_in_alert}>
+                {item.messageCount}
               </span>
               명이 작성했어요!
             </p>

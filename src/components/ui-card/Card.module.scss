@@ -7,23 +7,36 @@
 }
 
 .purple {
-  background: var(--Orange-200, #ffe2ad);
+  background: var(--Purple-200, #ECD9FF);
   box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+  background-image: url('../../assets/pattern_01.svg');
+  background-repeat: no-repeat;
+  background-position: right bottom;
 }
 
 .beige {
   background: var(--Orange-200, #ffe2ad);
   box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+  background-image: url('../../assets/pattern_02.svg');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  
 }
 
 .blue {
   background: var(--Blue-200, #b1e4ff);
   box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+  background-image: url('../../assets/pattern_03.svg');
+  background-repeat: no-repeat;
+  background-position: right bottom;
 }
 
 .green {
   background: var(--Green-200, #d0f5c3);
   box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+  background-image: url('../../assets/pattern_04.svg');
+  background-repeat: no-repeat;
+  background-position: right bottom;
 }
 
 .card_inner {
@@ -43,18 +56,15 @@
   list-style-type: none;
   display: flex;
   margin: 12px 0px;
+  padding: 0px;
 }
 
 .profile_image {
   width: 28px;
   height: 28px;
-  border-radius: 50px;
+  border-radius: 50%;
   border: 1.5px solid var(--white, #fff);
   background: var(--white, #fff);
-}
-
-.profile_image {
-  border-radius: 50%;
 }
 
 .recipient {
@@ -62,20 +72,16 @@
   color: var(--gray-900, #181818);
   text-overflow: ellipsis;
   white-space: nowrap;
-
-  /* Font/24 Bold */
   font-family: Pretendard;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
-  line-height: 36px; /* 150% */
+  line-height: 36px;
   letter-spacing: -0.24px;
 }
 
 .alert {
   color: var(--gray-700, #3a3a3a);
-
-  /* Font/16 Regular */
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
@@ -86,13 +92,11 @@
 
 .count_in_alert {
   color: var(--gray-700, #3a3a3a);
-
-  /* Font/16 Bold */
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 26px; /* 162.5% */
+  line-height: 26px;
   letter-spacing: -0.16px;
 }
 

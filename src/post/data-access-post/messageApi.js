@@ -23,7 +23,7 @@ export const usePostMessages = (
 
 export const useGetMessagesList = (recipientId) => {
   const getMessagesList = () =>
-    axiosInstance.get(`recipients/${recipientId}/messages/?limit=3&offset=1`);
+    axiosInstance.get(`recipients/${recipientId}/messages/`);
   return useApiRequest(getMessagesList);
 };
 
@@ -37,8 +37,8 @@ usePostMessages.propTypes = {
   sender: PropTypes.string.isRequired,
   profileImageURL: PropTypes.string.isRequired,
   relationship: PropTypes.string.isRequired,
-  content: PropTypes.string.oneOf(["친구", "지인", "동료", "가족"]).isRequired,
-  font: PropTypes.string.oneOf([
+  content: PropTypes.oneOf(["친구", "지인", "동료", "가족"]).isRequired,
+  font: PropTypes.oneOf([
     "Noto Sans",
     "Pretendard",
     "나눔명조",

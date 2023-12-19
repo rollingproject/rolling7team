@@ -43,6 +43,7 @@
   list-style-type: none;
   display: flex;
   gap: 20px;
+  padding: 0px;
 }
 
 .card {
@@ -50,6 +51,7 @@
 }
 
 .arrow_button {
+  position: absolute;
   width: 16px;
   height: 16px;
   flex-shrink: 0;

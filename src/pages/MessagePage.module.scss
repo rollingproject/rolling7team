@@ -1,0 +1,25 @@
+@use "../styles/colors.scss";
+@use "../styles/mixin.scss";
+
+@mixin label-style($bgColor) {
+  background: $bgColor;
+  display: inline-block;
+  width: 16.8rem;
+  height: 16.8rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.form {
+  margin: 5.7rem auto 0;
+  width: 72rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.profileContainer {
+  .profileContainer__img {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}

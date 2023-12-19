@@ -14,19 +14,19 @@ input[type="radio"] {
   display: none;
 }
 
-label[for="orange-200"] {
+label[for="beige"] {
   @include label-style(colors.$orange-200);
 }
 
-label[for="purple-200"] {
+label[for="purple"] {
   @include label-style(colors.$purple-200);
 }
 
-label[for="blue-200"] {
+label[for="blue"] {
   @include label-style(colors.$blue-200);
 }
 
-label[for="green-200"] {
+label[for="green"] {
   @include label-style(colors.$green-200);
 }
 
@@ -42,19 +42,19 @@ input[type="radio"]:checked + .form__label__background:after {
 }
 
 label[for="bgImg1"] {
-  @include label-style(url(../assets/bgImg1.jpg) no-repeat center / cover);
+  @include label-style(url(https://i.ibb.co/f2zR969/bgImg1.jpg) no-repeat center / cover);
 }
 
 label[for="bgImg2"] {
-  @include label-style(url(../assets/bgImg2.jpg) no-repeat center / cover);
+  @include label-style(url(https://i.ibb.co/6JWjMfM/bgImg2.jpg) no-repeat center / cover);
 }
 
 label[for="bgImg3"] {
-  @include label-style(url(../assets/bgImg3.jpg) no-repeat center / cover);
+  @include label-style(url(https://i.ibb.co/n8GJNT2/bgImg3.jpg) no-repeat center / cover);
 }
 
 label[for="bgImg4"] {
-  @include label-style(url(../assets/bgImg4.jpg) no-repeat center / cover);
+  @include label-style(url(https://i.ibb.co/8K7DwmZ/bgImg4.jpg) no-repeat center / cover);
 }
 
 .form {

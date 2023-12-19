@@ -1,51 +1,61 @@
-import { useState } from "react";
-import { useGetPostsById } from "../post-by-id/data-access-post-by-id/useGetPostsById";
+import { useParams } from "react-router-dom";
+import { useGetMessagesList } from "../post/data-access-post/messageApi";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { CardByIdList } from "../components/ui-card-by-id-list/CardByIdList";
 import { CardById } from "../components/ui-card-by-id/CardById";
 import { CardButton } from "../post-by-id/ui-card-button/CardButton";
 import { PostModal } from "../post-by-id/ui-post-modal/PostModal";
-import styles from "./PostByIdPage.module.scss";
-import { useParams } from "react-router-dom";
-// import { Link } from "react-router-dom";
+import { useGetRecipient } from "../post/data-access-post/recipientsApi";
+import { changeBgColor } from "../post-by-id/ChangeBgColor";
 
-const SAMPLE = 849; // 임시 id로 나중에 list 페이지에서 prop을 받아야 함.
-
-export const PostByIdPage = ({ selectedId = SAMPLE }) => {
+export const PostByIdPage = () => {
   const { recipientId } = useParams();
+  const pathToPost = `/post/${recipientId}/message`;
 
+  const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
   const [clickedId, setClickedId] = useState(null);
-  const [modalVisible, setModalVisivle] = useState(false);
+  const isMobile = window.innerWidth <= 768;
 
-  const { data } = useGetPostsById(selectedId);
+  const { loading, data } = useGetMessagesList(recipientId);
+  const sortedPosts = data?.results.sort((a, b) => b.createdAt - a.createdAt);
+  const { data: receipientData } = useGetRecipient(recipientId);
 
-  const sortedPostIdData = data?.results.sort(
-    (a, b) => b.createdAt - a.createdAt
-  );
-
-  const handleCardClick = (post) => {
-    setClickedId(post.id);
-    setModalVisivle(true);
+  const handleCardClick = (postId) => {
+    setClickedId(postId);
+    setModalVisible(true);
   };
 
   const handleCloseModal = () => {
-    setModalVisivle(false);
+    setModalVisible(false);
   };
 
+  const ChangeClassnameBg = changeBgColor(receipientData?.backgroundColor);
+
+  useEffect(() => {
+    setPosts(sortedPosts);
+    setIsLoading(loading);
+  }, [sortedPosts, loading]);
+
   return (
-    <div className={styles.background}>
-      {modalVisible && (
+    <div className={ChangeClassnameBg}>
+      {!isMobile && modalVisible && (
         <PostModal
-          post={sortedPostIdData.find((post) => post.id === clickedId)}
+          post={posts.find((post) => post.id === clickedId)}
           onClose={handleCloseModal}
         />
       )}
       <CardByIdList>
-        <CardButton />
-        {sortedPostIdData?.map((post) => (
+        <Link to={pathToPost}>
+          <CardButton />
+        </Link>
+        {posts?.map((post) => (
           <CardById
             key={post.id}
             {...post}
-            onCardClick={() => handleCardClick(post)}
+            onCardClick={() => handleCardClick(post.id)}
           />
         ))}
       </CardByIdList>
