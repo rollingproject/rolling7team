@@ -45,7 +45,9 @@ function ServiceNavigationBar({
                 </div>
 
                 <div className={styles.nav__writingNumberBox}>
-                  <p className={styles.nav__userNumber}>+ {plusNumber}</p>
+                  <p className={styles.nav__userNumber}>
+                    + {Math.max(plusNumber, 0)}
+                  </p>
                 </div>
               </div>
 
