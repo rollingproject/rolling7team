@@ -186,6 +186,10 @@
     background: var(--gray-200, #eee);
   }
 
+  &__shareButtonBox {
+    position: relative;
+  }
+
   &__shareButton {
     display: flex;
     padding: 6px 16px;

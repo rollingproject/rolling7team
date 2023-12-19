@@ -3,6 +3,8 @@ import styles from "./ServiceNavigationBar.module.scss";
 import arrowDown from "../../assets/arrowDown.svg";
 import addIcon from "../../assets/addIcon.svg";
 import shareIcon from "../../assets/shareIcon.svg";
+import KakaoShareModal from "../../post-by-id/ui-kakaoShare-modal/KakaoShareModal.jsx/KakaoShareModal";
+import { useState } from "react";
 
 function ServiceNavigationBar({
   name,
@@ -11,9 +13,17 @@ function ServiceNavigationBar({
   reactions,
   recentProfileImages,
 }) {
+  const [isKakaoModalVisible, setKakaoModalVisible] = useState(false);
+
   // 최대 3개까지만 표시되도록 slice 사용
   const displayedReactions = reactions.slice(0, 3);
   console.log(name);
+  // console.log(reactions);
+  // console.log(recentProfileImages);
+
+  const handleShareButtonClick = () => {
+    setKakaoModalVisible(!isKakaoModalVisible);
+  };
 
   return (
     <div className={styles.nav}>
@@ -83,12 +93,17 @@ function ServiceNavigationBar({
               </button>
 
               <div className={styles.nav__reactangle}></div>
-
-              <button className={styles.nav__shareButton}>
-                <div className={styles.nav__shareButtonFrame}>
-                  <img src={shareIcon} alt="shareIcon" />
-                </div>
-              </button>
+              <div className={styles.nav__shareButtonBox}>
+                <button
+                  className={styles.nav__shareButton}
+                  onClick={handleShareButtonClick}
+                >
+                  <div className={styles.nav__shareButtonFrame}>
+                    <img src={shareIcon} alt="shareIcon" />
+                  </div>
+                </button>
+                {isKakaoModalVisible && <KakaoShareModal />}
+              </div>
             </div>
           </div>
           {""}
