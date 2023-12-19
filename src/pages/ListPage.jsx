@@ -21,23 +21,23 @@ export function ListPage() {
       <div className={styles.card_box_wrapper}>
         <p className={styles.heading}>인기 롤링 페이퍼 🔥</p>
         <div className={styles.card_box}>
-          {data.arrow ? <img className={styles.arrow_button} src={arrow_left}/> : undefined}
+          {/*{data.arrow ? <img className={styles.arrow_button} src={arrow_left}/> : undefined}*/}
           <ul className={styles.card_box_inner}>
             {data.cardData.sort((a, b) => b.messageCount - a.messageCount)
               .map((item) => <li key={item.id} className={styles.card}><Card response={item}></Card></li>)}
           </ul>
-          {data.arrow ? <img className={styles.arrow_button} src={arrow_right}/> : undefined}
+          {/*{data.arrow ? <img className={styles.arrow_button} src={arrow_right}/> : undefined}*/}
         </div>  
       </div>
       <div className={styles.card_box_wrapper}>
         <p className={styles.heading}>최근에 만든 롤링 페이퍼 ⭐️️</p>
         <div className={styles.card_box}>
-          {data.arrow ? <img className={styles.arrow_button} src={arrow_left}/> : undefined}
+          {/*{data.arrow ? <img className={styles.arrow_button} src={arrow_left}/> : undefined}*/}
           <ul className={styles.card_box_inner}> 
             {data.cardData.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
               .map((item) => <li key={item.id} className={styles.card}><Card response={item}></Card></li>)}
           </ul>
-          {data.arrow ? <img className={styles.arrow_button} src={arrow_right}/> : undefined}
+          {/*{data.arrow ? <img className={styles.arrow_button} src={arrow_right}/> : undefined}*/}
         </div>
       </div>
       <div className={styles.link_box}>

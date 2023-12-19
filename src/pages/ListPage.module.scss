@@ -4,10 +4,13 @@
 
 #wrapper {
   text-align: center;
+  margin: 70px 380px;
 }
 
 .card_box_wrapper {
   width: 1000px;
+  text-align: left;
+  margin-bottom: 30px;
 }
 
 .heading {
@@ -20,6 +23,7 @@
   font-weight: 700;
   line-height: 36px; /* 150% */
   letter-spacing: -0.24px;
+  margin-bottom: 20px;
 }
 
 .card_box::-webkit-scrollbar {

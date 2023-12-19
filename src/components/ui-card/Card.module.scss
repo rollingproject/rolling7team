@@ -46,7 +46,6 @@
 }
 
 .profile_image {
-  display: flex;
   width: 28px;
   height: 28px;
   border-radius: 50px;
@@ -99,4 +98,5 @@
 
 .reaction_box {
   border-top: 1px solid rgba(0, 0, 0, 0.12);
+  width: 227px;
 }
