@@ -2,14 +2,17 @@ import { Fragment, useEffect, useState } from "react";
 import { InputName } from "../components/inputs/InputName";
 import styles from "./PostPage.module.scss";
 import { CreatePost } from "../components/buttons/createPost";
-import bgImg1 from "../assets/bgImg1.jpg";
-import bgImg2 from "../assets/bgImg2.jpg";
-import bgImg3 from "../assets/bgImg3.jpg";
-import bgImg4 from "../assets/bgImg4.jpg";
 
 function SelectBackground({ backgroundType, userData, setUserData }) {
   const colors = ["beige", "purple", "blue", "green"];
-  const imgs = [bgImg1, bgImg2, bgImg3, bgImg4];
+  const imgs = ["bgImg1", "bgImg2", "bgImg3", "bgImg4"];
+  const imgsUrl = {
+    bgImg1: "https://i.ibb.co/f2zR969/bgImg1.jpg",
+    bgImg2: "https://i.ibb.co/6JWjMfM/bgImg2.jpg",
+    bgImg3: "https://i.ibb.co/n8GJNT2/bgImg3.jpg",
+    bgImg4: "https://i.ibb.co/8K7DwmZ/bgImg4.jpg",
+  };
+
   const backgrounds = backgroundType === "color" ? colors : imgs;
 
   function handleSetUserData(e) {
@@ -17,7 +20,7 @@ function SelectBackground({ backgroundType, userData, setUserData }) {
     if (backgroundType === "color") {
       setUserData({ ...userData, backgroundColor: selected, backgroundImageURL: "" });
     } else {
-      setUserData({ ...userData, backgroundColor: null, backgroundImageURL: selected });
+      setUserData({ ...userData, backgroundColor: "beige", backgroundImageURL: imgsUrl[selected] });
     }
     console.log(selected);
   }
@@ -45,7 +48,7 @@ function SelectColorOrImg({ setBackgroundType, userData, setUserData }) {
     if (backgroundType === "color") {
       setUserData({ ...userData, backgroundColor: "beige", backgroundImageURL: "" });
     } else {
-      setUserData({ ...userData, backgroundColor: null, backgroundImageURL: bgImg1 });
+      setUserData({ ...userData, backgroundColor: "beige", backgroundImageURL: "https://i.ibb.co/f2zR969/bgImg1.jpg" });
     }
   }
 
