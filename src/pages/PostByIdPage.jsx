@@ -32,7 +32,7 @@ export const PostByIdPage = () => {
     setModalVisible(false);
   };
 
-  const ChangeClassnameBg = changeBgColor(receipientData?.backgroundColor);
+  const ChangeClassnameBg = changeBgColor(receipientData);
 
   useEffect(() => {
     setPosts(sortedPosts);
