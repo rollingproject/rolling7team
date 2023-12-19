@@ -19,7 +19,7 @@ export const PostByIdEditPage = () => {
   const { results } = data || {};
   const sortedPosts = results?.sort((a, b) => b.createdAt - a.createdAt);
   const { data: recipientData } = useGetRecipient(recipientId);
-  const ChangeClassnameBg = changeBgColorEdit(recipientData?.backgroundColor);
+  const ChangeClassnameBg = changeBgColorEdit(recipientData);
 
   useEffect(() => {
     if (results) {
