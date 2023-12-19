@@ -15,13 +15,11 @@
 
 .heading {
   color: #000;
-
-  /* Font/24 Bold */
   font-family: Pretendard;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
-  line-height: 36px; /* 150% */
+  line-height: 36px;
   letter-spacing: -0.24px;
   margin-bottom: 20px;
 }
@@ -65,7 +63,7 @@
 
 .link_box {
   display: flex;
-  justify-content: center; /* 수평 중앙 정렬 추가 */
+  justify-content: center;
   align-items: center;
 }
 
@@ -83,12 +81,10 @@
 .text_in_button {
   color: var(--white, #fff);
   text-align: center;
-
-  /* Font/18 Bold */
   font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  line-height: 28px; /* 155.556% */
+  line-height: 28px;
   letter-spacing: -0.18px;
 }
