@@ -26,8 +26,8 @@ function SelectBackground({ backgroundType, userData, setUserData }) {
     } else {
       setUserData({
         ...userData,
-        backgroundColor: null,
-        backgroundImageURL: selected,
+        backgroundColor: "beige",
+        backgroundImageURL: imgsUrl[selected],
       });
     }
     console.log(selected);
@@ -71,8 +71,8 @@ function SelectColorOrImg({ setBackgroundType, userData, setUserData }) {
     } else {
       setUserData({
         ...userData,
-        backgroundColor: null,
-        backgroundImageURL: bgImg1,
+        backgroundColor: "beige",
+        backgroundImageURL: "https://i.ibb.co/f2zR969/bgImg1.jpg",
       });
     }
   }
