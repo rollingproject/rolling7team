@@ -1,0 +1,26 @@
+@use "../../styles/colors.scss";
+@use "../../styles/mixin.scss";
+
+.arrowDropDownModal {
+  display: grid;
+  gap: 0.8rem 1rem;
+  grid-template-columns: repeat(4, 6.6rem);
+  grid-template-rows: 3.6rem;
+
+  position: absolute;
+  top: 6.3rem;
+  right: 2rem;
+
+  margin: 0px;
+  vertical-align: baseline;
+  padding: 2.4rem;
+
+  box-sizing: border-box;
+  border-radius: 0.8rem;
+  border: 0.1rem solid rgb(182, 182, 182);
+  background-color: colors.$white;
+  box-shadow: rgba(0, 0, 0, 0.08) 0rem 0.2rem 1.2rem 0rem;
+
+  line-height: 1;
+  font-size: 62.5%;
+}

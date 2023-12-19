@@ -18,8 +18,9 @@ function NavigationBar() {
               alt="RollingIconImg"
             />
           </Link>
-
-          <span className={styles.logo__text}>Rolling</span>
+          <Link to={"/"}>
+            <span className={styles.logo__text}>Rolling</span>
+          </Link>
         </div>
 
         {isLandingPage && (

@@ -4,22 +4,19 @@ import { useNavigate } from "react-router-dom";
 
 export function CreateMessage({ messageData }) {
   const navigate = useNavigate();
-
   const path = window.location.pathname;
-  console.log(path);
   const id = path.split("/")[2];
-  console.log(id);
-  console.log(messageData, 11);
 
-  function handleMessageToApi(e) {
+  async function handleMessageToApi(e) {
     e.preventDefault();
-    axiosInstance
+
+    await axiosInstance
       .post(`recipients/${id}/messages/`, {
         sender: messageData.sender,
         relationship: messageData.relationship,
         content: messageData.content,
         font: messageData.font,
-        profileImageURL: "https://slp-statics.astockcdn.net/static_assets/staging/23spring/kr/home/curated-collections/card-5.jpg",
+        profileImageURL: messageData.profileImageURL,
       })
       .then((response) => {
         navigate(`/post/${response.data.recipientId}`);
