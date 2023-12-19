@@ -1,6 +1,10 @@
 @use "../../../styles/colors.scss";
 @use "../../../styles/mixin.scss";
 
+.kakaoURLShareBox {
+  position: relative;
+}
+
 .kakaoURLShareFrame {
   width: 13.8rem;
   position: absolute;
