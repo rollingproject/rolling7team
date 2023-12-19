@@ -1,0 +1,36 @@
+@use "../../../styles/colors.scss";
+@use "../../../styles/mixin.scss";
+
+.kakaoURLShareBox {
+  position: relative;
+}
+
+.kakaoURLShareFrame {
+  width: 13.8rem;
+  position: absolute;
+  bottom: -110px;
+  left: 0;
+  padding: 1rem 0.1rem;
+  border-radius: 0.8rem;
+  border: 0.1rem solid colors.$gray-300;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 0.2rem 1.2rem 0px;
+  z-index: 5;
+}
+
+.kakaoURLShare {
+  width: 13.4rem;
+  height: 4rem;
+  padding: 1.2rem 1.6rem;
+  display: flex;
+  align-items: center;
+  color: var(--Gray9);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.16px;
+
+  &:hover {
+    background-color: colors.$gray-200;
+  }
+}

@@ -1,27 +1,50 @@
 @import "../styles/global.scss";
 
-.background__beige {
+@mixin bgimg($url) {
+  background-image: url($url);
   padding: 6.3rem 0 11.3rem;
-  background-color: $orange-200;
-  min-height: 108rem; // 100%해도 안에 요소가 없으면 작아져서 강제로 108rem을 주었습니다.
+  min-height: 108rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.background__img1 {
+  @include bgimg("https://i.ibb.co/f2zR969/bgImg1.jpg");
+}
+
+.background__img2 {
+  @include bgimg("https://i.ibb.co/6JWjMfM/bgImg2.jpg");
+}
+
+.background__img3 {
+  @include bgimg("https://i.ibb.co/n8GJNT2/bgImg3.jpg");
+}
+
+.background__img4 {
+  @include bgimg("https://i.ibb.co/8K7DwmZ/bgImg4.jpg");
+}
+
+@mixin bgcolor($color) {
+  padding: 6.3rem 0 11.3rem;
+  min-height: 108rem;
+  background-color: $color;
+}
+
+.background__beige {
+  @include bgcolor($orange-200);
 }
 
 .background__purple {
-  padding: 6.3rem 0 11.3rem;
-  background-color: $purple-200;
-  min-height: 108rem; // 100%해도 안에 요소가 없으면 작아져서 강제로 108rem을 주었습니다.
+  @include bgcolor($purple-200);
 }
 
 .background__blue {
-  padding: 6.3rem 0 11.3rem;
-  background-color: $blue-200;
-  min-height: 108rem; // 100%해도 안에 요소가 없으면 작아져서 강제로 108rem을 주었습니다.
+  @include bgcolor($blue-200);
 }
 
 .background__green {
-  padding: 6.3rem 0 11.3rem;
-  background-color: $green-200;
-  min-height: 108rem; // 100%해도 안에 요소가 없으면 작아져서 강제로 108rem을 주었습니다.
+  @include bgcolor($green-200);
 }
 
 .container {
