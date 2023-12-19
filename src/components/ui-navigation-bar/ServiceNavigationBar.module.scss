@@ -22,14 +22,12 @@
 
   &__text {
     width: 227px;
-    color: var(--gray-800, #2b2b2b);
+    color: colors.$gray-800;
 
-    /* Font/28 Bold */
     font-family: Pretendard;
     font-size: 28px;
-    font-style: normal;
     font-weight: 700;
-    line-height: 42px; /* 150% */
+    line-height: 42px;
     letter-spacing: -0.28px;
   }
 
@@ -135,6 +133,10 @@
 
     border-radius: 32px;
     background: rgba(0, 0, 0, 0.54);
+  }
+
+  &__arrowContainer {
+    position: relative;
   }
 
   &__arrowBox {

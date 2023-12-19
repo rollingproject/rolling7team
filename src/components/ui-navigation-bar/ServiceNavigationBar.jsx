@@ -5,6 +5,7 @@ import addIcon from "../../assets/addIcon.svg";
 import shareIcon from "../../assets/shareIcon.svg";
 import KakaoShareModal from "../../post-by-id/ui-kakaoShare-modal/KakaoShareModal.jsx/KakaoShareModal";
 import { useState } from "react";
+import ArrowDropDownModal from "../../post-by-id/ui-arrowDropdown-modal/arrowDropDownModal";
 
 function ServiceNavigationBar({
   name,
@@ -13,6 +14,7 @@ function ServiceNavigationBar({
   reactions,
   recentProfileImages,
 }) {
+  const [isArrowDropDown, setArrowDropDown] = useState(false);
   const [isKakaoModalVisible, setKakaoModalVisible] = useState(false);
 
   // 최대 3개까지만 표시되도록 slice 사용
@@ -20,6 +22,10 @@ function ServiceNavigationBar({
   console.log(name);
   // console.log(reactions);
   // console.log(recentProfileImages);
+
+  const handleArrowDropDownClick = () => {
+    setArrowDropDown(!isArrowDropDown);
+  };
 
   const handleShareButtonClick = () => {
     setKakaoModalVisible(!isKakaoModalVisible);
@@ -79,9 +85,15 @@ function ServiceNavigationBar({
                 ))}
               </div>
 
-              <button className={styles.nav__arrowBox}>
-                <img src={arrowDown} alt="arrowDown" />
-              </button>
+              <div className={styles.nav__arrowContainer}>
+                <button
+                  className={styles.nav__arrowBox}
+                  onClick={handleArrowDropDownClick}
+                >
+                  <img src={arrowDown} alt="arrowDown" />
+                </button>
+                {isArrowDropDown && <ArrowDropDownModal />}
+              </div>
             </div>
 
             <div className={styles.nav__emojiAddAndShareBox}>
