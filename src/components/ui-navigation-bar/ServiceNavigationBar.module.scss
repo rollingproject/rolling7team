@@ -66,8 +66,10 @@
   }
 
   &__recentProfileImage {
-    width: 18px;
-    height: 18px;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 9999px;
+    margin-top: -0.5rem;
   }
 
   &__writingNumberBox {
