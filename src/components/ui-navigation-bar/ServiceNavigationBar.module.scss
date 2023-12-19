@@ -22,14 +22,12 @@
 
   &__text {
     width: 227px;
-    color: var(--gray-800, #2b2b2b);
+    color: colors.$gray-800;
 
-    /* Font/28 Bold */
     font-family: Pretendard;
     font-size: 28px;
-    font-style: normal;
     font-weight: 700;
-    line-height: 42px; /* 150% */
+    line-height: 42px;
     letter-spacing: -0.28px;
   }
 
@@ -66,8 +64,10 @@
   }
 
   &__recentProfileImage {
-    width: 18px;
-    height: 18px;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 9999px;
+    margin-top: -0.5rem;
   }
 
   &__writingNumberBox {
@@ -135,6 +135,10 @@
     background: rgba(0, 0, 0, 0.54);
   }
 
+  &__arrowContainer {
+    position: relative;
+  }
+
   &__arrowBox {
     display: flex;
     width: 36px;
@@ -143,6 +147,10 @@
     margin-top: 1px;
     justify-content: center;
     align-items: center;
+
+    &:hover {
+      background-color: colors.$gray-200;
+    }
   }
 
   &__emojiAddAndShareBox {
@@ -161,6 +169,10 @@
     border-radius: 6px;
     border: 1px solid var(--gray-300, #ccc);
     background: var(--white, #fff);
+
+    &:hover {
+      background-color: colors.$gray-200;
+    }
   }
 
   &__emojiAddButtonFrame {
@@ -176,6 +188,10 @@
     background: var(--gray-200, #eee);
   }
 
+  &__shareButtonBox {
+    position: relative;
+  }
+
   &__shareButton {
     display: flex;
     padding: 6px 16px;
@@ -183,8 +199,12 @@
     align-items: center;
     gap: 10px;
     border-radius: 6px;
-    border: 1px solid var(--gray-300, #ccc);
+    border: 1px solid colors.$gray-300;
     background: var(--white, #fff);
+
+    &:hover {
+      background-color: colors.$gray-200;
+    }
   }
 
   &__shareButtonFrame {
