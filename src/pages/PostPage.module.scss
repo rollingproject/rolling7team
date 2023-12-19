@@ -41,20 +41,20 @@ input[type="radio"]:checked + .form__label__background:after {
   transform: translate(-50%, -50%);
 }
 
-label[for="/src/assets/bgImg1.jpg"] {
-  @include label-style(url(../assets/bgImg1.jpg) no-repeat center / cover);
+label[for="bgImg1"] {
+  @include label-style(url(https://i.ibb.co/f2zR969/bgImg1.jpg) no-repeat center / cover);
 }
 
-label[for="/src/assets/bgImg2.jpg"] {
-  @include label-style(url(../assets/bgImg2.jpg) no-repeat center / cover);
+label[for="bgImg2"] {
+  @include label-style(url(https://i.ibb.co/6JWjMfM/bgImg2.jpg) no-repeat center / cover);
 }
 
-label[for="/src/assets/bgImg3.jpg"] {
-  @include label-style(url(../assets/bgImg3.jpg) no-repeat center / cover);
+label[for="bgImg3"] {
+  @include label-style(url(https://i.ibb.co/n8GJNT2/bgImg3.jpg) no-repeat center / cover);
 }
 
-label[for="/src/assets/bgImg4.jpg"] {
-  @include label-style(url(../assets/bgImg4.jpg) no-repeat center / cover);
+label[for="bgImg4"] {
+  @include label-style(url(https://i.ibb.co/8K7DwmZ/bgImg4.jpg) no-repeat center / cover);
 }
 
 .form {

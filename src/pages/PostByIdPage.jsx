@@ -11,6 +11,7 @@ import { changeBgColor } from "../post-by-id/ChangeBgColor";
 
 export const PostByIdPage = () => {
   const { recipientId } = useParams();
+  const pathToPost = `/post/${recipientId}/message`;
 
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -47,7 +48,7 @@ export const PostByIdPage = () => {
         />
       )}
       <CardByIdList>
-        <Link to="/post">
+        <Link to={pathToPost}>
           <CardButton />
         </Link>
         {posts?.map((post) => (
