@@ -3,8 +3,8 @@ import styles from "./KakaoShareModal.module.scss";
 
 function KakaoShareModal({
   setKakaoModalVisible,
-  isSuccessMessage,
   setSuccessMessage,
+  // isSuccessMessage,
 }) {
   const handleSuccessMessage = async () => {
     try {
@@ -12,11 +12,11 @@ function KakaoShareModal({
 
       await navigator.clipboard.writeText(urlToCopy);
 
-      console.log("URL 복사 성공, isSuccessMessage를 설정합니다.");
+      // console.log("URL 복사 성공, isSuccessMessage를 설정");
       setKakaoModalVisible(false);
       setSuccessMessage(true);
       setTimeout(() => {
-        console.log("5초 후, isSuccessMessage를 false로 설정합니다.");
+        // console.log("5초 후, isSuccessMessage를 false로 설정");
         setSuccessMessage(false);
       }, 5000);
     } catch (error) {
@@ -24,7 +24,7 @@ function KakaoShareModal({
     }
   };
 
-  console.log("isSuccessMessage", isSuccessMessage);
+  // console.log("isSuccessMessage", isSuccessMessage);
 
   return (
     <>

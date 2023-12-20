@@ -34,7 +34,7 @@ function ServiceNavigationBar({
   };
 
   const handleClickEmoji = () => {
-    setShowEmoji(!false);
+    setShowEmoji((prevShowEmoji) => !prevShowEmoji);
   };
 
   const handleArrowDropDownClick = () => {
@@ -42,13 +42,20 @@ function ServiceNavigationBar({
   };
 
   const handleShareButtonClick = () => {
+    setShowEmoji(false);
     setKakaoModalVisible(!isKakaoModalVisible);
+  };
+
+  const handleEmojiClose = () => {
+    setShowEmoji(false);
   };
 
   return (
     <>
       {isSuccessMessage && <Toast setSuccessMessage={setSuccessMessage} />}
-
+      {showEmoji && (
+        <div className={styles.document} onClick={handleEmojiClose} />
+      )}
       <div className={styles.nav}>
         <div className={styles.nav__service}>
           <p className={styles.nav__text}>To. {name}</p>
