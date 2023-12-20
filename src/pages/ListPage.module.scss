@@ -3,8 +3,9 @@
 @import "../styles/global.scss";
 
 #wrapper {
+  width: 1160px;
   text-align: center;
-  margin: 70px 380px;
+  margin: 70px auto;
 }
 
 .card_box_wrapper {
@@ -29,6 +30,7 @@
 }
 
 .card_box {
+  position: relative;
   display: flex;
   align-items: flex-start;
   width: 1160px;
@@ -48,10 +50,12 @@
   float: left;
 }
 
-.arrow_button {
+.arrow_button_left {
   position: absolute;
-  width: 16px;
-  height: 16px;
+  left: -15px;
+  top: 110px;
+  width: 30px;
+  height: 30px;
   flex-shrink: 0;
   fill: rgba(255, 255, 255, 0.9);
   stroke-width: 1px;
@@ -59,6 +63,23 @@
   filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.08));
   backdrop-filter: blur(2px);
   border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.90);
+}
+
+.arrow_button_right {
+  position: absolute;
+  right: -15px;
+  top: 110px;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  fill: rgba(255, 255, 255, 0.9);
+  stroke-width: 1px;
+  stroke: #dadcdf;
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.08));
+  backdrop-filter: blur(2px);
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.90);
 }
 
 .link_box {
@@ -76,6 +97,7 @@
   gap: 10px;
   border-radius: 12px;
   background: var(--Purple-600, #9935ff);
+  margin: 0 auto;
 }
 
 .text_in_button {

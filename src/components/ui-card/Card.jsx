@@ -1,33 +1,42 @@
-import React, {useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Card.module.scss";
 import { Link } from "react-router-dom";
 
 export default function Card({ item }) {
   const { id, backgroundColor, backgroundImageURL, name } = item;
+  const [emojiData, setEmojiData] = useState([]);
+
   const target = `/post/${id}`;
   const cardStyle = {};
   const fontColor = {};
-  const emoji = [];
 
   if (backgroundImageURL) {
     cardStyle.backgroundImage = `linear-gradient(180deg, rgba(0, 0, 0, 0.54) 0%, rgba(0, 0, 0, 0.54) 100%), url(${backgroundImageURL})`;
-    cardStyle.backgroundSize = 'cover';
-    fontColor.color = 'var(--white, #FFF)';
+    cardStyle.backgroundSize = "cover";
+    fontColor.color = "var(--white, #FFF)";
   }
 
-  {/*useEffect(() => {
-    (async function(){
-        const response = await fetch(`https://rolling-api.vercel.app/2-7/recipients/${item.id}/reactions/`);
-        const responseTwo = await response.json(); //responseTwo.result = 이모지를 가지고있는 객체를 요소로 가지는 배열
-    })() 
-  }, [])*/}
+  useEffect(() => {
+    (async () => {
+      const response = await fetch(
+        `https://rolling-api.vercel.app/2-7/recipients/${id}/reactions/`
+      );
+      const responseResult = await response.json();
+      setEmojiData((prevState) => [...prevState, ...responseResult.results]);
+    })();
+  }, []);
 
   return (
     <Link to={target}>
-      <div style={cardStyle} className={`${styles.card} ${styles[backgroundColor]}`}>
+      <div
+        style={cardStyle}
+        className={`${styles.card} ${styles[backgroundColor]}`}
+      >
         <div className={styles.card_inner}>
           <div className={styles.card_data}>
-            <p style={fontColor} className={styles.recipient}>To. {name}</p>
+            <p style={fontColor} className={styles.recipient}>
+              To. {name}
+            </p>
             <ul className={styles.img_box}>
               {item.recentMessages.map((sender) => (
                 <li key={sender.id}>
@@ -46,9 +55,14 @@ export default function Card({ item }) {
               명이 작성했어요!
             </p>
           </div>
-          <div className={styles.reaction_box}>
-            <ul>{/* reaction 추가 필요 */}</ul>
-          </div>
+          <ul className={styles.reaction_box}>
+            {emojiData.map((item) => (
+              <li className={styles.emoji_box}>
+                <span className={styles.emoji}>{item.emoji}</span>
+                <span className={styles.emoji_count}>{item.count}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </Link>
