@@ -53,14 +53,17 @@ function ProfileImgSelector({ messageData, setMessageData }) {
 
   return (
     <>
-      <label className={styles.profileContainer}>
-        <div>프로필 이미지</div>
-        <img className={styles.profileContainer__img} src={messageData.profileImageURL} />
-        <input className="imgInput" onChange={handleFileChange} type="file" accept="image/png, image/jpge" />
+      <div className={styles.form__div__title}>프로필 이미지</div>
+      <img className={styles.profileContainer__img} src={messageData.profileImageURL} />
+      <div className={styles.buttonContainer}>
+        <button type="button" id={styles.imgSelector}>
+          <input id={styles.imgInput} className="imgInput" onChange={handleFileChange} type="file" accept="image/png, image/jpeg" />
+          <label htmlFor={styles.imgInput}>파일 선택하기</label>
+        </button>
         <button onClick={handleProfileImgReset} type="button" className={styles.button__reset}>
           리셋
         </button>
-      </label>
+      </div>
     </>
   );
 }
@@ -72,8 +75,8 @@ function RelationSelector({ messageData, setMessageData }) {
 
   return (
     <>
-      <label>상대와의 관계</label>
-      <select name="" id="" onChange={handleSetRelationData}>
+      <label className={styles.form__label__title}>상대와의 관계</label>
+      <select className={styles.form__select} onChange={handleSetRelationData}>
         <option value="지인">지인</option>
         <option value="친구">친구</option>
         <option value="동료">동료</option>
@@ -90,8 +93,10 @@ function MessageEditor({ messageData, setMessageData }) {
 
   return (
     <>
-      <label htmlFor="">내용을 입력해 주세요</label>
-      <textarea onBlur={handleSetMessage} name="" id="" cols="30" rows="10"></textarea>
+      <label className={styles.form__label__title} htmlFor="textarea">
+        내용을 입력해 주세요
+      </label>
+      <textarea onBlur={handleSetMessage} name="" id="textarea" cols="30" rows="10"></textarea>
     </>
   );
 }
@@ -103,8 +108,8 @@ function FontSelector({ messageData, setMessageData }) {
 
   return (
     <>
-      <label>폰트 선택</label>
-      <select name="" id="" onChange={handleSetFont}>
+      <label className={styles.form__label__title}>폰트 선택</label>
+      <select className={styles.form__select} onChange={handleSetFont}>
         <option value="Noto Sans">Noto Sans</option>
         <option value="Pretendard">Pretendard</option>
         <option value="나눔명조">나눔명조</option>
