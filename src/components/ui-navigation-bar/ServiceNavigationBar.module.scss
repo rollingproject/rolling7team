@@ -55,6 +55,7 @@
     display: flex;
     position: absolute;
     margin-left: -6rem;
+
     margin-top: 0.5rem;
     justify-content: center;
   }
@@ -69,6 +70,8 @@
     height: 2.8rem;
     border-radius: 9999px;
     margin-top: -0.5rem;
+
+    border: 2px solid colors.$white;
   }
 
   &__writingNumberBox {
@@ -77,6 +80,8 @@
     width: 28px;
     height: 28px;
     background-image: url("../../assets/Ellipse.svg");
+    border: 1px solid colors.$gray-200;
+    border-radius: 9999px;
   }
 
   &__userNumber {

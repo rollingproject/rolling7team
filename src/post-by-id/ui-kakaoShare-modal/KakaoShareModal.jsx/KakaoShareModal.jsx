@@ -23,6 +23,7 @@ function KakaoShareModal({
       console.error("URL 복사 실패:", error);
     }
   };
+
   console.log("isSuccessMessage", isSuccessMessage);
 
   return (

@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import Nav from "./Nav.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -11,15 +10,15 @@ import { PostByIdEditPage } from "./pages/PostByIdEditPage.jsx";
 import { MessagePage } from "./pages/MessagePage.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-    <BrowserRouter>
-      <Nav />
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/list" element={<ListPage />} />
-        <Route path="/post/:recipientId" element={<PostByIdPage />} />
-        <Route path="/post/:recipientId/edit" element={<PostByIdEditPage />} />
-        <Route path="/post/:recipientId/message" element={<MessagePage />} />
-        <Route path="/post" element={<PostPage />} />
-      </Routes>
-    </BrowserRouter>
+  <BrowserRouter>
+    <Nav />
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/list" element={<ListPage />} />
+      <Route path="/post/:recipientId" element={<PostByIdPage />} />
+      <Route path="/post/:recipientId/edit" element={<PostByIdEditPage />} />
+      <Route path="/post/:recipientId/message" element={<MessagePage />} />
+      <Route path="/post" element={<PostPage />} />
+    </Routes>
+  </BrowserRouter>
 );
