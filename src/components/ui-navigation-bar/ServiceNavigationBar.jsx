@@ -122,13 +122,6 @@ function ServiceNavigationBar({
                   <div className={styles.nav__emojiAddButtonFrame}>
                     <img src={addIcon} alt="addIcon" />
                     <p className={styles.nav__emojiFont}>추가</p>
-                    {showEmoji && (
-                      <div className={styles.nav__pickerBox}>
-                        <div className={styles.nav__picker}>
-                          <EmojiPicker onEmojiClick={onEmojiClick} />
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </div>
 
@@ -151,6 +144,13 @@ function ServiceNavigationBar({
                   )}
                 </div>
               </div>
+              {showEmoji && (
+                <div className={styles.nav__pickerBox}>
+                  <div className={styles.nav__picker}>
+                    <EmojiPicker onEmojiClick={onEmojiClick} />
+                  </div>
+                </div>
+              )}
             </div>
             {""}
           </div>
