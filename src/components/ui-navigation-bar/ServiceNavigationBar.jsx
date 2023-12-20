@@ -29,12 +29,12 @@ function ServiceNavigationBar({
   // console.log(recentProfileImages);
 
   const onEmojiClick = (e) => {
-    setShowEmoji(false);
     setEmojiText(e.emoji);
+    setShowEmoji(false);
   };
 
   const handleClickEmoji = () => {
-    setShowEmoji(true);
+    setShowEmoji(!false);
   };
 
   const handleArrowDropDownClick = () => {
@@ -48,6 +48,7 @@ function ServiceNavigationBar({
   return (
     <>
       {isSuccessMessage && <Toast setSuccessMessage={setSuccessMessage} />}
+
       <div className={styles.nav}>
         <div className={styles.nav__service}>
           <p className={styles.nav__text}>To. {name}</p>
@@ -120,10 +121,12 @@ function ServiceNavigationBar({
                 >
                   <div className={styles.nav__emojiAddButtonFrame}>
                     <img src={addIcon} alt="addIcon" />
-                    <p>추가</p>
+                    <p className={styles.nav__emojiFont}>추가</p>
                     {showEmoji && (
-                      <div className={styles.picker}>
-                        <EmojiPicker onEmojiClick={onEmojiClick} />
+                      <div className={styles.nav__pickerBox}>
+                        <div className={styles.nav__picker}>
+                          <EmojiPicker onEmojiClick={onEmojiClick} />
+                        </div>
                       </div>
                     )}
                   </div>

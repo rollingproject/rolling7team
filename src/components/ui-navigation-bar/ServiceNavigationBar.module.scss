@@ -219,11 +219,11 @@
     gap: 4px;
   }
 
-  .pickerBox {
+  &__pickerBox {
     position: relative;
   }
 
-  .picker {
+  &__picker {
     top: 4.6rem;
     right: 13rem;
     position: absolute; // 상위에 position: relative;
@@ -231,5 +231,10 @@
     height: 40rem;
     background-color: #fff;
     border-radius: 1.2rem;
+  }
+
+  &__emojiFont {
+    font-size: 1.5rem;
+    font-weight: 500;
   }
 }
