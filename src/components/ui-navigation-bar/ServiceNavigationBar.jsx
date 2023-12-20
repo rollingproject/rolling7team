@@ -21,7 +21,6 @@ function ServiceNavigationBar({
 
   // 최대 3개까지만 표시되도록 slice 사용
   const displayedReactions = reactions.slice(0, 3);
-  console.log(name);
   // console.log(reactions);
   // console.log(recentProfileImages);
 
