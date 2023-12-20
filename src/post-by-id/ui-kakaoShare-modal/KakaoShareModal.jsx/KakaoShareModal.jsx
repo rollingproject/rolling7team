@@ -1,3 +1,4 @@
+import KakaoApi from "../../../post/data-access-post/kakaoApi";
 import styles from "./KakaoShareModal.module.scss";
 
 function KakaoShareModal({
@@ -22,15 +23,14 @@ function KakaoShareModal({
       console.error("URL 복사 실패:", error);
     }
   };
+
   console.log("isSuccessMessage", isSuccessMessage);
 
   return (
     <>
       <div className={styles.kakaoURLShareBox}>
         <ul className={styles.kakaoURLShareFrame}>
-          <button>
-            <li className={styles.kakaoURLShare}>카카오톡 공유</li>
-          </button>
+          <KakaoApi />
           <button>
             <li className={styles.kakaoURLShare} onClick={handleSuccessMessage}>
               URL 공유
