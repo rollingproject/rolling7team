@@ -11,7 +11,6 @@ import { PostByIdEditPage } from "./pages/PostByIdEditPage.jsx";
 import { MessagePage } from "./pages/MessagePage.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
     <BrowserRouter>
       <Nav />
       <Routes>
@@ -23,5 +22,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/post" element={<PostPage />} />
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>
 );

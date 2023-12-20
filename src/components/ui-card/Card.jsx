@@ -16,7 +16,7 @@ export default function Card({ item }) {
     fontColor.color = "var(--white, #FFF)";
   }
 
-  useEffect(() => {
+  {/*useEffect(() => {
     (async () => {
       const response = await fetch(
         `https://rolling-api.vercel.app/2-7/recipients/${id}/reactions/`
@@ -24,7 +24,7 @@ export default function Card({ item }) {
       const responseResult = await response.json();
       setEmojiData((prevState) => [...prevState, ...responseResult.results]);
     })();
-  }, []);
+  }, []);*/}
 
   return (
     <Link to={target}>
