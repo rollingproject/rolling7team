@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { InputName } from "../components/inputs/InputName";
 import styles from "./MessagePage.module.scss";
-import defaultProfile from "../assets/defaultProfile.png";
 import { CreateMessage } from "../components/buttons/CreateMessage";
 import axios from "axios";
+const DEFAULT_PROFILE_URL = "https://i.ibb.co/RBZ4fWT/default-Profile.png";
 
 function createFileName() {
   const now = new Date();
@@ -45,12 +45,21 @@ function ProfileImgSelector({ messageData, setMessageData }) {
     });
   }
 
+  function handleProfileImgReset(e) {
+    const inputElement = document.querySelector(".imgInput");
+    inputElement.value = null;
+    setMessageData({ ...messageData, profileImageURL: DEFAULT_PROFILE_URL });
+  }
+
   return (
     <>
       <label className={styles.profileContainer}>
         <div>프로필 이미지</div>
         <img className={styles.profileContainer__img} src={messageData.profileImageURL} />
-        <input onChange={handleFileChange} type="file" accept="image/png, image/jpge" />
+        <input className="imgInput" onChange={handleFileChange} type="file" accept="image/png, image/jpge" />
+        <button onClick={handleProfileImgReset} type="button" className={styles.button__reset}>
+          리셋
+        </button>
       </label>
     </>
   );
@@ -108,7 +117,7 @@ function FontSelector({ messageData, setMessageData }) {
 export function MessagePage() {
   const [messageData, setMessageData] = useState({
     sender: "",
-    profileImageURL: defaultProfile,
+    profileImageURL: DEFAULT_PROFILE_URL,
     relationship: "지인",
     content: "",
     font: "Noto Sans",
