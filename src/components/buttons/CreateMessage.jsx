@@ -2,13 +2,14 @@ import { axiosInstance } from "../util/axiosInstance";
 import styles from "./CreatePost.module.scss";
 import { useNavigate } from "react-router-dom";
 
-export function CreateMessage({ messageData }) {
+export function CreateMessage({ messageData, isActivated }) {
   const navigate = useNavigate();
   const path = window.location.pathname;
   const id = path.split("/")[2];
 
   async function handleMessageToApi(e) {
     e.preventDefault();
+    if (!isActivated) return;
 
     await axiosInstance
       .post(`recipients/${id}/messages/`, {
@@ -28,7 +29,8 @@ export function CreateMessage({ messageData }) {
 
   return (
     <button onClick={handleMessageToApi} className={styles.Form__button} disabled={false}>
-      생성하기
+      {!isActivated ? "이름과 내용을 확인하세요." : "생성하기"}
+      {!isActivated && <div className={styles.button__div__disabled}></div>}
     </button>
   );
 }
