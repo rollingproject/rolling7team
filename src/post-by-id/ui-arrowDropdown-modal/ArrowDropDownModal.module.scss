@@ -2,25 +2,44 @@
 @use "../../styles/mixin.scss";
 
 .arrowDropDownModal {
-  display: grid;
-  gap: 0.8rem 1rem;
-  grid-template-columns: repeat(4, 6.6rem);
-  grid-template-rows: 3.6rem;
+  display: flex;
+  column-gap: 0.8rem;
+  row-gap: 1rem;
+  flex-wrap: wrap;
 
   position: absolute;
-  top: 6.3rem;
-  right: 2rem;
+  top: 4.4rem;
+  right: -0.8rem;
+  padding: 2.4rem 2.2rem;
 
-  margin: 0px;
-  vertical-align: baseline;
-  padding: 2.4rem;
+  // height: 13.4rem;
+  width: 31.2rem;
 
-  box-sizing: border-box;
   border-radius: 0.8rem;
   border: 0.1rem solid rgb(182, 182, 182);
   background-color: colors.$white;
   box-shadow: rgba(0, 0, 0, 0.08) 0rem 0.2rem 1.2rem 0rem;
 
-  line-height: 1;
-  font-size: 62.5%;
+  &__badgeEmoji {
+    height: 3.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 0 1.2rem;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 21px;
+    color: colors.$white;
+    border-radius: 3.2rem;
+    background: rgba(0, 0, 0, 0.54);
+  }
 }
+
+// &__reactionBox {
+//   display: flex;
+//   margin-top: 0.1rem;
+//   justify-content: flex-end;
+//   align-items: center;
+//   gap: 8px;
+// }

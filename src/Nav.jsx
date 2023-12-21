@@ -54,6 +54,7 @@ function Nav() {
       <NavigationBar />
       {isPostPage && (
         <ServiceNavigationBar
+          userId={userId}
           name={name}
           plusNumber={plusNumber}
           messageCount={messageCount}
