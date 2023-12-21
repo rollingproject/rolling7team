@@ -64,6 +64,17 @@ export default function Card({ item }) {
                       src={data.profileImageURL}
                     ></img>
                   </li>
+                ) : index === 3 ? (
+                  <li
+                    key={data.id}
+                    style={{ position: "relative", right: `${index * 10}px` }}
+                  >
+                    <div className={styles.remainder}>
+                      <span className={styles.remainder_text}>
+                        +{item.messageCount - 3}
+                      </span>
+                    </div>
+                  </li>
                 ) : undefined
               )}
             </ul>
@@ -84,14 +95,20 @@ export default function Card({ item }) {
               명이 작성했어요!
             </p>
           </div>
-          <ul className={styles.reaction_box}>
-            {emojiList.map((item, index) => (index < 3 ?
-              <li key={item.id} className={styles.emoji_box}>
-                <span className={styles.emoji}>{item.emoji}</span>
-                <span className={styles.emoji_count}>{item.count}</span>
-              </li> : undefined
-            ))}
-          </ul>
+          <div className={styles.reaction_box_wrapper}>
+            <div className={styles.reaction_box_top}>
+              <ul className={styles.reaction_box}>
+                {emojiList.map((item, index) =>
+                  index < 3 ? (
+                    <li key={item.id} className={styles.emoji_box}>
+                      <span className={styles.emoji}>{item.emoji}</span>
+                      <span className={styles.emoji_count}>{item.count}</span>
+                    </li>
+                  ) : undefined
+                )}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </Link>
