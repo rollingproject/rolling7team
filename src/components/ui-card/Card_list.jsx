@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "./Card.module.scss";
+import styles from "./Card_list.module.scss";
 import { Link } from "react-router-dom";
 
 export default function Card({ item }) {
@@ -29,7 +29,7 @@ export default function Card({ item }) {
       setEmojiList((prevState) => [
         ...prevState,
         ...emojiListDataResult.results,
-      ]);
+      ]); 
     })();
   }, []);
 
