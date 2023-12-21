@@ -15,7 +15,7 @@ export const usePostReactions = (id, recipient_id, emoji, type) => {
 
 export const useGetReactionsList = (recipient_id) => {
   const getReactionsList = () =>
-    axiosInstance.get(`recipients/${recipient_id}/reactions/?limit=2&offset=3`);
+    axiosInstance.get(`recipients/${recipient_id}/reactions/?limit=8&offset=0`);
   return useApiRequest(getReactionsList);
 };
 
