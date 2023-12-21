@@ -59,7 +59,6 @@
 .left_arrow_box {
   background-image: url("../assets/Ellipse.jpg");
   border: 1px solid rgb(177, 167, 167);
-
   cursor: pointer;
   background: colors.$white;
   opacity: 0.9;
@@ -68,7 +67,6 @@
   stroke: #dadcdf;
   filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.08));
   backdrop-filter: blur(2px);
-
   position: absolute;
   left: -20px;
   top: 110px;
@@ -87,7 +85,6 @@
 .right_arrow_box {
   background-image: url("../assets/Ellipse.jpg");
   border: 1px solid rgb(177, 167, 167);
-
   cursor: pointer;
   background: colors.$white;
   opacity: 0.9;
@@ -96,7 +93,6 @@
   stroke: #dadcdf;
   filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.08));
   backdrop-filter: blur(2px);
-
   position: absolute;
   right: -20px;
   top: 110px;

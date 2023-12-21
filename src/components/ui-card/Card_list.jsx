@@ -29,7 +29,7 @@ export default function Card({ item }) {
       setEmojiList((prevState) => [
         ...prevState,
         ...emojiListDataResult.results,
-      ]);
+      ]); 
     })();
   }, []);
 

@@ -7,6 +7,12 @@ import styles from "./ListPage.module.scss";
 
 export function ListPage() {
   const [data, setData] = useState({ cardData: [], count: 0, arrow: false });
+  const [showArrow, setShowArrow] = useState([
+    { overLeft: false, overRight: true },
+    { underLeft: false, underRight: true },
+  ]);
+  const overBox = useRef();
+  const underBox = useRef();
 
   useEffect(() => {
     (async () => {
@@ -50,13 +56,33 @@ export function ListPage() {
     });
   }
 
+  function overBoxScroll() {
+    setShowArrow((prevState) => [
+      ...prevState,
+      (prevState[0].overLeft = overBox.current.scrollLeft !== 0),
+      (prevState[0].overRight = overBox.current.scrollLeft + overBox.current.clientWidth !== overBox.current.scrollWidth),
+    ]);
+  }
+
+  function underBoxScroll() {
+    setShowArrow((prevState) => [
+      ...prevState,
+      (prevState[1].underLeft = underBox.current.scrollLeft !== 0),
+      (prevState[1].underRight = underBox.current.scrollLeft + underBox.current.clientWidth !== underBox.current.scrollWidth),
+    ]);
+  }
+
   return (
     <div id={styles.wrapper}>
       <div className={styles.card_box_wrapper}>
         <p className={styles.heading}>인기 롤링 페이퍼 🔥</p>
         <div className={styles.card_box}>
-          <ul className={styles.card_box_inner}>
-            {data.arrow ? (
+          <ul
+            className={styles.card_box_inner}
+            ref={overBox}
+            onScroll={overBoxScroll}
+          >
+            {data.arrow && showArrow[0].overLeft ? (
               <div
                 className={styles.left_arrow_box}
                 onClick={(e) => LeftScroll(e)}
@@ -75,7 +101,7 @@ export function ListPage() {
                   <Card item={item}></Card>
                 </li>
               ))}
-            {data.arrow ? (
+            {data.arrow && showArrow[0].overRight ? (
               <div
                 className={styles.right_arrow_box}
                 onClick={(e) => RightScroll(e)}
@@ -93,8 +119,12 @@ export function ListPage() {
       <div className={styles.card_box_wrapper}>
         <p className={styles.heading}>최근에 만든 롤링 페이퍼 ⭐️️</p>
         <div className={styles.card_box}>
-          <ul className={styles.card_box_inner}>
-            {data.arrow ? (
+          <ul
+            className={styles.card_box_inner}
+            ref={underBox}
+            onScroll={underBoxScroll}
+          >
+            {data.arrow && showArrow[1].underLeft ? (
               <div
                 className={styles.left_arrow_box}
                 onClick={(e) => LeftScroll(e)}
@@ -113,7 +143,7 @@ export function ListPage() {
                   <Card item={item}></Card>
                 </li>
               ))}
-            {data.arrow ? (
+            {data.arrow && showArrow[1].underRight ? (
               <div
                 className={styles.right_arrow_box}
                 onClick={(e) => RightScroll(e)}
