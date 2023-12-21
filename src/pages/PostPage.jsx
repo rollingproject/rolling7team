@@ -12,8 +12,8 @@ function SelectBackground({ backgroundType, userData, setUserData }) {
     bgImg3: "https://i.ibb.co/n8GJNT2/bgImg3.jpg",
     bgImg4: "https://i.ibb.co/8K7DwmZ/bgImg4.jpg",
   };
-
-  const backgrounds = backgroundType === "color" ? colors : imgs;
+  const isColor = backgroundType === "color";
+  const backgrounds = isColor ? colors : imgs;
 
   function handleSetUserData(e) {
     const selected = e.target.htmlFor;
@@ -40,7 +40,9 @@ function SelectBackground({ backgroundType, userData, setUserData }) {
           return (
             <Fragment key={background}>
               <input id={background} type="radio" name="background" defaultChecked={index == 0} />
-              <label htmlFor={background} onClick={handleSetUserData} className={styles.form__label__background}></label>
+              <label htmlFor={background} onClick={handleSetUserData} className={styles.form__label__background}>
+                {!isColor && <div className={styles.form__div__selectedImg}></div>}
+              </label>
             </Fragment>
           );
         })}
@@ -92,10 +94,12 @@ export function PostPage() {
     backgroundColor: "beige",
     backgroundImageURL: "",
   });
+  const [isActivated, setIsActivated] = useState(false);
 
   useEffect(() => {
-    console.log(userData);
-  }, [userData]);
+    setIsActivated(userData.name ? true : false);
+    console.log(userData.name);
+  }, [userData.name]);
 
   return (
     <form className={styles.form} action="">
@@ -106,7 +110,9 @@ export function PostPage() {
       <p className={styles.p}>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
       <SelectColorOrImg userData={userData} setUserData={setUserData} setBackgroundType={setBackgroundType} />
       <SelectBackground userData={userData} setUserData={setUserData} backgroundType={backgroundType} />
-      <CreatePost userData={userData}>생성하기</CreatePost>
+      <CreatePost isActivated={isActivated} userData={userData}>
+        생성하기
+      </CreatePost>
     </form>
   );
 }

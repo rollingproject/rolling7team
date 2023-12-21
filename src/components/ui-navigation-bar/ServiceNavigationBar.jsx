@@ -18,6 +18,8 @@ function ServiceNavigationBar({
   reactions,
   recentProfileImages,
 }) {
+  const sortedReactions = reactions?.sort((a, b) => b.count - a.count);
+
   const [emojiText, setEmojiText] = useState("");
   const [showEmoji, setShowEmoji] = useState(false);
 
@@ -26,7 +28,7 @@ function ServiceNavigationBar({
   const [isSuccessMessage, setSuccessMessage] = useState(false);
 
   // 최대 3개까지만 표시되도록 slice 사용
-  const displayedReactions = reactions.slice(0, 3);
+  const displayedReactions = sortedReactions.slice(0, 3);
 
   const onEmojiClick = (e) => {
     setEmojiText(e.emoji);
@@ -36,7 +38,7 @@ function ServiceNavigationBar({
     axiosInstance
       .post(`recipients/${userId}/reactions/`, body)
       .then((response) => console.log("이모지 등록 성공", response))
-      .catch((error) => console.error("이모지 등록 실패했습니다.", error));
+      .catch((error) => console.log("이모지 등록 실패했습니다.", error));
   };
 
   const handleClickEmoji = () => {
@@ -54,12 +56,13 @@ function ServiceNavigationBar({
 
   const handleEmojiClose = () => {
     setShowEmoji(false);
+    setArrowDropDown(false);
   };
 
   return (
     <>
       {isSuccessMessage && <Toast setSuccessMessage={setSuccessMessage} />}
-      {showEmoji && (
+      {(showEmoji || isArrowDropDown) && (
         <div className={styles.document} onClick={handleEmojiClose} />
       )}
       <div className={styles.nav}>
@@ -121,10 +124,14 @@ function ServiceNavigationBar({
                     className={styles.nav__arrowBox}
                     onClick={handleArrowDropDownClick}
                   >
-                    <img src={arrowDown} alt="arrowDown" />
+                    <img
+                      src={arrowDown}
+                      alt="arrowDown"
+                      style={isArrowDropDown ? { transform: "scaleY(-1)" } : {}}
+                    />
                   </button>
                   {isArrowDropDown && (
-                    <ArrowDropDownModal reactions={reactions} />
+                    <ArrowDropDownModal sortedReactions={sortedReactions} />
                   )}
                 </div>
               </div>
@@ -167,7 +174,6 @@ function ServiceNavigationBar({
                 </div>
               )}
             </div>
-            {""}
           </div>
         </div>
       </div>

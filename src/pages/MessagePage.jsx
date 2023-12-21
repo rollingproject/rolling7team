@@ -127,12 +127,17 @@ export function MessagePage() {
     content: "",
     font: "Noto Sans",
   });
-
   const isMessage = true;
 
+  const [isActivated, setIsActivated] = useState(false);
+
   useEffect(() => {
-    createFileName();
-  }, [messageData]);
+    if (messageData.sender && messageData.content) {
+      setIsActivated(true);
+    } else {
+      setIsActivated(false);
+    }
+  }, [messageData.sender, messageData.content]);
 
   return (
     <form className={styles.form} action="">
@@ -143,7 +148,7 @@ export function MessagePage() {
       <RelationSelector messageData={messageData} setMessageData={setMessageData} />
       <MessageEditor messageData={messageData} setMessageData={setMessageData} />
       <FontSelector messageData={messageData} setMessageData={setMessageData} />
-      <CreateMessage messageData={messageData} />
+      <CreateMessage isActivated={isActivated} messageData={messageData} />
     </form>
   );
 }
