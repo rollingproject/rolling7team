@@ -9,7 +9,7 @@ export default function Card({ item }) {
   const isImg = {};
 
   backgroundImageURL
-    ? (isImg.backgroundImage = `url(${backgroundImageURL})`) //linear-gradient(180deg, rgba(0, 0, 0, 0.54) 0%, rgba(0, 0, 0, 0.54) 100%)
+    ? (isImg.backgroundImage = `linear-gradient(180deg, rgba(0, 0, 0, 0.54) 0%, rgba(0, 0, 0, 0.54) 100%), url(${backgroundImageURL})`)
     : {};
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function Card({ item }) {
       <div
         style={isImg}
         className={`${styles.card} ${
-          backgroundImageURL ? styles["bg_isImg"] : styles[backgroundColor] //배경이 사진일시 밝기 조절 이슈
+          backgroundImageURL ? styles["bg_isImg"] : styles[backgroundColor]
         }`}
       >
         <div className={styles.card_inner}>
