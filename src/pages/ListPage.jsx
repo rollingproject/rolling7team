@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import Card from "../components/ui-card/Card";
+import Card from "../components/ui-card/Card.jsx";
 import arrow_left from "../assets/arrow_left.svg";
 import arrow_right from "../assets/arrow_right.svg";
 import styles from "./ListPage.module.scss";
@@ -41,7 +41,7 @@ export function ListPage() {
       behavior: "smooth",
     });
   }
-  
+
   function RightScroll(e) {
     const scrollDistance = 295;
     e.target.parentNode.parentNode.scrollTo({

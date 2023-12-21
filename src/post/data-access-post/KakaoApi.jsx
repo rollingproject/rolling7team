@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import styles from "./KakaoShareModal.module.scss";
-import { useGetMessagesList } from "./messageApi";
+import { useGetMessagesList } from "./messageApi.js";
 
 function KakaoApi() {
   const { Kakao } = window;

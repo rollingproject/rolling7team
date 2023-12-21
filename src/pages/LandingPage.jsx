@@ -1,4 +1,4 @@
-import { LinkToNextPage } from "../components/buttons/LinkToNextPage";
+import { LinkToNextPage } from "../components/buttons/LinkToNextPage.jsx";
 import styles from "./LandingPage.module.scss";
 
 export function LandingPage() {
@@ -27,7 +27,9 @@ export function LandingPage() {
             <br className={styles.text__br} />
             표현해보세요
           </h2>
-          <p className={styles.text__p}>롤링 페이퍼에 이모지를 추가할 수 있어요.</p>
+          <p className={styles.text__p}>
+            롤링 페이퍼에 이모지를 추가할 수 있어요.
+          </p>
         </div>
       </section>
 

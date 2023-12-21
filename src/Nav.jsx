@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import NavigationBar from "./components/ui-navigation-bar/NavigationBar";
-import ServiceNavigationBar from "./components/ui-navigation-bar/ServiceNavigationBar";
-import { useGetReactionsList } from "./post/data-access-post/reactionApi";
-import { useGetRecipient } from "./post/data-access-post/recipientsApi";
+import NavigationBar from "./components/ui-navigation-bar/NavigationBar.jsx";
+import ServiceNavigationBar from "./components/ui-navigation-bar/ServiceNavigationBar.jsx";
+import { useGetReactionsList } from "./post/data-access-post/reactionApi.js";
+import { useGetRecipient } from "./post/data-access-post/recipientsApi.js";
 import { useLocation } from "react-router-dom";
 
 function Nav() {
