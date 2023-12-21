@@ -3,66 +3,112 @@ import styles from "./Card.module.scss";
 import { Link } from "react-router-dom";
 
 export default function Card({ item }) {
+  const [messageList, setMessageList] = useState([]);
+  const [emojiList, setEmojiList] = useState([]);
   const { id, backgroundColor, backgroundImageURL, name } = item;
-  const [emojiData, setEmojiData] = useState([]);
+  const isImg = {};
 
-  const target = `/post/${id}`;
-  const cardStyle = {};
-  const fontColor = {};
+  backgroundImageURL
+    ? (isImg.backgroundImage = `url(${backgroundImageURL})`)
+    : {};
 
-  if (backgroundImageURL) {
-    cardStyle.backgroundImage = `linear-gradient(180deg, rgba(0, 0, 0, 0.54) 0%, rgba(0, 0, 0, 0.54) 100%), url(${backgroundImageURL})`;
-    cardStyle.backgroundSize = "cover";
-    fontColor.color = "var(--white, #FFF)";
-  }
-
-  {/*useEffect(() => {
+  useEffect(() => {
     (async () => {
-      const response = await fetch(
+      const messageListData = await fetch(
+        `https://rolling-api.vercel.app/2-7/recipients/${id}/messages/`
+      );
+      const messageListDataResult = await messageListData.json();
+      setMessageList((prevState) => [
+        ...prevState,
+        ...messageListDataResult.results,
+      ]);
+      const emojiListData = await fetch(
         `https://rolling-api.vercel.app/2-7/recipients/${id}/reactions/`
       );
-      const responseResult = await response.json();
-      setEmojiData((prevState) => [...prevState, ...responseResult.results]);
+      const emojiListDataResult = await emojiListData.json();
+      setEmojiList((prevState) => [
+        ...prevState,
+        ...emojiListDataResult.results,
+      ]);
     })();
-  }, []);*/}
+  }, []);
 
   return (
-    <Link to={target}>
+    <Link to={`/post/${id}`}>
       <div
-        style={cardStyle}
-        className={`${styles.card} ${styles[backgroundColor]}`}
+        style={isImg}
+        className={`${styles.card} ${
+          backgroundImageURL ? styles["bg_isImg"] : styles[backgroundColor]
+        }`}
       >
         <div className={styles.card_inner}>
           <div className={styles.card_data}>
-            <p style={fontColor} className={styles.recipient}>
+            <p
+              className={`${
+                backgroundImageURL
+                  ? styles["white_recipient"]
+                  : styles["recipient"]
+              }`}
+            >
               To. {name}
             </p>
             <ul className={styles.img_box}>
-              {item.recentMessages.map((sender) => (
-                <li key={sender.id}>
-                  <img
-                    className={`${styles.profile_image} ${styles.profile_image_1}`}
-                    src={sender.profileImageURL}
-                    alt={`Profile of ${sender.name}`}
-                  ></img>
-                </li>
-              ))}
+              {messageList.map((data, index) =>
+                index < 3 ? (
+                  <li
+                    key={data.id}
+                    style={{ position: "relative", right: `${index * 10}px` }}
+                  >
+                    <img
+                      className={styles.profile_image}
+                      src={data.profileImageURL}
+                    ></img>
+                  </li>
+                ) : index === 3 ? (
+                  <li
+                    key={data.id}
+                    style={{ position: "relative", right: `${index * 10}px` }}
+                  >
+                    <div className={styles.remainder}>
+                      <span className={styles.remainder_text}>
+                        +{item.messageCount - 3}
+                      </span>
+                    </div>
+                  </li>
+                ) : undefined
+              )}
             </ul>
-            <p style={fontColor} className={styles.alert}>
-              <span style={fontColor} className={styles.count_in_alert}>
+            <p
+              className={`${
+                backgroundImageURL ? styles["white_alert"] : styles["alert"]
+              }`}
+            >
+              <span
+                className={`${
+                  backgroundImageURL
+                    ? styles["white_count_alert"]
+                    : styles["count_alert"]
+                }`}
+              >
                 {item.messageCount}
               </span>
               명이 작성했어요!
             </p>
           </div>
-          <ul className={styles.reaction_box}>
-            {emojiData.map((item) => (
-              <li className={styles.emoji_box}>
-                <span className={styles.emoji}>{item.emoji}</span>
-                <span className={styles.emoji_count}>{item.count}</span>
-              </li>
-            ))}
-          </ul>
+          <div className={styles.reaction_box_wrapper}>
+            <div className={styles.reaction_box_top}>
+              <ul className={styles.reaction_box}>
+                {emojiList.map((item, index) =>
+                  index < 3 ? (
+                    <li key={item.id} className={styles.emoji_box}>
+                      <span className={styles.emoji}>{item.emoji}</span>
+                      <span className={styles.emoji_count}>{item.count}</span>
+                    </li>
+                  ) : undefined
+                )}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </Link>
