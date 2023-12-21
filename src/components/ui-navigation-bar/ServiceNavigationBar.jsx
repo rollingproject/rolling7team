@@ -8,8 +8,10 @@ import KakaoShareModal from "../../post-by-id/ui-kakaoShare-modal/KakaoShareModa
 import ArrowDropDownModal from "../../post-by-id/ui-arrowDropdown-modal/arrowDropDownModal";
 import Toast from "../../post-by-id/ui-share-toast/Toast";
 import EmojiPicker from "emoji-picker-react";
+import { axiosInstance } from "../util/axiosInstance";
 
 function ServiceNavigationBar({
+  userId,
   name,
   plusNumber,
   messageCount,
@@ -25,12 +27,16 @@ function ServiceNavigationBar({
 
   // 최대 3개까지만 표시되도록 slice 사용
   const displayedReactions = reactions.slice(0, 3);
-  // console.log(reactions);
-  // console.log(recentProfileImages);
 
   const onEmojiClick = (e) => {
     setEmojiText(e.emoji);
     setShowEmoji(false);
+
+    const body = { emoji: e.emoji, type: "increase" };
+    axiosInstance
+      .post(`recipients/${userId}/reactions/`, body)
+      .then((response) => console.log("이모지 등록 성공", response))
+      .catch((error) => console.error("이모지 등록 실패했습니다.", error));
   };
 
   const handleClickEmoji = () => {
@@ -104,10 +110,10 @@ function ServiceNavigationBar({
                   {displayedReactions.map(({ id, emoji, count }) => (
                     <div key={id} className={styles.nav__badgeEmoji}>
                       {emoji}
-                      {count}
+                      <p>{count}</p>
                     </div>
                   ))}
-                  <div>{emojiText}</div>
+                  {/* <div>{emojiText}</div> */}
                 </div>
 
                 <div className={styles.nav__arrowContainer}>
@@ -117,7 +123,9 @@ function ServiceNavigationBar({
                   >
                     <img src={arrowDown} alt="arrowDown" />
                   </button>
-                  {isArrowDropDown && <ArrowDropDownModal />}
+                  {isArrowDropDown && (
+                    <ArrowDropDownModal reactions={reactions} />
+                  )}
                 </div>
               </div>
 
