@@ -26,7 +26,7 @@
 }
 
 .card_box::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera*/
+  display: none; // Chrome, Safari, Opera
 }
 
 .card_box {
@@ -35,8 +35,6 @@
   align-items: flex-start;
   width: 1160px;
   height: 280px;
-  overflow-x: auto;
-  white-space: nowrap;
 }
 
 .card_box_inner {
@@ -44,43 +42,57 @@
   display: flex;
   gap: 20px;
   padding: 0px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none; // Firefox
+  -ms-overflow-style: none; // IE/Edge
+}
+
+.card_box_inner::-webkit-scrollbar {
+  display: none; // WebKit (Chrome, Safari 등)
 }
 
 .card {
   float: left;
 }
 
-.arrow_button_left {
+/*-----------------------------------------------------------------*/
+.left_arrow_box {
+  background-image: url('../../assets/Ellipse.jpg');
+  background-size: cover;
   position: absolute;
-  left: -15px;
+  left: -20px;
   top: 110px;
-  width: 30px;
-  height: 30px;
-  flex-shrink: 0;
-  fill: rgba(255, 255, 255, 0.9);
-  stroke-width: 1px;
-  stroke: #dadcdf;
-  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.08));
-  backdrop-filter: blur(2px);
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.90);
 }
 
-.arrow_button_right {
-  position: absolute;
-  right: -15px;
-  top: 110px;
-  width: 30px;
-  height: 30px;
+.left_arrow_button {
+  width: 16px;
+  height: 16px;
   flex-shrink: 0;
-  fill: rgba(255, 255, 255, 0.9);
-  stroke-width: 1px;
-  stroke: #dadcdf;
-  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.08));
-  backdrop-filter: blur(2px);
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.90);
+  margin: 10px 10px;
 }
+
+.right_arrow_box {
+  background-image: url('../../assets/Ellipse.jpg');
+  position: absolute;
+  right: -20px;
+  top: 110px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.right_arrow_button {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin: 10px 10px;
+}
+
+/*-----------------------------------------------------------------*/
 
 .link_box {
   display: flex;
