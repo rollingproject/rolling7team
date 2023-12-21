@@ -58,10 +58,7 @@ function ProfileImgSelector({ messageData, setMessageData }) {
     <>
       <div className={styles.form__div__title}>프로필 이미지</div>
       <div className={styles.profileContainer}>
-        <img
-          className={styles.profileContainer__img}
-          src={messageData.profileImageURL}
-        />
+        <img className={styles.profileContainer__img} src={messageData.profileImageURL} />
         <div className={styles.descriptAndButton}>
           <p>
             프로필 이미지를 선택하세요.
@@ -70,20 +67,10 @@ function ProfileImgSelector({ messageData, setMessageData }) {
           </p>
           <div>
             <button type="button" id={styles.imgSelector}>
-              <input
-                id={styles.imgInput}
-                className="imgInput"
-                onChange={handleFileChange}
-                type="file"
-                accept="image/png, image/jpeg"
-              />
+              <input id={styles.imgInput} className="imgInput" onChange={handleFileChange} type="file" accept="image/png, image/jpeg" />
               <label htmlFor={styles.imgInput}>파일 선택하기</label>
             </button>
-            <button
-              onClick={handleProfileImgReset}
-              type="button"
-              className={styles.button__reset}
-            >
+            <button onClick={handleProfileImgReset} type="button" className={styles.button__reset}>
               리셋
             </button>
           </div>
@@ -121,13 +108,7 @@ function MessageEditor({ messageData, setMessageData }) {
       <label className={styles.form__label__title} htmlFor="textarea">
         내용을 입력해 주세요
       </label>
-      <textarea
-        onBlur={handleSetMessage}
-        name=""
-        id="textarea"
-        cols="30"
-        rows="10"
-      ></textarea>
+      <textarea onChange={handleSetMessage} name="" id="textarea" cols="30" rows="10"></textarea>
     </>
   );
 }
@@ -172,25 +153,12 @@ export function MessagePage() {
 
   return (
     <form className={styles.form} action="">
-      <InputName
-        isMessage={isMessage}
-        userData={messageData}
-        setUserInputData={setMessageData}
-      >
+      <InputName isMessage={isMessage} userData={messageData} setUserInputData={setMessageData}>
         From.
       </InputName>
-      <ProfileImgSelector
-        messageData={messageData}
-        setMessageData={setMessageData}
-      />
-      <RelationSelector
-        messageData={messageData}
-        setMessageData={setMessageData}
-      />
-      <MessageEditor
-        messageData={messageData}
-        setMessageData={setMessageData}
-      />
+      <ProfileImgSelector messageData={messageData} setMessageData={setMessageData} />
+      <RelationSelector messageData={messageData} setMessageData={setMessageData} />
+      <MessageEditor messageData={messageData} setMessageData={setMessageData} />
       <FontSelector messageData={messageData} setMessageData={setMessageData} />
       <CreateMessage isActivated={isActivated} messageData={messageData} />
     </form>

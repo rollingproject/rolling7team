@@ -18,7 +18,7 @@ export function InputName({ children, setUserInputData, userData, isMessage }) {
       <label className={styles.label__name} htmlFor="InputName">
         {children}
       </label>
-      <input onBlur={handleInputNameValue} onKeyDown={handlePressEnter} className={styles.input__name} id="InputName" type="text" name="name" />
+      <input onChange={handleInputNameValue} onKeyDown={handlePressEnter} className={styles.input__name} id="InputName" type="text" name="name" />
     </>
   );
 }

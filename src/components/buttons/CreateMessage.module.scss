@@ -8,7 +8,7 @@
   border-radius: 12px;
   color: colors.$white;
   @include mixin.font-style(1.8rem, 700, 2.8rem);
-  margin-bottom: 100px;
+  margin-bottom: 2.4rem;
 
   .button__div__disabled {
     position: absolute;
