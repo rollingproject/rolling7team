@@ -3,6 +3,7 @@ import PropTypes from "prop-types"; // 이 코드는 eslint 에러로 인해 넣
 import styles from "./CardById.module.scss";
 import { colorByRelationship } from "./ColorByRelationship";
 import DELETE_ICON from "../../assets/deleted.svg";
+import { fontStyle } from "./FontStyle";
 
 export const CardById = ({
   id,
@@ -20,6 +21,7 @@ export const CardById = ({
   }
 
   const changeClassName = colorByRelationship(relationship);
+  const changeFontStyle = fontStyle(font);
 
   const handleDeleteClick = () => {
     onDelete(id);
@@ -50,7 +52,7 @@ export const CardById = ({
         )}
       </div>
       <div className={styles.content}>
-        <p>{content}</p>
+        <p className={changeFontStyle}>{content}</p>
         <span>{formatDate(createdAt)}</span>
       </div>
     </div>
