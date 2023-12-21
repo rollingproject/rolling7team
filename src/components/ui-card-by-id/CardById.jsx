@@ -1,9 +1,9 @@
 import { format } from "date-fns";
 import PropTypes from "prop-types"; // 이 코드는 eslint 에러로 인해 넣은 것입니다.
 import styles from "./CardById.module.scss";
-import { colorByRelationship } from "./ColorByRelationship";
+import { colorByRelationship } from "./ColorByRelationship.js";
 import DELETE_ICON from "../../assets/deleted.svg";
-import { fontStyle } from "./FontStyle";
+import { fontStyle } from "./FontStyle.js";
 
 export const CardById = ({
   id,

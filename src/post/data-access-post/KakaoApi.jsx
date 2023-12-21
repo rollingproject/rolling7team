@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import styles from "./KakaoShareModal.module.scss";
-import { useGetMessagesList } from "./messageApi";
+import { useGetMessagesList } from "./messageApi.js";
 
 function KakaoApi() {
+  const KAKAO_KEY = import.meta.env.VITE_KAKAO_API_KEY;
+
   const { Kakao } = window;
   const path = window.location.pathname;
   const userId = path.split("/")[2];
@@ -12,11 +14,12 @@ function KakaoApi() {
 
   const firstMessage = results && results.length > 0 ? results[0] : null;
   // 로컬로 보여주는게 아닐시 추후 수정해야함, kakaoDeveloper 사이트에서도 수정필요
-  const resultUrl = `http://localhost:5173/post/${userId}`;
-
+  // const resultUrl = `http://localhost:5173/post/${userId}`;
+  const resultUrl = `https://resonant-chimera-6a5866.netlify.app/post/${userId}`;
   useEffect(() => {
     Kakao.cleanup();
-    Kakao.init(import.meta.env.VITE_KAKAO_API_KEY); // key값 적용
+    console.log(typeof KAKAO_KEY);
+    Kakao.init("2c35ffe39e537bf49016fa00a5b14528"); // key값 적용
   }, []);
 
   const shareKakao = () => {

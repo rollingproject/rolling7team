@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useEffectOnce } from "./useEffectOnce";
+import { useEffectOnce } from "./useEffectOnce.jsx";
 
 export const useAsync = (asyncFunction) => {
   const [loading, setLoading] = useState(false);

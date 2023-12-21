@@ -1,12 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useGetMessagesList } from "../post/data-access-post/messageApi";
+import { useGetMessagesList } from "../post/data-access-post/messageApi.js";
 import { useEffect, useState } from "react";
-import { CardByIdList } from "../components/ui-card-by-id-list/CardByIdList";
-import { CardById } from "../components/ui-card-by-id/CardById";
+import { CardByIdList } from "../components/ui-card-by-id-list/CardByIdList.jsx";
+import { CardById } from "../components/ui-card-by-id/CardById.jsx";
 import styles from "./PostByIdEditPage.module.scss";
-import { axiosInstance } from "../components/util/axiosInstance";
-import { useGetRecipient } from "../post/data-access-post/recipientsApi";
-import { changeBgColorEdit } from "../post-by-id-edit/ChangeBgColorEdit";
+import { axiosInstance } from "../components/util/axiosInstance.js";
+import { useGetRecipient } from "../post/data-access-post/recipientsApi.js";
+import { changeBgColorEdit } from "../post-by-id-edit/ChangeBgColorEdit.js";
 
 export const PostByIdEditPage = () => {
   const navigate = useNavigate();

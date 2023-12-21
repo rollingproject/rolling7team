@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { colorByRelationship } from "./ColorByRelationship";
+import { colorByRelationship } from "./ColorByRelationship.js";
 import styles from "./PostModal.module.scss";
 
 export const PostModal = ({ post, onClose }) => {
