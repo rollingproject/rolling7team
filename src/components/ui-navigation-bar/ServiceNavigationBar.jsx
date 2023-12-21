@@ -5,7 +5,7 @@ import arrowDown from "../../assets/arrowDown.svg";
 import addIcon from "../../assets/addIcon.svg";
 import shareIcon from "../../assets/shareIcon.svg";
 import KakaoShareModal from "../../post-by-id/ui-kakaoShare-modal/KakaoShareModal.jsx/KakaoShareModal";
-import ArrowDropDownModal from "../../post-by-id/ui-arrowDropdown-modal/arrowDropDownModal";
+import ArrowDropDownModal from "../../post-by-id/ui-arrowDropdown-modal/ArrowDropDownModal.jsx";
 import Toast from "../../post-by-id/ui-share-toast/Toast";
 import EmojiPicker from "emoji-picker-react";
 import { axiosInstance } from "../util/axiosInstance";
