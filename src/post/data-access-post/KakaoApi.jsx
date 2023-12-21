@@ -12,8 +12,8 @@ function KakaoApi() {
 
   const firstMessage = results && results.length > 0 ? results[0] : null;
   // 로컬로 보여주는게 아닐시 추후 수정해야함, kakaoDeveloper 사이트에서도 수정필요
-  const resultUrl = `http://localhost:5173/post/${userId}`;
-
+  // const localUrl = `http://localhost:5173/post/${userId}`;
+  const resultUrl = `https://deploytest--dynamic-torrone-ac80d3.netlify.app/post/${userId}`;
   useEffect(() => {
     Kakao.cleanup();
     Kakao.init(import.meta.env.VITE_KAKAO_API_KEY); // key값 적용
