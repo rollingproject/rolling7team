@@ -19,7 +19,7 @@ function KakaoApi() {
   useEffect(() => {
     Kakao.cleanup();
     console.log(typeof KAKAO_KEY);
-    Kakao.init(KAKAO_KEY); // key값 적용
+    Kakao.init("2c35ffe39e537bf49016fa00a5b14528"); // key값 적용
   }, []);
 
   const shareKakao = () => {
