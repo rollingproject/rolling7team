@@ -116,26 +116,29 @@
 
   &__reactionAndArrowBox {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 2px;
   }
 
   &__reactionBox {
     display: flex;
-    margin-top: 0.5rem;
-    justify-content: center;
-    align-items: flex-start;
+    margin-top: 0.1rem;
+    justify-content: flex-end;
+    align-items: center;
     gap: 8px;
   }
 
   &__badgeEmoji {
+    width: 66px;
+    height: 36px;
     display: flex;
-    padding: 8px 12px;
     justify-content: center;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-
+    align-items: center;
+    gap: 4px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: #fff;
     border-radius: 32px;
     background: rgba(0, 0, 0, 0.54);
   }
