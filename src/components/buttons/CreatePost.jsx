@@ -2,18 +2,19 @@ import { axiosInstance } from "../util/axiosInstance";
 import styles from "./CreatePost.module.scss";
 import { useNavigate } from "react-router-dom";
 
-export function CreatePost({ userData }) {
+export function CreatePost({ userData, isActivated }) {
   const navigate = useNavigate();
   const dataObj = {
     name: userData.name,
     backgroundColor: userData.backgroundColor,
   };
-  userData.backgroundImageURL
-    ? (dataObj.backgroundImageURL = userData.backgroundImageURL)
-    : null;
+  userData.backgroundImageURL ? (dataObj.backgroundImageURL = userData.backgroundImageURL) : null;
 
   function handlePostToApi(e) {
     e.preventDefault();
+
+    if (!isActivated) return;
+
     axiosInstance
       .post("recipients/", dataObj)
       .then((response) => {
@@ -25,12 +26,9 @@ export function CreatePost({ userData }) {
   }
 
   return (
-    <button
-      onClick={handlePostToApi}
-      className={styles.Form__button}
-      disabled={userData.name === false}
-    >
-      생성하기
+    <button onClick={handlePostToApi} className={styles.Form__button}>
+      {!isActivated ? "이름을 입력하세요." : "생성하기"}
+      {!isActivated && <div className={styles.button__div__disabled}></div>}
     </button>
   );
 }

@@ -75,3 +75,20 @@
   gap: 5rem;
   margin: 1rem 0 5rem;
 }
+
+@media (max-width: 1248px) {
+  .form {
+    margin: 4.9rem auto 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .form {
+    width: 36rem;
+    margin: 4.9rem auto 2.4rem;
+
+    &__select {
+      width: 100%;
+    }
+  }
+}
