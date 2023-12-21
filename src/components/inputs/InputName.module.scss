@@ -17,3 +17,9 @@
 .input__name::placeholder {
   color: colors.$gray-300;
 }
+
+@media (max-width: 768px) {
+  .input__name {
+    width: 100%;
+  }
+}
