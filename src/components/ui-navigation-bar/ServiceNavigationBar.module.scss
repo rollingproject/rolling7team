@@ -55,6 +55,7 @@
     display: flex;
     position: absolute;
     margin-left: -6rem;
+
     margin-top: 0.5rem;
     justify-content: center;
   }
@@ -64,10 +65,12 @@
   }
 
   &__recentProfileImage {
+    margin-left: -1rem;
     width: 2.8rem;
     height: 2.8rem;
     border-radius: 9999px;
     margin-top: -0.5rem;
+    border: 2px solid colors.$white;
   }
 
   &__writingNumberBox {
@@ -76,6 +79,8 @@
     width: 28px;
     height: 28px;
     background-image: url("../../assets/Ellipse.svg");
+    border: 1px solid colors.$gray-200;
+    border-radius: 9999px;
   }
 
   &__userNumber {
@@ -213,4 +218,29 @@
     align-items: center;
     gap: 4px;
   }
+
+  &__pickerBox {
+    position: relative;
+  }
+
+  &__picker {
+    top: 6rem;
+    right: 14rem;
+    position: absolute; // 상위에 position: relative;
+    width: 30rem;
+    height: 40rem;
+    background-color: #fff;
+    border-radius: 1.2rem;
+  }
+
+  &__emojiFont {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+}
+
+.document {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
 }

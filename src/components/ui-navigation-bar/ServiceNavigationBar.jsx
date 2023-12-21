@@ -7,6 +7,7 @@ import shareIcon from "../../assets/shareIcon.svg";
 import KakaoShareModal from "../../post-by-id/ui-kakaoShare-modal/KakaoShareModal.jsx/KakaoShareModal";
 import ArrowDropDownModal from "../../post-by-id/ui-arrowDropdown-modal/arrowDropDownModal";
 import Toast from "../../post-by-id/ui-share-toast/Toast";
+import EmojiPicker from "emoji-picker-react";
 
 function ServiceNavigationBar({
   name,
@@ -15,27 +16,46 @@ function ServiceNavigationBar({
   reactions,
   recentProfileImages,
 }) {
+  const [emojiText, setEmojiText] = useState("");
+  const [showEmoji, setShowEmoji] = useState(false);
+
   const [isArrowDropDown, setArrowDropDown] = useState(false);
   const [isKakaoModalVisible, setKakaoModalVisible] = useState(false);
   const [isSuccessMessage, setSuccessMessage] = useState(false);
 
   // 최대 3개까지만 표시되도록 slice 사용
   const displayedReactions = reactions.slice(0, 3);
-  console.log(name);
   // console.log(reactions);
   // console.log(recentProfileImages);
+
+  const onEmojiClick = (e) => {
+    setEmojiText(e.emoji);
+    setShowEmoji(false);
+  };
+
+  const handleClickEmoji = () => {
+    setShowEmoji((prevShowEmoji) => !prevShowEmoji);
+  };
 
   const handleArrowDropDownClick = () => {
     setArrowDropDown(!isArrowDropDown);
   };
 
   const handleShareButtonClick = () => {
+    setShowEmoji(false);
     setKakaoModalVisible(!isKakaoModalVisible);
+  };
+
+  const handleEmojiClose = () => {
+    setShowEmoji(false);
   };
 
   return (
     <>
       {isSuccessMessage && <Toast setSuccessMessage={setSuccessMessage} />}
+      {showEmoji && (
+        <div className={styles.document} onClick={handleEmojiClose} />
+      )}
       <div className={styles.nav}>
         <div className={styles.nav__service}>
           <p className={styles.nav__text}>To. {name}</p>
@@ -87,6 +107,7 @@ function ServiceNavigationBar({
                       {count}
                     </div>
                   ))}
+                  <div>{emojiText}</div>
                 </div>
 
                 <div className={styles.nav__arrowContainer}>
@@ -101,12 +122,15 @@ function ServiceNavigationBar({
               </div>
 
               <div className={styles.nav__emojiAddAndShareBox}>
-                <button className={styles.nav__emojiAddButton}>
+                <div
+                  className={styles.nav__emojiAddButton}
+                  onClick={handleClickEmoji}
+                >
                   <div className={styles.nav__emojiAddButtonFrame}>
                     <img src={addIcon} alt="addIcon" />
-                    <p>추가</p>
+                    <p className={styles.nav__emojiFont}>추가</p>
                   </div>
-                </button>
+                </div>
 
                 <div className={styles.nav__reactangle}></div>
                 <div className={styles.nav__shareButtonBox}>
@@ -127,6 +151,13 @@ function ServiceNavigationBar({
                   )}
                 </div>
               </div>
+              {showEmoji && (
+                <div className={styles.nav__pickerBox}>
+                  <div className={styles.nav__picker}>
+                    <EmojiPicker onEmojiClick={onEmojiClick} />
+                  </div>
+                </div>
+              )}
             </div>
             {""}
           </div>

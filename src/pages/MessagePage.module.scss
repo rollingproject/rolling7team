@@ -15,11 +15,63 @@
   width: 72rem;
   display: flex;
   flex-direction: column;
+
+  input,
+  select,
+  textarea {
+    margin-bottom: 5rem;
+  }
+
+  &__div__title,
+  &__label__title {
+    @include mixin.font-style(2.4rem, 700, 4.2rem);
+    margin-bottom: 1.2rem;
+  }
+
+  &__select {
+    @include mixin.font-style(1.6rem, 400, 2.6rem);
+    color: colors.$gray-500;
+    padding: 1.6rem 1.2rem;
+    width: 32rem;
+    border-radius: 8px;
+    border: 1px solid colors.$gray-300;
+
+    option {
+      padding: 1.6rem 1.2rem;
+    }
+  }
 }
 
-.profileContainer {
-  .profileContainer__img {
-    width: 2.4rem;
-    height: 2.4rem;
+.profileContainer__img {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 100px;
+  border: 2px colors.$purple-500 solid;
+}
+
+.button__reset {
+  background: colors.$purple-300;
+  width: 100px;
+  height: 30px;
+}
+
+#imgSelector {
+  background: colors.$purple-300;
+  width: 100px;
+  height: 30px;
+  label {
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
   }
+}
+
+#imgInput {
+  display: none;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 5rem;
+  margin: 1rem 0 5rem;
 }
