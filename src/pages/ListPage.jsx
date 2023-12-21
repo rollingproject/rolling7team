@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Card from "../components/ui-card/Card";
+import Ellipse from "../assets/Ellipse.svg";
 import arrow_left from "../assets/arrow_left.svg";
 import arrow_right from "../assets/arrow_right.svg";
 import styles from "./ListPage.module.scss";
@@ -40,7 +41,7 @@ export function ListPage() {
       <div className={styles.card_box_wrapper}>
         <p className={styles.heading}>인기 롤링 페이퍼 🔥</p>
         <div className={styles.card_box}>
-          {data.arrow ? <button><img className={styles.arrow_button_left} src={arrow_left}/></button> : undefined}
+          {data.arrow ? <div className={styles.left_arrow_box}><img className={styles.arrow_button_left} src={arrow_left}/></div> : undefined}
           <ul className={styles.card_box_inner}>
             {data.cardData
               .sort((a, b) => b.messageCount - a.messageCount)
@@ -50,13 +51,13 @@ export function ListPage() {
                 </li>
               ))}
           </ul>
-          {data.arrow ? <button><img className={styles.arrow_button_right} src={arrow_right}/></button> : undefined}
+          {data.arrow ? <div className={styles.right_arrow_box}><img className={styles.arrow_button_right} src={arrow_right}/></div> : undefined}
         </div>
       </div>
       <div className={styles.card_box_wrapper}>
         <p className={styles.heading}>최근에 만든 롤링 페이퍼 ⭐️️</p>
         <div className={styles.card_box}>
-          {data.arrow ? <button><img className={styles.arrow_button_left} src={arrow_left}/></button> : undefined}
+          {data.arrow ? <div className={styles.left_arrow_box}><img className={styles.arrow_button_left} src={arrow_left}/></div> : undefined}
           <ul className={styles.card_box_inner}>
             {data.cardData
               .sort(
@@ -70,7 +71,7 @@ export function ListPage() {
                 </li>
               ))}
           </ul>
-          {data.arrow ? <button><img className={styles.arrow_button_right} src={arrow_right}/></button> : undefined}
+          {data.arrow ? <div className={styles.right_arrow_box}><img className={styles.arrow_button_right} src={arrow_right}/></div> : undefined}
         </div>
       </div>
       <div className={styles.link_box}>

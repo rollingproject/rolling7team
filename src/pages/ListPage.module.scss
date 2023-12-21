@@ -50,6 +50,10 @@
   float: left;
 }
 
+.left_arrow_box {
+
+}
+
 .arrow_button_left {
   position: absolute;
   left: -15px;
@@ -66,7 +70,7 @@
   background-color: rgba(255, 255, 255, 0.90);
 }
 
-.arrow_button_right {
+.right_arrow_box {
   position: absolute;
   right: -15px;
   top: 110px;
@@ -80,6 +84,10 @@
   backdrop-filter: blur(2px);
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.90);
+}
+
+.arrow_button_right {
+
 }
 
 .link_box {
