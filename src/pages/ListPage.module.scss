@@ -58,8 +58,14 @@
 
 /*-----------------------------------------------------------------*/
 .left_arrow_box {
-  background-image: url('../../assets/Ellipse.jpg');
-  background-size: cover;
+  cursor: pointer;
+  background: colors.$white;
+  opacity: 0.9;
+  fill: rgba(255, 255, 255, 0.9);
+  stroke-width: 1px;
+  stroke: #dadcdf;
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.08));
+  backdrop-filter: blur(2px);
   position: absolute;
   left: -20px;
   top: 110px;
@@ -69,14 +75,21 @@
 }
 
 .left_arrow_button {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
   margin: 10px 10px;
 }
 
 .right_arrow_box {
-  background-image: url('../../assets/Ellipse.jpg');
+  cursor: pointer;
+  background: colors.$white;
+  opacity: 0.9;
+  fill: rgba(255, 255, 255, 0.9);
+  stroke-width: 1px;
+  stroke: #dadcdf;
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.08));
+  backdrop-filter: blur(2px);
   position: absolute;
   right: -20px;
   top: 110px;
@@ -86,8 +99,8 @@
 }
 
 .right_arrow_button {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
   margin: 10px 10px;
 }
