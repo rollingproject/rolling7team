@@ -1,0 +1,209 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 6.8rem;
+  max-width: 115.2rem;
+  margin: 0px auto;
+  background: #ffffff;
+}
+.nav__service {
+  display: flex;
+  align-items: center;
+  padding: 1.2rem 0rem;
+}
+.nav__text {
+  width: 227px;
+  color: #2b2b2b;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: -0.28px;
+}
+.nav__contentsFrame {
+  display: flex;
+  align-items: center;
+  gap: 305px;
+}
+.nav__writerBox {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  width: 250px;
+  height: 40px;
+  padding-bottom: 5px;
+}
+.nav__writer {
+  width: 56px;
+  height: 28px;
+}
+.nav__writerPictureBox {
+  display: flex;
+  position: absolute;
+  margin-left: -6rem;
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+.nav__writerPictureFrame {
+  display: flex;
+}
+.nav__recentProfileImage {
+  margin-left: -1rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 9999px;
+  margin-top: -0.5rem;
+  border: 2px solid #ffffff;
+}
+.nav__writingNumberBox {
+  display: flex;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  background-image: url("../../assets/Ellipse.svg");
+  border: 1px solid #eeeeee;
+  border-radius: 9999px;
+}
+.nav__userNumber {
+  color: var(--gray-900, #181818);
+  font-family: Pretendard;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27px;
+  padding-left: 2px;
+}
+.nav__writeNumber {
+  color: #181818;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+}
+.nav h1 {
+  display: inline;
+  color: #181818;
+  font-size: 18px;
+  font-weight: 700;
+}
+.nav__reactionShareFrame {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.nav__reactionAndArrowBox {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.nav__reactionBox {
+  display: flex;
+  margin-top: 0.1rem;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+.nav__badgeEmoji {
+  width: 66px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: #fff;
+  border-radius: 32px;
+  background: rgba(0, 0, 0, 0.54);
+}
+.nav__arrowContainer {
+  position: relative;
+}
+.nav__arrowBox {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  margin-top: 1px;
+  justify-content: center;
+  align-items: center;
+}
+.nav__arrowBox:hover {
+  background-color: #eeeeee;
+}
+.nav__emojiAddAndShareBox {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.nav__emojiAddButton {
+  display: flex;
+  padding: 6px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--gray-300, #ccc);
+  background: var(--white, #fff);
+}
+.nav__emojiAddButton:hover {
+  background-color: #eeeeee;
+}
+.nav__emojiAddButtonFrame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+.nav__reactangle {
+  width: 1px;
+  height: 28px;
+  background: var(--gray-200, #eee);
+}
+.nav__shareButtonBox {
+  position: relative;
+}
+.nav__shareButton {
+  display: flex;
+  padding: 6px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 6px;
+  border: 1px solid #cccccc;
+  background: var(--white, #fff);
+}
+.nav__shareButton:hover {
+  background-color: #eeeeee;
+}
+.nav__shareButtonFrame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+.nav__pickerBox {
+  position: relative;
+}
+.nav__picker {
+  top: 6rem;
+  right: 14rem;
+  position: absolute;
+  width: 30rem;
+  height: 40rem;
+  background-color: #fff;
+  border-radius: 1.2rem;
+}
+.nav__emojiFont {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.document {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+}
