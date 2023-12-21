@@ -7,11 +7,9 @@ function KakaoApi() {
   const path = window.location.pathname;
   const userId = path.split("/")[2];
 
-  console.log(useGetMessagesList(userId));
-
   const { data } = useGetMessagesList(userId);
   const { results } = data || {};
-  console.log(results);
+
   const firstMessage = results && results.length > 0 ? results[0] : null;
   // 로컬로 보여주는게 아닐시 추후 수정해야함, kakaoDeveloper 사이트에서도 수정필요
   const resultUrl = `http://localhost:5173/post/${userId}`;
