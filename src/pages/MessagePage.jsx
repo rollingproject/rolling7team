@@ -54,15 +54,24 @@ function ProfileImgSelector({ messageData, setMessageData }) {
   return (
     <>
       <div className={styles.form__div__title}>프로필 이미지</div>
-      <img className={styles.profileContainer__img} src={messageData.profileImageURL} />
-      <div className={styles.buttonContainer}>
-        <button type="button" id={styles.imgSelector}>
-          <input id={styles.imgInput} className="imgInput" onChange={handleFileChange} type="file" accept="image/png, image/jpeg" />
-          <label htmlFor={styles.imgInput}>파일 선택하기</label>
-        </button>
-        <button onClick={handleProfileImgReset} type="button" className={styles.button__reset}>
-          리셋
-        </button>
+      <div className={styles.profileContainer}>
+        <img className={styles.profileContainer__img} src={messageData.profileImageURL} />
+        <div className={styles.descriptAndButton}>
+          <p>
+            프로필 이미지를 선택하세요.
+            <br />
+            <span>(선택하지 않으면 기본 이미지가 선택됩니다.)</span>
+          </p>
+          <div>
+            <button type="button" id={styles.imgSelector}>
+              <input id={styles.imgInput} className="imgInput" onChange={handleFileChange} type="file" accept="image/png, image/jpeg" />
+              <label htmlFor={styles.imgInput}>파일 선택하기</label>
+            </button>
+            <button onClick={handleProfileImgReset} type="button" className={styles.button__reset}>
+              리셋
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );
