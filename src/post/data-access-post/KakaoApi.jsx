@@ -3,6 +3,8 @@ import styles from "./KakaoShareModal.module.scss";
 import { useGetMessagesList } from "./messageApi.js";
 
 function KakaoApi() {
+  const KAKAO_KEY = import.meta.env.VITE_KAKAO_API_KEY;
+
   const { Kakao } = window;
   const path = window.location.pathname;
   const userId = path.split("/")[2];
@@ -16,7 +18,8 @@ function KakaoApi() {
   const resultUrl = `https://resonant-chimera-6a5866.netlify.app/post/${userId}`;
   useEffect(() => {
     Kakao.cleanup();
-    Kakao.init(import.meta.env.VITE_KAKAO_API_KEY); // key값 적용
+    console.log(typeof KAKAO_KEY);
+    Kakao.init(KAKAO_KEY); // key값 적용
   }, []);
 
   const shareKakao = () => {
