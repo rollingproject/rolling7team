@@ -18,6 +18,8 @@ function ServiceNavigationBar({
   reactions,
   recentProfileImages,
 }) {
+  const sortedReactions = reactions?.sort((a, b) => b.count - a.count);
+
   const [emojiText, setEmojiText] = useState("");
   const [showEmoji, setShowEmoji] = useState(false);
 
@@ -25,14 +27,8 @@ function ServiceNavigationBar({
   const [isKakaoModalVisible, setKakaoModalVisible] = useState(false);
   const [isSuccessMessage, setSuccessMessage] = useState(false);
 
-  // const [newReactions, setNewReactions] = useState([]);
-
-  // console.log(newReactions);
-
-  // useEffect(())
-
   // 최대 3개까지만 표시되도록 slice 사용
-  const displayedReactions = reactions.slice(0, 3);
+  const displayedReactions = sortedReactions.slice(0, 3);
 
   const onEmojiClick = (e) => {
     setEmojiText(e.emoji);
@@ -135,7 +131,7 @@ function ServiceNavigationBar({
                     />
                   </button>
                   {isArrowDropDown && (
-                    <ArrowDropDownModal reactions={reactions} />
+                    <ArrowDropDownModal sortedReactions={sortedReactions} />
                   )}
                 </div>
               </div>
