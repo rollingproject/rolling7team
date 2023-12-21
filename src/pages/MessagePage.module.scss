@@ -42,27 +42,66 @@
   }
 }
 
-.profileContainer__img {
-  width: 8rem;
-  height: 8rem;
-  border-radius: 100px;
-  border: 2px colors.$purple-500 solid;
+.profileContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 5rem;
+
+  .descriptAndButton {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    p {
+      @include mixin.font-style(1.6rem, 400, 2rem);
+      color: colors.$gray-500;
+      span {
+        @include mixin.font-style(1.2rem, 400, 0.5rem);
+      }
+    }
+
+    div {
+      display: flex;
+      gap: 2rem;
+    }
+  }
+
+  .profileContainer__img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 100px;
+    border: 2px colors.$purple-500 solid;
+  }
+
+  button:hover,
+  #imgSelector:hover {
+    background: colors.$purple-700;
+    color: colors.$white;
+  }
 }
 
 .button__reset {
-  background: colors.$purple-300;
+  background: colors.$purple-500;
   width: 100px;
   height: 30px;
+  border-radius: 12px;
+  color: colors.$white;
 }
 
 #imgSelector {
-  background: colors.$purple-300;
+  background: colors.$purple-500;
   width: 100px;
   height: 30px;
+  border-radius: 12px;
   label {
+    display: block;
+    line-height: 30px;
     width: 100px;
     height: 30px;
+    border-radius: 12px;
     cursor: pointer;
+    color: colors.$white;
   }
 }
 
