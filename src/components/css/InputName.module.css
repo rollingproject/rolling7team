@@ -1,0 +1,32 @@
+.label__name {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 4.2rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.2rem;
+}
+
+.input__name {
+  width: 72rem;
+  padding: 1.2rem 1.6rem;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.6rem;
+  letter-spacing: -0.01em;
+}
+
+.input__name::-moz-placeholder {
+  color: #cccccc;
+}
+
+.input__name::placeholder {
+  color: #cccccc;
+}
+
+@media (max-width: 768px) {
+  .input__name {
+    width: 100%;
+  }
+}
