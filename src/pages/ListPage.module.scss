@@ -58,7 +58,7 @@
 
 .left_arrow_box {
   background-image: url("../assets/Ellipse.jpg");
-  background-size: cover;
+  border: 1px solid rgb(177, 167, 167);
 
   cursor: pointer;
   background: colors.$white;
@@ -86,6 +86,7 @@
 
 .right_arrow_box {
   background-image: url("../assets/Ellipse.jpg");
+  border: 1px solid rgb(177, 167, 167);
 
   cursor: pointer;
   background: colors.$white;
