@@ -7,8 +7,6 @@ import styles from "./ListPage.module.scss";
 
 export function ListPage() {
 
-  const base = false;
-
   const [data, setData] = useState({ cardData: [], count: 0, arrow: false });
 
   useEffect(() => {
@@ -23,10 +21,9 @@ export function ListPage() {
         count: responseResult.count,
         arrow: responseResult.count >= 4 ? true : false,
       }));
-      console.log('hello')
     responseResult.next ? haveNext(responseResult.next) : {};
     })();
-  }, [base]);
+  }, []);
 
   async function haveNext(url) {
     const response = await fetch(url);
@@ -35,7 +32,6 @@ export function ListPage() {
       ...prevState,
       cardData: [...prevState.cardData, ...responseResult.results],
     }));
-    console.log('bye')
     responseResult.next ? haveNext(responseResult.next) : {};
   } 
 
