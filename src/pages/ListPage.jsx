@@ -7,7 +7,6 @@ import arrow_right from "../assets/arrow_right.svg";
 import styles from "./ListPage.module.scss";
 
 export function ListPage() {
-
   const [data, setData] = useState({ cardData: [], count: 0, arrow: false });
 
   useEffect(() => {
@@ -22,7 +21,7 @@ export function ListPage() {
         count: responseResult.count,
         arrow: responseResult.count >= 4 ? true : false,
       }));
-    responseResult.next ? haveNext(responseResult.next) : {};
+      responseResult.next ? haveNext(responseResult.next) : {};
     })();
   }, []);
 
@@ -34,14 +33,18 @@ export function ListPage() {
       cardData: [...prevState.cardData, ...responseResult.results],
     }));
     responseResult.next ? haveNext(responseResult.next) : {};
-  } 
+  }
 
   return (
     <div id={styles.wrapper}>
       <div className={styles.card_box_wrapper}>
         <p className={styles.heading}>인기 롤링 페이퍼 🔥</p>
         <div className={styles.card_box}>
-          {data.arrow ? <div className={styles.left_arrow_box}><img className={styles.arrow_button_left} src={arrow_left}/></div> : undefined}
+          {data.arrow ? (
+            <div className={styles.left_arrow_box}>
+              <img className={styles.left_arrow_button} src={arrow_left} />
+            </div>
+          ) : undefined}
           <ul className={styles.card_box_inner}>
             {data.cardData
               .sort((a, b) => b.messageCount - a.messageCount)
@@ -51,13 +54,21 @@ export function ListPage() {
                 </li>
               ))}
           </ul>
-          {data.arrow ? <div className={styles.right_arrow_box}><img className={styles.arrow_button_right} src={arrow_right}/></div> : undefined}
+          {data.arrow ? (
+            <div className={styles.right_arrow_box}>
+              <img className={styles.right_arrow_button} src={arrow_right} />
+            </div>
+          ) : undefined}
         </div>
       </div>
       <div className={styles.card_box_wrapper}>
         <p className={styles.heading}>최근에 만든 롤링 페이퍼 ⭐️️</p>
         <div className={styles.card_box}>
-          {data.arrow ? <div className={styles.left_arrow_box}><img className={styles.arrow_button_left} src={arrow_left}/></div> : undefined}
+          {data.arrow ? (
+            <div className={styles.left_arrow_box}>
+              <img className={styles.left_arrow_button} src={arrow_left} />
+            </div>
+          ) : undefined}
           <ul className={styles.card_box_inner}>
             {data.cardData
               .sort(
@@ -71,7 +82,11 @@ export function ListPage() {
                 </li>
               ))}
           </ul>
-          {data.arrow ? <div className={styles.right_arrow_box}><img className={styles.arrow_button_right} src={arrow_right}/></div> : undefined}
+          {data.arrow ? (
+            <div className={styles.right_arrow_box}>
+              <img className={styles.right_arrow_button} src={arrow_right} />
+            </div>
+          ) : undefined}
         </div>
       </div>
       <div className={styles.link_box}>
