@@ -34,51 +34,20 @@ export function ListPage() {
     responseResult.next ? haveNext(responseResult.next) : {};
   }
 
-  const overBox = useRef();
-  const underBox = useRef();
-  const overLeftArrow = useRef();
-  const overRightArrow = useRef();
-  const underLeftArrow = useRef();
-  const underRightArrow = useRef();
-
-  function overLeftScroll() {
-    if (overBox.current) {
-      const scrollDistance = -295;
-      overBox.current.scrollTo({
-        left: overBox.current.scrollLeft + scrollDistance,
-        behavior: "smooth",
-      });
-    }
+  function LeftScroll(e) {
+    const scrollDistance = -295;
+    e.target.parentNode.parentNode.scrollTo({
+      left: e.target.parentNode.parentNode.scrollLeft + scrollDistance,
+      behavior: "smooth",
+    });
   }
-
-  function overRightScroll() {
-    if (overBox.current) {
-      const scrollDistance = 295;
-      overBox.current.scrollTo({
-        left: overBox.current.scrollLeft + scrollDistance,
-        behavior: "smooth",
-      });
-    }
-  }
-
-  function underLeftScroll() {
-    if (underBox.current) {
-      const scrollDistance = -295;
-      underBox.current.scrollTo({
-        left: underBox.current.scrollLeft + scrollDistance,
-        behavior: "smooth",
-      });
-    }
-  }
-
-  function underRightScroll() {
-    if (underBox.current) {
-      const scrollDistance = 295;
-      underBox.current.scrollTo({
-        left: underBox.current.scrollLeft + scrollDistance,
-        behavior: "smooth",
-      });
-    }
+  
+  function RightScroll(e) {
+    const scrollDistance = 295;
+    e.target.parentNode.parentNode.scrollTo({
+      left: e.target.parentNode.parentNode.scrollLeft + scrollDistance,
+      behavior: "smooth",
+    });
   }
 
   return (
@@ -86,16 +55,19 @@ export function ListPage() {
       <div className={styles.card_box_wrapper}>
         <p className={styles.heading}>인기 롤링 페이퍼 🔥</p>
         <div className={styles.card_box}>
-          {data.arrow ? (
-            <div
-              className={styles.left_arrow_box}
-              ref={overLeftArrow}
-              onClick={overLeftScroll}
-            >
-              <img className={styles.left_arrow_button} src={arrow_left} />
-            </div>
-          ) : undefined}
-          <ul className={styles.card_box_inner} ref={overBox}>
+          <ul className={styles.card_box_inner}>
+            {data.arrow ? (
+              <div
+                className={styles.left_arrow_box}
+                onClick={(e) => LeftScroll(e)}
+              >
+                <img
+                  className={styles.left_arrow_button}
+                  src={arrow_left}
+                  alt="left"
+                />
+              </div>
+            ) : undefined}
             {data.cardData
               .sort((a, b) => b.messageCount - a.messageCount)
               .map((item) => (
@@ -103,31 +75,33 @@ export function ListPage() {
                   <Card item={item}></Card>
                 </li>
               ))}
+            {data.arrow ? (
+              <div
+                className={styles.right_arrow_box}
+                onClick={(e) => RightScroll(e)}
+              >
+                <img
+                  className={styles.right_arrow_button}
+                  src={arrow_right}
+                  alt="right"
+                />
+              </div>
+            ) : undefined}
           </ul>
-          {data.arrow ? (
-            <div
-              className={styles.right_arrow_box}
-              ref={overRightArrow}
-              onClick={overRightScroll}
-            >
-              <img className={styles.right_arrow_button} src={arrow_right} />
-            </div>
-          ) : undefined}
         </div>
       </div>
       <div className={styles.card_box_wrapper}>
         <p className={styles.heading}>최근에 만든 롤링 페이퍼 ⭐️️</p>
         <div className={styles.card_box}>
-          {data.arrow ? (
-            <div
-              className={styles.left_arrow_box}
-              ref={underLeftArrow}
-              onClick={underLeftScroll}
-            >
-              <img className={styles.left_arrow_button} src={arrow_left} />
-            </div>
-          ) : undefined}
-          <ul className={styles.card_box_inner} ref={underBox}>
+          <ul className={styles.card_box_inner}>
+            {data.arrow ? (
+              <div
+                className={styles.left_arrow_box}
+                onClick={(e) => LeftScroll(e)}
+              >
+                <img className={styles.left_arrow_button} src={arrow_left} />
+              </div>
+            ) : undefined}
             {data.cardData
               .sort(
                 (a, b) =>
@@ -139,16 +113,15 @@ export function ListPage() {
                   <Card item={item}></Card>
                 </li>
               ))}
+            {data.arrow ? (
+              <div
+                className={styles.right_arrow_box}
+                onClick={(e) => RightScroll(e)}
+              >
+                <img className={styles.right_arrow_button} src={arrow_right} />
+              </div>
+            ) : undefined}
           </ul>
-          {data.arrow ? (
-            <div
-              className={styles.right_arrow_box}
-              ref={underRightArrow}
-              onClick={underRightScroll}
-            >
-              <img className={styles.right_arrow_button} src={arrow_right} />
-            </div>
-          ) : undefined}
         </div>
       </div>
       <div className={styles.link_box}>
