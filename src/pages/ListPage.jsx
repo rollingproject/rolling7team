@@ -40,7 +40,7 @@ export function ListPage() {
       <div className={styles.card_box_wrapper}>
         <p className={styles.heading}>인기 롤링 페이퍼 🔥</p>
         <div className={styles.card_box}>
-          {data.arrow ? (
+          {data.arrow ? ( //화살표 버튼 이슈
             <div className={styles.left_arrow_box}>
               <img className={styles.left_arrow_button} src={arrow_left} />
             </div>
@@ -54,7 +54,7 @@ export function ListPage() {
                 </li>
               ))}
           </ul>
-          {data.arrow ? (
+          {data.arrow ? ( //왼쪽 화살표 버튼 이슈
             <div className={styles.right_arrow_box}>
               <img className={styles.right_arrow_button} src={arrow_right} />
             </div>
@@ -64,7 +64,7 @@ export function ListPage() {
       <div className={styles.card_box_wrapper}>
         <p className={styles.heading}>최근에 만든 롤링 페이퍼 ⭐️️</p>
         <div className={styles.card_box}>
-          {data.arrow ? (
+          {data.arrow ? ( //오른쪽 화살표 버튼 이슈
             <div className={styles.left_arrow_box}>
               <img className={styles.left_arrow_button} src={arrow_left} />
             </div>
@@ -82,7 +82,7 @@ export function ListPage() {
                 </li>
               ))}
           </ul>
-          {data.arrow ? (
+          {data.arrow ? ( //오른쪽 화살표 버튼 이슈
             <div className={styles.right_arrow_box}>
               <img className={styles.right_arrow_button} src={arrow_right} />
             </div>
