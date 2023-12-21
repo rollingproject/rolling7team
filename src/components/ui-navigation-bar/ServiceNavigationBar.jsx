@@ -25,8 +25,13 @@ function ServiceNavigationBar({
   const [isKakaoModalVisible, setKakaoModalVisible] = useState(false);
   const [isSuccessMessage, setSuccessMessage] = useState(false);
 
+  // const [newReactions, setNewReactions] = useState(...reactions);
+
+  // console.log(newReactions);
+
   // 최대 3개까지만 표시되도록 slice 사용
   const displayedReactions = reactions.slice(0, 3);
+  console.log(displayedReactions);
 
   const onEmojiClick = (e) => {
     setEmojiText(e.emoji);
@@ -36,7 +41,7 @@ function ServiceNavigationBar({
     axiosInstance
       .post(`recipients/${userId}/reactions/`, body)
       .then((response) => console.log("이모지 등록 성공", response))
-      .catch((error) => console.error("이모지 등록 실패했습니다.", error));
+      .catch((error) => console.log("이모지 등록 실패했습니다.", error));
   };
 
   const handleClickEmoji = () => {
@@ -54,12 +59,13 @@ function ServiceNavigationBar({
 
   const handleEmojiClose = () => {
     setShowEmoji(false);
+    setArrowDropDown(false);
   };
 
   return (
     <>
       {isSuccessMessage && <Toast setSuccessMessage={setSuccessMessage} />}
-      {showEmoji && (
+      {(showEmoji || isArrowDropDown) && (
         <div className={styles.document} onClick={handleEmojiClose} />
       )}
       <div className={styles.nav}>
@@ -167,7 +173,6 @@ function ServiceNavigationBar({
                 </div>
               )}
             </div>
-            {""}
           </div>
         </div>
       </div>
