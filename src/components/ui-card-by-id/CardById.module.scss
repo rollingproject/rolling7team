@@ -164,11 +164,11 @@
 }
 
 .notosans {
-  @include fontstyle("Noto Sans");
+  @include fontstyle("Noto Sans KR");
 }
 
 .nanummyungjo {
-  @include fontstyle("나눔명조");
+  @include fontstyle("Nanum Myeongjo");
 }
 
 .pretendard {
@@ -176,5 +176,5 @@
 }
 
 .nanumhand {
-  @include fontstyle("Pretendard");
+  @include fontstyle("NanumPen");
 }

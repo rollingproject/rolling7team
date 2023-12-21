@@ -8,6 +8,7 @@ import { fontStyle } from "./FontStyle";
 export const CardById = ({
   id,
   sender,
+  font,
   profileImageURL,
   relationship,
   content,

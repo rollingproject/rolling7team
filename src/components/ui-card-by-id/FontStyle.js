@@ -1,6 +1,6 @@
 import styles from "./CardById.module.scss";
 
-export const fontStyle = ({ font }) => {
+export const fontStyle = (font) => {
   switch (font) {
     case "Noto Sans":
       return styles.notosans;
