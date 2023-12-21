@@ -1,4 +1,4 @@
-import { axiosInstance } from "../util/axiosInstance";
+import { axiosInstance } from "../util/axiosInstance.js";
 import styles from "./CreatePost.module.scss";
 import { useNavigate } from "react-router-dom";
 
@@ -8,7 +8,9 @@ export function CreatePost({ userData, isActivated }) {
     name: userData.name,
     backgroundColor: userData.backgroundColor,
   };
-  userData.backgroundImageURL ? (dataObj.backgroundImageURL = userData.backgroundImageURL) : null;
+  userData.backgroundImageURL
+    ? (dataObj.backgroundImageURL = userData.backgroundImageURL)
+    : null;
 
   function handlePostToApi(e) {
     e.preventDefault();

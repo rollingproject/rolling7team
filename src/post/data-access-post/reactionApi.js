@@ -1,5 +1,5 @@
-import { useApiRequest } from "./useApiRequest";
-import { axiosInstance } from "../../components/util/axiosInstance";
+import { useApiRequest } from "./useApiRequest.js";
+import { axiosInstance } from "../../components/util/axiosInstance.js";
 import PropTypes from "prop-types";
 
 // 여기서 id는 reaction 객체에 대한 id.
