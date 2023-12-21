@@ -1,0 +1,135 @@
+#wrapper {
+  width: 1160px;
+  text-align: center;
+  margin: 70px auto;
+}
+
+.card_box_wrapper {
+  width: 1000px;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.heading {
+  color: #000;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: -0.24px;
+  margin-bottom: 20px;
+}
+
+.card_box::-webkit-scrollbar {
+  display: none;
+}
+
+.card_box {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: 1160px;
+  height: 280px;
+}
+
+.card_box_inner {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+  padding: 0px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.card_box_inner::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  float: left;
+}
+
+.left_arrow_box {
+  background-image: url("../assets/Ellipse.jpg");
+  background-size: cover;
+  cursor: pointer;
+  background: #ffffff;
+  opacity: 0.9;
+  fill: rgba(255, 255, 255, 0.9);
+  stroke-width: 1px;
+  stroke: #dadcdf;
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.08));
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  position: absolute;
+  left: -20px;
+  top: 110px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.left_arrow_button {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin: 10px 10px;
+}
+
+.right_arrow_box {
+  background-image: url("../assets/Ellipse.jpg");
+  cursor: pointer;
+  background: #ffffff;
+  opacity: 0.9;
+  fill: rgba(255, 255, 255, 0.9);
+  stroke-width: 1px;
+  stroke: #dadcdf;
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.08));
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  position: absolute;
+  right: -20px;
+  top: 110px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.right_arrow_button {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin: 10px 10px;
+}
+
+.link_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link_to_post {
+  display: flex;
+  width: 280px;
+  padding: 14px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  background: var(--Purple-600, #9935ff);
+  margin: 0 auto;
+}
+
+.text_in_button {
+  color: var(--white, #fff);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.18px;
+}

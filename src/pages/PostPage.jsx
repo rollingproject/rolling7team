@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import { InputName } from "../components/inputs/InputName.jsx";
 import styles from "./PostPage.module.scss";
+
 import { CreatePost } from "../components/buttons/CreatePost.jsx";
 
 function SelectBackground({ backgroundType, userData, setUserData }) {
