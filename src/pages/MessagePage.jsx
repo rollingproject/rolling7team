@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { InputName } from "../components/inputs/InputName";
+import { InputName } from "../components/inputs/InputName.jsx";
 import styles from "./MessagePage.module.scss";
-import { CreateMessage } from "../components/buttons/CreateMessage";
+import { CreateMessage } from "../components/buttons/CreateMessage.jsx";
 import axios from "axios";
 const DEFAULT_PROFILE_URL = "https://i.ibb.co/RBZ4fWT/default-Profile.png";
 
@@ -40,7 +40,10 @@ function ProfileImgSelector({ messageData, setMessageData }) {
       url: "https://api.imgbb.com/1/upload",
       data: body,
     }).then((response) => {
-      setMessageData({ ...messageData, profileImageURL: response.data.data.display_url });
+      setMessageData({
+        ...messageData,
+        profileImageURL: response.data.data.display_url,
+      });
       // setImgDeleteUrl(response.data.data.delete_url);
     });
   }
@@ -55,7 +58,10 @@ function ProfileImgSelector({ messageData, setMessageData }) {
     <>
       <div className={styles.form__div__title}>프로필 이미지</div>
       <div className={styles.profileContainer}>
-        <img className={styles.profileContainer__img} src={messageData.profileImageURL} />
+        <img
+          className={styles.profileContainer__img}
+          src={messageData.profileImageURL}
+        />
         <div className={styles.descriptAndButton}>
           <p>
             프로필 이미지를 선택하세요.
@@ -64,10 +70,20 @@ function ProfileImgSelector({ messageData, setMessageData }) {
           </p>
           <div>
             <button type="button" id={styles.imgSelector}>
-              <input id={styles.imgInput} className="imgInput" onChange={handleFileChange} type="file" accept="image/png, image/jpeg" />
+              <input
+                id={styles.imgInput}
+                className="imgInput"
+                onChange={handleFileChange}
+                type="file"
+                accept="image/png, image/jpeg"
+              />
               <label htmlFor={styles.imgInput}>파일 선택하기</label>
             </button>
-            <button onClick={handleProfileImgReset} type="button" className={styles.button__reset}>
+            <button
+              onClick={handleProfileImgReset}
+              type="button"
+              className={styles.button__reset}
+            >
               리셋
             </button>
           </div>
@@ -105,7 +121,13 @@ function MessageEditor({ messageData, setMessageData }) {
       <label className={styles.form__label__title} htmlFor="textarea">
         내용을 입력해 주세요
       </label>
-      <textarea onBlur={handleSetMessage} name="" id="textarea" cols="30" rows="10"></textarea>
+      <textarea
+        onBlur={handleSetMessage}
+        name=""
+        id="textarea"
+        cols="30"
+        rows="10"
+      ></textarea>
     </>
   );
 }
@@ -150,12 +172,25 @@ export function MessagePage() {
 
   return (
     <form className={styles.form} action="">
-      <InputName isMessage={isMessage} userData={messageData} setUserInputData={setMessageData}>
+      <InputName
+        isMessage={isMessage}
+        userData={messageData}
+        setUserInputData={setMessageData}
+      >
         From.
       </InputName>
-      <ProfileImgSelector messageData={messageData} setMessageData={setMessageData} />
-      <RelationSelector messageData={messageData} setMessageData={setMessageData} />
-      <MessageEditor messageData={messageData} setMessageData={setMessageData} />
+      <ProfileImgSelector
+        messageData={messageData}
+        setMessageData={setMessageData}
+      />
+      <RelationSelector
+        messageData={messageData}
+        setMessageData={setMessageData}
+      />
+      <MessageEditor
+        messageData={messageData}
+        setMessageData={setMessageData}
+      />
       <FontSelector messageData={messageData} setMessageData={setMessageData} />
       <CreateMessage isActivated={isActivated} messageData={messageData} />
     </form>

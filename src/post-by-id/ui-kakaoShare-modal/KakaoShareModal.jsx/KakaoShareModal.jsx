@@ -1,4 +1,4 @@
-import KakaoApi from "../../../post/data-access-post/kakaoApi";
+import KakaoApi from "../../../post/data-access-post/kakaoApi.js";
 import styles from "./KakaoShareModal.module.scss";
 
 function KakaoShareModal({

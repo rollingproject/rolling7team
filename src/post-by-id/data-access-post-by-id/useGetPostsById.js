@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
-import { axiosInstance } from "../../components/util/axiosInstance";
-import { useAsync } from "../../components/util/useAsync";
+import { axiosInstance } from "../../components/util/axiosInstance.js";
+import { useAsync } from "../../components/util/useAsync.js";
 
 export const useGetPostsById = (recipentId) => {
   const queryString = `recipients/${recipentId}/messages/`;
