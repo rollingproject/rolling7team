@@ -57,6 +57,7 @@
 }
 
 .left_arrow_box {
+  z-index: 998;
   background-image: url("../assets/Ellipse.jpg");
   border: 1px solid rgb(177, 167, 167);
   cursor: pointer;
