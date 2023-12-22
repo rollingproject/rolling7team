@@ -17,7 +17,7 @@ function createFileName() {
   return fileName;
 }
 
-function ProfileImgSelector({ messageData, setMessageData }) {
+function ProfileImgSelector({ messageData, setMessageData, localProfileUrl, setLocalProfileUrl }) {
   // const [imgDeleteUrl, setImgDeleteUrl] = useState("");
 
   async function handleFileChange(e) {
@@ -40,6 +40,7 @@ function ProfileImgSelector({ messageData, setMessageData }) {
       url: "https://api.imgbb.com/1/upload",
       data: body,
     }).then((response) => {
+      window.localStorage.setItem("profile", response.data.data.display_url);
       setMessageData({
         ...messageData,
         profileImageURL: response.data.data.display_url,
@@ -51,6 +52,7 @@ function ProfileImgSelector({ messageData, setMessageData }) {
   function handleProfileImgReset(e) {
     const inputElement = document.querySelector(".imgInput");
     inputElement.value = null;
+    window.localStorage.setItem("profile", DEFAULT_PROFILE_URL);
     setMessageData({ ...messageData, profileImageURL: DEFAULT_PROFILE_URL });
   }
 
@@ -132,9 +134,12 @@ function FontSelector({ messageData, setMessageData }) {
 }
 
 export function MessagePage() {
+  const localProfile = window.localStorage.getItem("profile") || DEFAULT_PROFILE_URL;
+  const [localProfileUrl, setLocalProfileUrl] = useState(localProfile);
+
   const [messageData, setMessageData] = useState({
     sender: "",
-    profileImageURL: DEFAULT_PROFILE_URL,
+    profileImageURL: localProfileUrl,
     relationship: "지인",
     content: "",
     font: "Noto Sans",
@@ -156,7 +161,12 @@ export function MessagePage() {
       <InputName isMessage={isMessage} userData={messageData} setUserInputData={setMessageData}>
         From.
       </InputName>
-      <ProfileImgSelector messageData={messageData} setMessageData={setMessageData} />
+      <ProfileImgSelector
+        localProfileUrl={localProfileUrl}
+        setLocalProfileUrl={setLocalProfileUrl}
+        messageData={messageData}
+        setMessageData={setMessageData}
+      />
       <RelationSelector messageData={messageData} setMessageData={setMessageData} />
       <MessageEditor messageData={messageData} setMessageData={setMessageData} />
       <FontSelector messageData={messageData} setMessageData={setMessageData} />
