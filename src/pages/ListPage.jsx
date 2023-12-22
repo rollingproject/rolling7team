@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import Card from "../components/ui-card/Card_list";
+import Card from "../components/ui-card/Card_list.jsx";
 import arrow_left from "../assets/arrow_left.svg";
 import arrow_right from "../assets/arrow_right.svg";
 import styles from "./ListPage.module.scss";
@@ -60,7 +60,9 @@ export function ListPage() {
     setShowArrow((prevState) => [
       ...prevState,
       (prevState[0].overLeft = overBox.current.scrollLeft !== 0),
-      (prevState[0].overRight = overBox.current.scrollLeft + overBox.current.clientWidth !== overBox.current.scrollWidth),
+      (prevState[0].overRight =
+        overBox.current.scrollLeft + overBox.current.clientWidth !==
+        overBox.current.scrollWidth),
     ]);
   }
 
@@ -68,7 +70,9 @@ export function ListPage() {
     setShowArrow((prevState) => [
       ...prevState,
       (prevState[1].underLeft = underBox.current.scrollLeft !== 0),
-      (prevState[1].underRight = underBox.current.scrollLeft + underBox.current.clientWidth !== underBox.current.scrollWidth),
+      (prevState[1].underRight =
+        underBox.current.scrollLeft + underBox.current.clientWidth !==
+        underBox.current.scrollWidth),
     ]);
   }
 
