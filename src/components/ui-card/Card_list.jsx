@@ -9,7 +9,9 @@ export default function Card({ item }) {
   const isImg = {};
 
   backgroundImageURL
-    ? (isImg.backgroundImage = `linear-gradient(180deg, rgba(0, 0, 0, 0.54) 0%, rgba(0, 0, 0, 0.54) 100%), url(${backgroundImageURL})`)
+    ? (isImg.backgroundImage = 
+      `linear-gradient(180deg, rgba(0, 0, 0, 0.54) 0%, rgba(0, 0, 0, 0.54) 100%),
+      url(${backgroundImageURL})`)
     : {};
 
   useEffect(() => {
@@ -29,7 +31,7 @@ export default function Card({ item }) {
       setEmojiList((prevState) => [
         ...prevState,
         ...emojiListDataResult.results,
-      ]); 
+      ]);
     })();
   }, []);
 
