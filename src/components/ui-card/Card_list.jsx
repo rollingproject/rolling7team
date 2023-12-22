@@ -16,22 +16,15 @@ export default function Card({ item }) {
 
   useEffect(() => {
     (async () => {
-      const messageListData = await fetch(
-        `https://rolling-api.vercel.app/2-7/recipients/${id}/messages/`
-      );
+      const messageListData = await fetch(`https://rolling-api.vercel.app/2-7/recipients/${id}/messages/`);
       const messageListDataResult = await messageListData.json();
-      setMessageList((prevState) => [
-        ...prevState,
-        ...messageListDataResult.results,
-      ]);
-      const emojiListData = await fetch(
-        `https://rolling-api.vercel.app/2-7/recipients/${id}/reactions/`
-      );
+      setMessageList((prevState) => [...prevState, ...messageListDataResult.results]);
+      const emojiListData = await fetch(`https://rolling-api.vercel.app/2-7/recipients/${id}/reactions/`);
       const emojiListDataResult = await emojiListData.json();
       setEmojiList((prevState) => [
         ...prevState,
         ...emojiListDataResult.results,
-      ]);
+      ]); 
     })();
   }, []);
 
