@@ -35,7 +35,12 @@ export default function Card({ item }) {
     })();
   }, []);
 
+  function handleRefresh() {
+    window.location.reload(); // gnb 버그로 인한 임시추가
+  }
+
   return (
+    <div onClick={handleRefresh}>
     <Link to={`/post/${id}`}>
       <div
         style={isImg}
@@ -114,5 +119,6 @@ export default function Card({ item }) {
         </div>
       </div>
     </Link>
+    </div>
   );
 }
