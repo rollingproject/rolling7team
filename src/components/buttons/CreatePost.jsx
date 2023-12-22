@@ -8,9 +8,7 @@ export function CreatePost({ userData, isActivated }) {
     name: userData.name,
     backgroundColor: userData.backgroundColor,
   };
-  userData.backgroundImageURL
-    ? (dataObj.backgroundImageURL = userData.backgroundImageURL)
-    : null;
+  userData.backgroundImageURL ? (dataObj.backgroundImageURL = userData.backgroundImageURL) : null;
 
   function handlePostToApi(e) {
     e.preventDefault();
@@ -21,6 +19,7 @@ export function CreatePost({ userData, isActivated }) {
       .post("recipients/", dataObj)
       .then((response) => {
         navigate(`/post/${response.data.id}`);
+        window.location.reload(); // gnb 버그로 인한 임시추가
       })
       .catch((error) => {
         console.error("API 호출 중 오류 발생:", error); // 오류 처리
