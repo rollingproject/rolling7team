@@ -136,3 +136,47 @@
   line-height: 28px;
   letter-spacing: -0.18px;
 }
+
+@media only screen and (max-width: 767px) {
+
+  #wrapper {
+    display: block;
+    width: 93%;
+    margin: 104px 24px 10px 24px;
+  }
+
+  .card_box_wrapper {
+    width: 100%;
+  }
+
+  .card_box {
+    width: 100%;
+  }
+
+  .link_to_post {
+    display: block;
+    width: 100%;
+    margin: 80px 0px 0px 0px;
+  }
+
+  .left_arrow_box,
+  .right_arrow_box {
+    display: none;
+  }
+
+}
+
+@media only screen and (max-width: 360px) {
+
+  #wrapper {
+    height: 872px;
+    margin-top: 50px;
+  }
+
+  .link_to_post{
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+}
