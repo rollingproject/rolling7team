@@ -44,12 +44,12 @@
   padding: 0px;
   overflow-x: auto;
   white-space: nowrap;
-  scrollbar-width: none; // Firefox
-  -ms-overflow-style: none; // IE/Edge
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .card_box_inner::-webkit-scrollbar {
-  display: none; // WebKit (Chrome, Safari 등)
+  display: none;
 }
 
 .card {
@@ -57,6 +57,7 @@
 }
 
 .left_arrow_box {
+  z-index: 998;
   background-image: url("../assets/Ellipse.jpg");
   border: 1px solid rgb(177, 167, 167);
   cursor: pointer;
@@ -135,4 +136,44 @@
   font-weight: 700;
   line-height: 28px;
   letter-spacing: -0.18px;
+}
+
+@media only screen and (max-width: 767px) {
+  #wrapper {
+    display: block;
+    width: 93%;
+    margin: 104px 24px 10px 24px;
+  }
+
+  .card_box_wrapper {
+    width: 100%;
+  }
+
+  .card_box {
+    width: 100%;
+  }
+
+  .link_to_post {
+    display: block;
+    width: 100%;
+    margin: 80px 0px 0px 0px;
+  }
+
+  .left_arrow_box,
+  .right_arrow_box {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  #wrapper {
+    height: 872px;
+    margin-top: 50px;
+  }
+
+  .link_to_post {
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
