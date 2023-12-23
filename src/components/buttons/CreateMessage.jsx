@@ -21,6 +21,7 @@ export function CreateMessage({ messageData, isActivated }) {
       })
       .then((response) => {
         navigate(`/post/${response.data.recipientId}`);
+        window.location.reload();
       })
       .catch((error) => {
         console.error("API 호출 중 오류 발생:", error); // 오류 처리

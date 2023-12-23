@@ -21,6 +21,7 @@ export function CreatePost({ userData, isActivated }) {
       .post("recipients/", dataObj)
       .then((response) => {
         navigate(`/post/${response.data.id}`);
+        window.location.reload();
       })
       .catch((error) => {
         console.error("API 호출 중 오류 발생:", error); // 오류 처리
