@@ -1,11 +1,14 @@
 import { format } from "date-fns";
 import { colorByRelationship } from "./ColorByRelationship.js";
 import styles from "./PostModal.module.scss";
+import { fontStyle } from "./fontStyle.js";
 
 export const PostModal = ({ post, onClose }) => {
-  const { profileImageURL, sender, relationship, createdAt, content } = post;
+  const { profileImageURL, sender, relationship, createdAt, content, font } =
+    post;
 
   const changeClassName = colorByRelationship(relationship);
+  const changeFontStyle = fontStyle(font);
 
   function formatDate(date) {
     return format(new Date(date), "yyyy.MM.dd");
@@ -29,7 +32,7 @@ export const PostModal = ({ post, onClose }) => {
           <span>{formatDate(createdAt)}</span>
         </div>
         <div className={styles.content}>
-          <p>{content}</p>
+          <p className={changeFontStyle}>{content}</p>
         </div>
         <button className={styles.button} onClick={onClose}>
           확인
