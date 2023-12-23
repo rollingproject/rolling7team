@@ -9,22 +9,17 @@ export default function Card({ item }) {
   const isImg = {};
 
   backgroundImageURL
-    ? (isImg.backgroundImage = `linear-gradient(180deg, rgba(0, 0, 0, 0.54) 0%, rgba(0, 0, 0, 0.54) 100%), url(${backgroundImageURL})`)
+    ? (isImg.backgroundImage = 
+      `linear-gradient(180deg, rgba(0, 0, 0, 0.54) 0%, rgba(0, 0, 0, 0.54) 100%),
+      url(${backgroundImageURL})`)
     : {};
 
   useEffect(() => {
     (async () => {
-      const messageListData = await fetch(
-        `https://rolling-api.vercel.app/2-7/recipients/${id}/messages/`
-      );
+      const messageListData = await fetch(`https://rolling-api.vercel.app/2-7/recipients/${id}/messages/`);
       const messageListDataResult = await messageListData.json();
-      setMessageList((prevState) => [
-        ...prevState,
-        ...messageListDataResult.results,
-      ]);
-      const emojiListData = await fetch(
-        `https://rolling-api.vercel.app/2-7/recipients/${id}/reactions/`
-      );
+      setMessageList((prevState) => [...prevState, ...messageListDataResult.results]);
+      const emojiListData = await fetch(`https://rolling-api.vercel.app/2-7/recipients/${id}/reactions/`);
       const emojiListDataResult = await emojiListData.json();
       setEmojiList((prevState) => [
         ...prevState,
@@ -33,7 +28,12 @@ export default function Card({ item }) {
     })();
   }, []);
 
+  function handleRefresh() {
+    window.location.reload(); // gnb 버그로 인한 임시추가
+  }
+
   return (
+    <div onClick={handleRefresh}>
     <Link to={`/post/${id}`}>
       <div
         style={isImg}
@@ -112,5 +112,6 @@ export default function Card({ item }) {
         </div>
       </div>
     </Link>
+    </div>
   );
 }
