@@ -11,7 +11,7 @@ export default function Card({ item }) {
   backgroundImageURL
     ? (isImg.backgroundImage = 
       `linear-gradient(180deg, rgba(0, 0, 0, 0.54) 0%, rgba(0, 0, 0, 0.54) 100%),
-      url(${backgroundImageURL})`)
+      url(${backgroundImageURL})`) // linear-gradient를 url보다 뒤에 작성하면 적용 안됌.
     : {};
 
   useEffect(() => {
