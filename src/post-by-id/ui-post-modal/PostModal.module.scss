@@ -96,11 +96,28 @@
   margin-top: 1.6rem;
   overflow: hidden;
   margin-bottom: 2.4rem;
+}
 
-  p {
-    @include font-style(1.8rem, 400, 2.8rem);
-    color: #5a5a5a;
-  }
+@mixin fontstyle($font) {
+  @include font-style(1.8rem, 400, 2.8rem);
+  color: #5a5a5a;
+  font-family: $font;
+}
+
+.notosans {
+  @include fontstyle("Noto Sans KR");
+}
+
+.nanummyungjo {
+  @include fontstyle("Nanum Myeongjo");
+}
+
+.pretendard {
+  @include fontstyle("Pretendard");
+}
+
+.nanumhand {
+  @include fontstyle("NanumPen");
 }
 
 .button {

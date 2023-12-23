@@ -29,7 +29,11 @@ export function CreateMessage({ messageData, isActivated }) {
   }
 
   return (
-    <button onClick={handleMessageToApi} className={styles.Form__button} disabled={false}>
+    <button
+      onClick={handleMessageToApi}
+      className={styles.Form__button}
+      disabled={false}
+    >
       {!isActivated ? "이름과 내용을 확인하세요." : "생성하기"}
       {!isActivated && <div className={styles.button__div__disabled}></div>}
     </button>

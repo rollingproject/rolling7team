@@ -36,6 +36,111 @@
     width: 1000px;
     text-align: left;
     margin-bottom: 30px;
+  }
+  
+  .heading {
+    color: #000;
+    font-family: Pretendard;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: -0.24px;
+    margin-bottom: 20px;
+  }
+  
+  .card_box::-webkit-scrollbar {
+    display: none; // Chrome, Safari, Opera
+  }
+  
+  .card_box {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    width: 1160px;
+    height: 280px;
+  }
+  
+  .card_box_inner {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    padding: 0px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .card_box_inner::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .card {
+    float: left;
+  }
+  
+  .left_arrow_box {
+    @include arrow_box("../assets/Ellipse.jpg");
+    left: -20px;
+  }
+  
+  .left_arrow_button {
+    @include arrow_button();
+  }
+  
+  .right_arrow_box {
+    @include arrow_box("../assets/Ellipse.jpg");
+    right: -20px;
+  }
+  
+  .right_arrow_button {
+    @include arrow_button();
+  }
+  
+  .link_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .link_to_post {
+    display: flex;
+    width: 280px;
+    padding: 14px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 12px;
+    background: var(--Purple-600, #9935ff);
+    margin: 0 auto;
+  }
+  
+  .text_in_button {
+    color: var(--white, #fff);
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: -0.18px;
+  }
+}
+
+
+
+@media only screen and (max-width: 767px) {
+  #wrapper {
+    display: block;
+    width: 93%;
+    margin: 104px 24px 10px 24px;
+  }
+
+  .card_box_wrapper {
+    width: 1000px;
+    text-align: left;
+    margin-bottom: 30px;
 
     .heading {
       color: $black;
@@ -121,5 +226,18 @@
     font-weight: 700;
     line-height: 28px;
     letter-spacing: -0.18px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  #wrapper {
+    height: 872px;
+    margin-top: 50px;
+  }
+
+  .link_to_post {
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }

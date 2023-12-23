@@ -1,5 +1,5 @@
 @use "../../styles/colors.scss";
-@use "../styles/mixin.scss";
+@use "../../styles/mixin.scss";
 @import "../../styles/global.scss";
 
 @mixin bg_color($color, $url) {
