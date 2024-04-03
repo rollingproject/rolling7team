@@ -3,7 +3,7 @@
 @import "../styles/global.scss";
 
 @mixin arrow_box($url) {
-  z-index: 992;
+  z-index: 999;
   background-image: $url;
   border: 1px solid rgb(177, 167, 167);
   cursor: pointer;
@@ -15,7 +15,6 @@
   filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.08));
   backdrop-filter: blur(2px);
   position: absolute;
-  top: 110px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -29,15 +28,17 @@
 }
 
 #wrapper {
-  width: 1160px;
+  position: relative;
+  width: 275px;
   text-align: center;
   margin: 70px auto;
+
   .card_box_wrapper {
-    width: 1000px;
+    width: 275px;
     text-align: left;
     margin-bottom: 30px;
   }
-  
+
   .heading {
     color: #000;
     font-family: Pretendard;
@@ -48,62 +49,88 @@
     letter-spacing: -0.24px;
     margin-bottom: 20px;
   }
-  
+
   .card_box::-webkit-scrollbar {
     display: none; // Chrome, Safari, Opera
   }
-  
+
   .card_box {
-    position: relative;
     display: flex;
     align-items: flex-start;
-    width: 1160px;
+    width: 275px;
     height: 280px;
   }
-  
+
   .card_box_inner {
     list-style-type: none;
     display: flex;
     gap: 20px;
     padding: 0px;
+    width: 275px;
     overflow-x: auto;
     white-space: nowrap;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
-  
+
   .card_box_inner::-webkit-scrollbar {
     display: none;
   }
-  
+
   .card {
     float: left;
   }
-  
-  .left_arrow_box {
+
+  .top_left_arrow_box {
     @include arrow_box("../assets/Ellipse.jpg");
+    z-index: 999;
+    top: 160px;
     left: -20px;
   }
-  
-  .left_arrow_button {
+
+  .top_left_arrow_button {
     @include arrow_button();
   }
-  
-  .right_arrow_box {
+
+  .top_right_arrow_box {
     @include arrow_box("../assets/Ellipse.jpg");
+    z-index: 999;
+    top: 160px;
     right: -20px;
   }
-  
-  .right_arrow_button {
+
+  .top_right_arrow_button {
     @include arrow_button();
   }
-  
+
+  .bottom_left_arrow_box {
+    @include arrow_box("../assets/Ellipse.jpg");
+    z-index: 999;
+    top: 530px;
+    left: -20px;
+  }
+
+  .bottom_left_arrow_button {
+    @include arrow_button();
+  }
+
+  .bottom_right_arrow_box {
+    @include arrow_box("../assets/Ellipse.jpg");
+    z-index: 999;
+    top: 530px;
+    right: -20px;
+  }
+
+  .bottom_right_arrow_button {
+    @include arrow_button();
+  }
+
   .link_box {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  
+
   .link_to_post {
     display: flex;
     width: 280px;
@@ -115,7 +142,7 @@
     background: var(--Purple-600, #9935ff);
     margin: 0 auto;
   }
-  
+
   .text_in_button {
     color: var(--white, #fff);
     text-align: center;
@@ -128,17 +155,21 @@
   }
 }
 
-
-
-@media only screen and (max-width: 767px) {
+@media only screen and (min-width: 620px) {
   #wrapper {
-    display: block;
-    width: 93%;
-    margin: 104px 24px 10px 24px;
+    width: 570px;
+
+    .card_box {
+      width: 570px;
+
+      .card_box_inner {
+        width: 570px;
+      }
+    }
   }
 
   .card_box_wrapper {
-    width: 1000px;
+    width: 570px;
     text-align: left;
     margin-bottom: 30px;
 
@@ -154,90 +185,39 @@
     }
 
     .card_box {
-      position: relative;
-      display: flex;
-      align-items: flex-start;
-      width: 1160px;
-      height: 280px;
-      &::-webkit-scrollbar {
-        display: none; // Chrome, Safari, Opera
-      }
+      width: 570px;
 
       .card_box_inner {
-        list-style-type: none;
-        display: flex;
-        gap: 20px;
-        padding: 0px;
-        overflow-x: auto;
-        white-space: nowrap;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        &::-webkit-scrollbar {
-          display: none;
-        }
-
-        .left_arrow_box {
-          @include arrow_box("../assets/Ellipse.jpg");
-          left: -20px;
-          .left_arrow_button {
-            @include arrow_button();
-          }
-        }
-
-        .card {
-          float: left;
-        }
-
-        .right_arrow_box {
-          @include arrow_box("../assets/Ellipse.jpg");
-          right: -20px;
-          .right_arrow_button {
-            @include arrow_button();
-          }
-        }
+        width: 570px;
       }
     }
   }
+}
 
-  .link_box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+@media only screen and (min-width: 900px) {
+  #wrapper {
+    width: 866px;
 
-  .link_to_post {
-    display: flex;
-    width: 280px;
-    padding: 14px 24px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 12px;
-    background: var(--Purple-600);
-    margin: 0 auto;
-  }
+    .card_box {
+      width: 866px;
 
-  .text_in_button {
-    color: var(--white);
-    text-align: center;
-    font-family: Pretendard;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 28px;
-    letter-spacing: -0.18px;
+      .card_box_inner {
+        width: 866px;
+      }
+    }
   }
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (min-width: 1200px) {
   #wrapper {
-    height: 872px;
-    margin-top: 50px;
-  }
+    width: 1160px;
 
-  .link_to_post {
-    margin-top: 30px;
-    margin-left: 20px;
-    margin-right: 20px;
+    .card_box {
+      width: 1160px;
+
+      .card_box_inner {
+        width: 1160px;
+      }
+    }
   }
 }
