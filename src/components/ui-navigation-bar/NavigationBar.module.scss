@@ -4,7 +4,6 @@
 
 .nav {
   display: flex;
-  justify-content: center;
 
   width: 100%;
   height: 3rem;
@@ -15,14 +14,17 @@
   border-bottom: 1px solid colors.$gray-200;
 
   &__frame {
+    width: 100%;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    gap: 944px;
+    gap: 50px;
   }
 
   &__logo__wrapper {
     display: flex;
-    gap: 10px;
+    background-color: colors.$white;
 
     & .logo__image {
       width: 27.818px;
@@ -39,6 +41,7 @@
 
   &__button {
     display: flex;
+    width: 170px;
     height: 42px;
     padding: 8px 16px;
     justify-content: center;
@@ -58,5 +61,19 @@
     font-weight: 700;
     line-height: 26px;
     letter-spacing: -0.16px;
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  .nav {
+    padding: 3.2rem 3.2rem;
+
+    &__button {
+      width: 130px;
+    }
+
+    &__font {
+      font-size: 12px;
+    }
   }
 }
